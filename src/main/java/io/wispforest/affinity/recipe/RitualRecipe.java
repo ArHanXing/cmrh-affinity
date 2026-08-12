@@ -16,7 +16,7 @@ import java.util.List;
 
 public abstract class RitualRecipe<I extends RitualCoreBlockEntity.SocleRecipeInput> implements Recipe<I> {
 
-    protected final List<Ingredient> socleInputs;
+    public final List<Ingredient> socleInputs;
 
     public final int duration;
     public final int fluxCostPerTick;
@@ -27,7 +27,7 @@ public abstract class RitualRecipe<I extends RitualCoreBlockEntity.SocleRecipeIn
         this.fluxCostPerTick = fluxCostPerTick;
     }
 
-    protected boolean doShapelessMatch(List<Ingredient> expected, Collection<ItemStack> stacks) {
+    public boolean doShapelessMatch(List<Ingredient> expected, Collection<ItemStack> stacks) {
         var ingredientStacks = new ArrayList<ItemStack>();
 
         for (var stack : stacks) {

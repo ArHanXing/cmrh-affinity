@@ -34,6 +34,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -66,14 +67,31 @@ public class SpiritIntegrationApparatusBlockEntity extends RitualCoreBlockEntity
     }
 
     @Override
-    protected boolean onRitualStart(RitualSetup setup) {
-        if (this.ritualLock.isHeld()) return false;
+    protected boolean onRitualStart(RitualSetup setup, PlayerEntity player) {
+        if (this.ritualLock.isHeld()) {
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.locked"));
+            return false;
+        }
 
         this.neighborPositions = SpiritIntegrationApparatusBlock.findValidApparatusSet(this.world, this.pos);
-        if (this.neighborPositions == null) return false;
+        if (this.neighborPositions == null) {
+            var mostCompleteSet = SpiritIntegrationApparatusBlock.possibleValidApparatusSets(this.pos).get(0);
+            for (var set : SpiritIntegrationApparatusBlock.possibleValidApparatusSets(this.pos)) {
+                if (set.validApparatusCount(this.world) > mostCompleteSet.validApparatusCount(this.world)) {
+                    mostCompleteSet = set;
+                }
+            }
+
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.apparatus_incomplete",
+                    3 - mostCompleteSet.validApparatusCount(this.world)));
+            return false;
+        }
 
         final var sacrifices = this.world.getNonSpectatingEntities(LivingEntity.class, new Box(this.ritualCenterPos().up()).expand(1));
-        if (sacrifices.isEmpty()) return false;
+        if (sacrifices.isEmpty()) {
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_sacrifice"));
+            return false;
+        }
 
         final var coreItems = new ItemStack[4];
         coreItems[0] = this.item.copy();
@@ -87,7 +105,10 @@ public class SpiritIntegrationApparatusBlockEntity extends RitualCoreBlockEntity
         final var inventory = new SpiritAssimilationRecipeInput(setup.resolveSocles(this.world), coreItems, sacrifice);
         final var recipeOptional = this.world.getRecipeManager().getFirstMatch(AffinityRecipeTypes.SPIRIT_ASSIMILATION, inventory, this.world);
 
-        if (recipeOptional.isEmpty()) return false;
+        if (recipeOptional.isEmpty()) {
+            this.diagnoseFailedRecipe(player, inventory, sacrifice);
+            return false;
+        }
         this.cachedRecipe = recipeOptional.get().value();
         this.cachedResult = this.cachedRecipe.craft(inventory, this.world.getRegistryManager());
 
@@ -109,8 +130,8 @@ public class SpiritIntegrationApparatusBlockEntity extends RitualCoreBlockEntity
 
         if (sacrifice instanceof Tameable tameable && tameable.getOwnerUuid() != null) {
             var players = world.getNonSpectatingEntities(ServerPlayerEntity.class, new Box(this.pos).expand(7, 3, 7));
-            for (var player : players) {
-                AffinityCriteria.SACRIFICE_PET.trigger(player, sacrifice);
+            for (var nearbyPlayer : players) {
+                AffinityCriteria.SACRIFICE_PET.trigger(nearbyPlayer, sacrifice);
             }
         }
 
@@ -118,6 +139,57 @@ public class SpiritIntegrationApparatusBlockEntity extends RitualCoreBlockEntity
         sacrifice.damage(DAMAGE_TYPE.source(this.world), Float.MAX_VALUE);
 
         return true;
+    }
+
+    private void diagnoseFailedRecipe(PlayerEntity player, SpiritAssimilationRecipeInput inventory, Entity sacrifice) {
+        final var recipes = this.world.getRecipeManager().listAllOfType(AffinityRecipeTypes.SPIRIT_ASSIMILATION);
+
+        boolean coreMatches = false;
+        boolean socleMatches = false;
+        boolean entityMatches = false;
+
+        for (var entry : recipes) {
+            var recipe = entry.value();
+
+            coreMatches |= recipe.doShapelessMatch(recipe.coreInputs, Arrays.asList(inventory.coreInputs()));
+            socleMatches |= recipe.doShapelessMatch(recipe.socleInputs, inventory.delegate());
+            entityMatches |= recipe.entityType == sacrifice.getType();
+        }
+
+        if (!coreMatches) {
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.core_mismatch"));
+        }
+
+        if (!socleMatches) {
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.socle_mismatch"));
+        }
+
+        if (!entityMatches) {
+            final var requiredEntities = recipes.stream()
+                    .map(entry -> entry.value().entityType.getName().getString())
+                    .distinct()
+                    .collect(Collectors.joining(", "));
+
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.entity_mismatch", requiredEntities));
+        }
+
+        // every individual condition matches some recipe, but no single recipe
+        // matches them all - surface the closest one for the player to check
+        if (coreMatches && socleMatches && entityMatches) {
+            var closest = recipes.stream()
+                    .max(Comparator.comparingInt(entry -> {
+                        var recipe = entry.value();
+                        int score = 0;
+                        if (recipe.doShapelessMatch(recipe.coreInputs, Arrays.asList(inventory.coreInputs()))) score++;
+                        if (recipe.doShapelessMatch(recipe.socleInputs, inventory.delegate())) score++;
+                        if (recipe.entityType == sacrifice.getType()) score++;
+                        return score;
+                    })).orElse(null);
+
+            if (closest != null) {
+                this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.closest_recipe", closest.id().toString()));
+            }
+        }
     }
 
     @Override
@@ -132,7 +204,7 @@ public class SpiritIntegrationApparatusBlockEntity extends RitualCoreBlockEntity
                     neighbor.updateFlux(neighbor.flux() - fluxCostPerCore);
                 }
             } else {
-                this.endRitual(this::onRitualInterrupted, false);
+                this.endRitual(() -> this.interruptRitual(Text.translatable("ritual.affinity.feedback.out_of_flux")), false);
                 return;
             }
         }

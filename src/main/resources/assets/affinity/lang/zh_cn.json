@@ -1,0 +1,22 @@
+{
+  "ritual.affinity.feedback.prefix": "[仪式]",
+  "ritual.affinity.feedback.ritual_in_progress": "仪式正在进行中",
+  "ritual.affinity.feedback.no_item": "请先在仪式核心中放入物品",
+  "ritual.affinity.feedback.no_socle": "8 格内未找到仪式基座 - 请至少放置一个带有物品的基座",
+  "ritual.affinity.feedback.no_socle_items": "附近的仪式基座都是空的 - 请先在基座上放置物品",
+  "ritual.affinity.feedback.ritual_started": "仪式已开始！成功率：%s - 持续时间：%s 秒",
+  "ritual.affinity.feedback.core_destroyed": "仪式已中断 - 核心方块被破坏",
+  "ritual.affinity.feedback.socle_destroyed": "仪式已中断 - 仪式基座被破坏",
+  "ritual.affinity.feedback.stability_failure": "仪式因稳定性不足而失败（成功率为 %s）",
+  "ritual.affinity.feedback.out_of_flux": "仪式已中断 - 以太通量不足",
+  "ritual.affinity.feedback.locked": "该装置已被其他仪式占用",
+  "ritual.affinity.feedback.apparatus_incomplete": "装置不完整 - 还需要 %s 个生魂融合装置方块",
+  "ritual.affinity.feedback.no_sacrifice": "没有可献祭的生物 - 请在装置中心放置一个生物",
+  "ritual.affinity.feedback.core_mismatch": "装置核心中的物品与任何配方都不匹配",
+  "ritual.affinity.feedback.socle_mismatch": "基座物品与任何配方都不匹配",
+  "ritual.affinity.feedback.entity_mismatch": "献祭生物与任何配方都不匹配 - 需要：%s",
+  "ritual.affinity.feedback.closest_recipe": "最接近的配方：%s",
+  "ritual.affinity.feedback.aspen.primary_input_invalid": "核心物品 %s 不在任何仪式配方中",
+  "ritual.affinity.feedback.socle_count_mismatch": "配方需要 %s 个基座物品，但当前放置了 %s 个",
+  "ritual.affinity.feedback.aspen.socle_mismatch": "基座物品与配方不匹配 - 需要：%s"
+}

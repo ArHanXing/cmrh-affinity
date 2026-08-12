@@ -31,7 +31,9 @@ import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
@@ -79,7 +81,7 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
      * @return {@code true} if the ritual can
      * start given the current conditions
      */
-    protected abstract boolean onRitualStart(RitualSetup setup);
+    protected abstract boolean onRitualStart(RitualSetup setup, PlayerEntity player);
 
     /**
      * Called every tick during a ritual, may well do nothing
@@ -109,19 +111,47 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
      */
     protected abstract Vec3d modulatorStreamTargetPos();
 
-    protected boolean interruptRitual() {
+    protected boolean interruptRitual(Text reason) {
         var players = world.getNonSpectatingEntities(ServerPlayerEntity.class, new Box(this.pos).expand(7, 3, 7));
         for (var player : players) {
             AffinityCriteria.FAIL_RITUAL.trigger(player);
+            this.sendRitualMessage(player, reason);
         }
 
         return this.onRitualInterrupted();
     }
 
+    /**
+     * Sends a ritual feedback message to the given player, or, if
+     * {@code player} is {@code null}, to all players nearby
+     */
+    protected void sendRitualMessage(@Nullable PlayerEntity player, Text message) {
+        if (this.world == null) return;
+
+        final var text = Text.translatable("ritual.affinity.feedback.prefix")
+                .formatted(Formatting.GOLD)
+                .copy()
+                .append(" ")
+                .append(message);
+
+        if (player != null) {
+            player.sendMessage(text, false);
+        } else {
+            var nearby = world.getNonSpectatingEntities(ServerPlayerEntity.class, new Box(this.pos).expand(7, 3, 7));
+            for (var nearbyPlayer : nearby) {
+                nearbyPlayer.sendMessage(text, false);
+            }
+        }
+    }
+
+    private static String formatPercent(double chance) {
+        return String.format("%.0f%%", chance * 100);
+    }
+
     @Override
     public ActionResult onUse(PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.isSneaking()) {
-            return this.tryStartRitual();
+            return this.tryStartRitual(player);
         } else {
             if (this.world.isClient()) return ActionResult.SUCCESS;
             if (this.ritualTick >= 0) return ActionResult.PASS;
@@ -134,7 +164,7 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
     @Override
     public void onBroken() {
         super.onBroken();
-        this.endRitual(this::interruptRitual, false);
+        this.endRitual(() -> this.interruptRitual(Text.translatable("ritual.affinity.feedback.core_destroyed")), false);
         ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), this.getItem());
     }
 
@@ -142,14 +172,30 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
         socle.beginExtraction(this.pos, this.cachedSetup.durationPerSocle());
     }
 
-    public ActionResult tryStartRitual() {
+    public ActionResult tryStartRitual(@Nullable PlayerEntity player) {
         if (this.world.isClient()) return ActionResult.SUCCESS;
-        if (this.ritualTick >= 0 || this.item.isEmpty()) return ActionResult.PASS;
+
+        if (this.ritualTick >= 0) {
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.ritual_in_progress"));
+            return ActionResult.PASS;
+        }
+
+        if (this.item.isEmpty()) {
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_item"));
+            return ActionResult.PASS;
+        }
 
         var setup = examineSetup(this, false);
-        if (setup.isEmpty()) return ActionResult.PASS;
+        if (setup.isEmpty()) {
+            if (!examineSetup(this, true).isEmpty()) {
+                this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_socle_items"));
+            } else {
+                this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_socle"));
+            }
+            return ActionResult.PASS;
+        }
 
-        if (!this.onRitualStart(setup)) return ActionResult.PASS;
+        if (!this.onRitualStart(setup, player)) return ActionResult.PASS;
         if (setup.duration() < 0) {
             throw new IllegalStateException("No ritual length was configured. If you're not a developer, report this issue");
         }
@@ -165,7 +211,11 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
             modulator.updateFlux(modulator.flux() - 32000);
         });
 
-        if (this.cachedSetup.stability / 100d < this.world.random.nextDouble()) {
+        final var successChance = this.cachedSetup.stability / 100d;
+        this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.ritual_started",
+                formatPercent(successChance), String.format("%.1f", this.cachedSetup.duration() / 20d)));
+
+        if (successChance < this.world.random.nextDouble()) {
             this.ritualFailureTick = 20 + this.world.random.nextInt(this.cachedSetup.duration() - 20);
         }
 
@@ -188,7 +238,9 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
         if (++this.ritualTick >= this.cachedSetup.duration()) {
             this.endRitual(this::onRitualCompleted, true);
         } else if (this.ritualTick == this.ritualFailureTick) {
-            this.endRitual(this::interruptRitual, false);
+            final var successChance = this.cachedSetup.stability / 100d;
+            this.endRitual(() -> this.interruptRitual(Text.translatable(
+                    "ritual.affinity.feedback.stability_failure", formatPercent(successChance))), false);
         }
     }
 
@@ -198,7 +250,7 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
 
         this.onRitualInterrupted();
 
-        this.endRitual(this::interruptRitual, false);
+        this.endRitual(() -> this.interruptRitual(Text.translatable("ritual.affinity.feedback.socle_destroyed")), false);
     }
 
     protected void endRitual(Supplier<Boolean> handlerImpl, boolean clearItems) {

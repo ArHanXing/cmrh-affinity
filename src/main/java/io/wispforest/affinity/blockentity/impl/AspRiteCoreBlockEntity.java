@@ -8,13 +8,18 @@ import io.wispforest.affinity.object.AffinitySoundEvents;
 import io.wispforest.affinity.recipe.AspenInfusionRecipe;
 import io.wispforest.owo.ops.WorldOps;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class AspRiteCoreBlockEntity extends RitualCoreBlockEntity {
 
@@ -29,17 +34,63 @@ public class AspRiteCoreBlockEntity extends RitualCoreBlockEntity {
     }
 
     @Override
-    protected boolean onRitualStart(RitualSetup setup) {
+    protected boolean onRitualStart(RitualSetup setup, PlayerEntity player) {
         final var inventory = new AspenInfusionRecipeInput(setup.resolveSocles(this.world), this.item);
         final var recipeOptional = this.world.getRecipeManager().getFirstMatch(AffinityRecipeTypes.ASPEN_INFUSION, inventory, this.world);
 
-        if (recipeOptional.isEmpty()) return false;
+        if (recipeOptional.isEmpty()) {
+            this.diagnoseFailedRecipe(player, inventory);
+            return false;
+        }
         this.cachedRecipe = recipeOptional.get().value();
         this.cachedResult = this.cachedRecipe.craft(inventory, this.world.getRegistryManager());
 
         setup.configureLength(this.cachedRecipe.duration);
 
         return true;
+    }
+
+    private void diagnoseFailedRecipe(PlayerEntity player, AspenInfusionRecipeInput inventory) {
+        final var socleStacks = inventory.delegate().stream().filter(stack -> !stack.isEmpty()).toList();
+        final var recipes = this.world.getRecipeManager().listAllOfType(AffinityRecipeTypes.ASPEN_INFUSION);
+
+        // the core item does not match the primary input of any recipe
+        final var primaryMatching = recipes.stream()
+                .filter(entry -> entry.value().primaryInput.test(inventory.primaryInput()))
+                .toList();
+
+        if (primaryMatching.isEmpty()) {
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.aspen.primary_input_invalid",
+                    inventory.primaryInput().getName()));
+            return;
+        }
+
+        // the core item matches, but the number of socle items is wrong
+        final var requiredSocleCount = primaryMatching.stream()
+                .mapToInt(entry -> entry.value().socleInputs.size())
+                .findFirst().orElse(-1);
+
+        if (socleStacks.size() != requiredSocleCount) {
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.socle_count_mismatch",
+                    requiredSocleCount, socleStacks.size()));
+            return;
+        }
+
+        // the core item and socle item count match, but the items themselves do not
+        final var exampleRecipe = primaryMatching.stream()
+                .filter(entry -> entry.value().socleInputs.size() == socleStacks.size())
+                .findFirst().orElse(null);
+
+        if (exampleRecipe != null) {
+            final var requiredItems = exampleRecipe.value().socleInputs.stream()
+                    .map(ingredient -> Arrays.stream(ingredient.getMatchingStacks()).findFirst())
+                    .filter(Optional::isPresent)
+                    .map(optional -> optional.get().getName().getString())
+                    .distinct()
+                    .collect(Collectors.joining(", "));
+
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.aspen.socle_mismatch", requiredItems));
+        }
     }
 
     @Override
