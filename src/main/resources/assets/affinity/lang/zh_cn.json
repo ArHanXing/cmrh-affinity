@@ -12,11 +12,12 @@
   "ritual.affinity.feedback.locked": "该装置已被其他仪式占用",
   "ritual.affinity.feedback.apparatus_incomplete": "装置不完整 - 还需要 %s 个生魂融合装置方块",
   "ritual.affinity.feedback.no_sacrifice": "没有可献祭的生物 - 请在装置中心放置一个生物",
-  "ritual.affinity.feedback.core_mismatch": "装置核心中的物品与任何配方都不匹配",
-  "ritual.affinity.feedback.socle_mismatch": "基座物品与任何配方都不匹配",
-  "ritual.affinity.feedback.entity_mismatch": "献祭生物与任何配方都不匹配 - 需要：%s",
-  "ritual.affinity.feedback.closest_recipe": "最接近的配方：%s",
-  "ritual.affinity.feedback.aspen.primary_input_invalid": "核心物品 %s 不在任何仪式配方中",
-  "ritual.affinity.feedback.socle_count_mismatch": "配方需要 %s 个基座物品，但当前放置了 %s 个",
-  "ritual.affinity.feedback.aspen.socle_mismatch": "基座物品与配方不匹配 - 需要：%s"
+  "ritual.affinity.feedback.aspen.summary": "当前状态：\n  核心物品：%s\n  基座物品（%s）：%s\n  以太通量：%s/%s",
+  "ritual.affinity.feedback.spirit.summary": "当前状态：\n  核心物品（%s）：%s\n  基座物品（%s）：%s\n  献祭生物：%s 位于 %s\n  各装置通量：%s",
+  "ritual.affinity.feedback.closest_recipe": "最接近的配方：%s - 缺少：%s",
+  "ritual.affinity.feedback.missing.primary": "核心物品需要 %s",
+  "ritual.affinity.feedback.missing.socle_count": "需要 %s 个基座物品，当前 %s 个",
+  "ritual.affinity.feedback.missing.socle_items": "基座物品需要：%s",
+  "ritual.affinity.feedback.missing.core_items": "核心物品需要：%s",
+  "ritual.affinity.feedback.missing.entity": "献祭生物需要 %s"
 }

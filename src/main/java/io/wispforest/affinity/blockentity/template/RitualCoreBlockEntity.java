@@ -27,6 +27,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.input.RecipeInput;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -48,11 +49,15 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEntity implements InteractableBlockEntity, TickedBlockEntity, InquirableOutlineProvider {
 
@@ -146,6 +151,42 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
 
     private static String formatPercent(double chance) {
         return String.format("%.0f%%", chance * 100);
+    }
+
+    /**
+     * Formats a collection of item stacks into a compact, readable
+     * list of item names, grouping equal names by count
+     */
+    protected static String formatStacks(Collection<ItemStack> stacks) {
+        final var grouped = new LinkedHashMap<String, Integer>();
+        for (var stack : stacks) {
+            if (stack.isEmpty()) continue;
+            grouped.merge(stack.getName().getString(), 1, Integer::sum);
+        }
+
+        return grouped.entrySet().stream()
+                .map(entry -> entry.getValue() > 1 ? entry.getKey() + " ×" + entry.getValue() : entry.getKey())
+                .collect(Collectors.joining(", "));
+    }
+
+    /**
+     * @return A representative item name for the given ingredient
+     */
+    protected static String formatIngredient(Ingredient ingredient) {
+        return Arrays.stream(ingredient.getMatchingStacks())
+                .findFirst()
+                .map(stack -> stack.getName().getString())
+                .orElse("?");
+    }
+
+    /**
+     * @return A compact, deduplicated list of the items required by the given ingredients
+     */
+    protected static String formatIngredients(List<Ingredient> ingredients) {
+        return ingredients.stream()
+                .map(RitualCoreBlockEntity::formatIngredient)
+                .distinct()
+                .collect(Collectors.joining(", "));
     }
 
     @Override

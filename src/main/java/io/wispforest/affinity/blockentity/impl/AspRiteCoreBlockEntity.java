@@ -16,10 +16,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class AspRiteCoreBlockEntity extends RitualCoreBlockEntity {
 
@@ -54,43 +53,41 @@ public class AspRiteCoreBlockEntity extends RitualCoreBlockEntity {
         final var socleStacks = inventory.delegate().stream().filter(stack -> !stack.isEmpty()).toList();
         final var recipes = this.world.getRecipeManager().listAllOfType(AffinityRecipeTypes.ASPEN_INFUSION);
 
-        // the core item does not match the primary input of any recipe
-        final var primaryMatching = recipes.stream()
-                .filter(entry -> entry.value().primaryInput.test(inventory.primaryInput()))
-                .toList();
+        // summarize everything the core currently receives, so the player can
+        // spot missing or mismatched inputs at a glance
+        this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.aspen.summary",
+                inventory.primaryInput().getName(),
+                socleStacks.size(),
+                formatStacks(socleStacks),
+                this.flux(), this.fluxCapacity()));
 
-        if (primaryMatching.isEmpty()) {
-            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.aspen.primary_input_invalid",
-                    inventory.primaryInput().getName()));
-            return;
+        // find the recipe which is closest to the current setup and
+        // report exactly what it is missing
+        var closest = recipes.stream()
+                .max(Comparator.comparingInt(entry -> {
+                    var recipe = entry.value();
+                    int score = 0;
+                    if (recipe.primaryInput.test(inventory.primaryInput())) score++;
+                    if (recipe.socleInputs.size() == socleStacks.size()) score++;
+                    if (recipe.doShapelessMatch(recipe.socleInputs, socleStacks)) score++;
+                    return score;
+                })).orElse(null);
+
+        if (closest == null) return;
+        final var recipe = closest.value();
+
+        final var missing = new ArrayList<String>();
+        if (!recipe.primaryInput.test(inventory.primaryInput())) {
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.primary", formatIngredient(recipe.primaryInput)).getString());
+        }
+        if (recipe.socleInputs.size() != socleStacks.size()) {
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.socle_count", recipe.socleInputs.size(), socleStacks.size()).getString());
+        } else if (!recipe.doShapelessMatch(recipe.socleInputs, socleStacks)) {
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.socle_items", formatIngredients(recipe.socleInputs)).getString());
         }
 
-        // the core item matches, but the number of socle items is wrong
-        final var requiredSocleCount = primaryMatching.stream()
-                .mapToInt(entry -> entry.value().socleInputs.size())
-                .findFirst().orElse(-1);
-
-        if (socleStacks.size() != requiredSocleCount) {
-            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.socle_count_mismatch",
-                    requiredSocleCount, socleStacks.size()));
-            return;
-        }
-
-        // the core item and socle item count match, but the items themselves do not
-        final var exampleRecipe = primaryMatching.stream()
-                .filter(entry -> entry.value().socleInputs.size() == socleStacks.size())
-                .findFirst().orElse(null);
-
-        if (exampleRecipe != null) {
-            final var requiredItems = exampleRecipe.value().socleInputs.stream()
-                    .map(ingredient -> Arrays.stream(ingredient.getMatchingStacks()).findFirst())
-                    .filter(Optional::isPresent)
-                    .map(optional -> optional.get().getName().getString())
-                    .distinct()
-                    .collect(Collectors.joining(", "));
-
-            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.aspen.socle_mismatch", requiredItems));
-        }
+        this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.closest_recipe",
+                closest.id().toString(), String.join("; ", missing)));
     }
 
     @Override

@@ -142,54 +142,55 @@ public class SpiritIntegrationApparatusBlockEntity extends RitualCoreBlockEntity
     }
 
     private void diagnoseFailedRecipe(PlayerEntity player, SpiritAssimilationRecipeInput inventory, Entity sacrifice) {
+        final var coreStacks = Arrays.stream(inventory.coreInputs()).filter(stack -> !stack.isEmpty()).toList();
+        final var socleStacks = inventory.delegate().stream().filter(stack -> !stack.isEmpty()).toList();
         final var recipes = this.world.getRecipeManager().listAllOfType(AffinityRecipeTypes.SPIRIT_ASSIMILATION);
 
-        boolean coreMatches = false;
-        boolean socleMatches = false;
-        boolean entityMatches = false;
+        // summarize everything the apparatus currently receives, so the player
+        // can spot missing or mismatched inputs at a glance
+        final var apparatuses = new ArrayList<SpiritIntegrationApparatusBlockEntity>();
+        apparatuses.add(this);
+        if (this.cachedNeighbors != null) apparatuses.addAll(Arrays.asList(this.cachedNeighbors));
 
-        for (var entry : recipes) {
-            var recipe = entry.value();
+        final var fluxValues = apparatuses.stream()
+                .map(apparatus -> apparatus.flux() + "/" + apparatus.fluxCapacity())
+                .collect(Collectors.joining(", "));
 
-            coreMatches |= recipe.doShapelessMatch(recipe.coreInputs, Arrays.asList(inventory.coreInputs()));
-            socleMatches |= recipe.doShapelessMatch(recipe.socleInputs, inventory.delegate());
-            entityMatches |= recipe.entityType == sacrifice.getType();
+        this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.spirit.summary",
+                coreStacks.size(), formatStacks(coreStacks),
+                socleStacks.size(), formatStacks(socleStacks),
+                sacrifice.getType().getName(),
+                sacrifice.getBlockPos().toShortString(),
+                fluxValues));
+
+        // find the recipe which is closest to the current setup and
+        // report exactly what it is missing
+        var closest = recipes.stream()
+                .max(Comparator.comparingInt(entry -> {
+                    var recipe = entry.value();
+                    int score = 0;
+                    if (recipe.doShapelessMatch(recipe.coreInputs, Arrays.asList(inventory.coreInputs()))) score++;
+                    if (recipe.doShapelessMatch(recipe.socleInputs, inventory.delegate())) score++;
+                    if (recipe.entityType == sacrifice.getType()) score++;
+                    return score;
+                })).orElse(null);
+
+        if (closest == null) return;
+        final var recipe = closest.value();
+
+        final var missing = new ArrayList<String>();
+        if (!recipe.doShapelessMatch(recipe.coreInputs, Arrays.asList(inventory.coreInputs()))) {
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.core_items", formatIngredients(recipe.coreInputs)).getString());
+        }
+        if (!recipe.doShapelessMatch(recipe.socleInputs, inventory.delegate())) {
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.socle_items", formatIngredients(recipe.socleInputs)).getString());
+        }
+        if (recipe.entityType != sacrifice.getType()) {
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.entity", recipe.entityType.getName()).getString());
         }
 
-        if (!coreMatches) {
-            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.core_mismatch"));
-        }
-
-        if (!socleMatches) {
-            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.socle_mismatch"));
-        }
-
-        if (!entityMatches) {
-            final var requiredEntities = recipes.stream()
-                    .map(entry -> entry.value().entityType.getName().getString())
-                    .distinct()
-                    .collect(Collectors.joining(", "));
-
-            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.entity_mismatch", requiredEntities));
-        }
-
-        // every individual condition matches some recipe, but no single recipe
-        // matches them all - surface the closest one for the player to check
-        if (coreMatches && socleMatches && entityMatches) {
-            var closest = recipes.stream()
-                    .max(Comparator.comparingInt(entry -> {
-                        var recipe = entry.value();
-                        int score = 0;
-                        if (recipe.doShapelessMatch(recipe.coreInputs, Arrays.asList(inventory.coreInputs()))) score++;
-                        if (recipe.doShapelessMatch(recipe.socleInputs, inventory.delegate())) score++;
-                        if (recipe.entityType == sacrifice.getType()) score++;
-                        return score;
-                    })).orElse(null);
-
-            if (closest != null) {
-                this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.closest_recipe", closest.id().toString()));
-            }
-        }
+        this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.closest_recipe",
+                closest.id().toString(), String.join("; ", missing)));
     }
 
     @Override
