@@ -18,6 +18,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
@@ -218,5 +219,12 @@ public class NimbleStaffItem extends StaffItem {
     @Override
     protected float getAethumConsumption(ItemStack stack) {
         return 2f;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        super.appendTooltip(stack, context, tooltip, type);
+        tooltip.add(Text.translatable("item.affinity.nimble_staff.tooltip.desc"));
+        tooltip.add(Text.translatable("item.affinity.nimble_staff.tooltip.pedestal"));
     }
 }

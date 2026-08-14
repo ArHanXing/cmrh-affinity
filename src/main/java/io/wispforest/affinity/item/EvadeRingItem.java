@@ -27,6 +27,8 @@ public class EvadeRingItem extends TrinketItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.evade_ring.tooltip.desc"));
+        tooltip.add(Text.translatable("item.affinity.evade_ring.tooltip.fall"));
         tooltip.add(Text.translatable("item.affinity.evade_ring.tooltip.take_control", MathUtil.rounded(AETHUM_PER_USE, 1)));
         tooltip.add(Text.translatable("item.affinity.evade_ring.tooltip.consumption_per_use", MathUtil.rounded(AETHUM_PER_USE, 1)));
     }

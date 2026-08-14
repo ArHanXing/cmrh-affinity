@@ -14,11 +14,13 @@ import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Rarity;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -30,14 +32,14 @@ public class AffinityItems implements ItemRegistryContainer {
 
     public static final Item AETHUM_FLUX_BOTTLE = new AethumFluxBottleItem();
     public static final Item PITCHER_ELIXIR_BOTTLE = new Item(settings().maxCount(16).rarity(Rarity.UNCOMMON));
-    public static final Item BARE_RESPLENDENT_GEM = new Item(settings().maxCount(4).rarity(Rarity.UNCOMMON));
+    public static final Item BARE_RESPLENDENT_GEM = new TooltipItem(settings().maxCount(4).rarity(Rarity.UNCOMMON), false, "item.affinity.bare_resplendent_gem.tooltip.desc");
     public static final Item RESPLENDENT_GEM = new ResplendentGemItem();
 
     public static final Item MILDLY_ATTUNED_AMETHYST_SHARD = new AttunedShardItem(settings(), AttunedShardTiers.MILDLY_ATTUNED);
     public static final Item FAIRLY_ATTUNED_AMETHYST_SHARD = new AttunedShardItem(settings().rarity(Rarity.UNCOMMON), AttunedShardTiers.FAIRLY_ATTUNED);
     public static final Item GREATLY_ATTUNED_AMETHYST_SHARD = new AttunedShardItem(settings().rarity(Rarity.RARE), AttunedShardTiers.GREATLY_ATTUNED);
-    public static final Item SCULK_RESONANT_ETHEREAL_AMETHYST_SHARD = new Item(settings());
-    public static final Item VOID_RESONANT_ETHEREAL_AMETHYST_SHARD = new Item(settings().rarity(Rarity.EPIC));
+    public static final Item SCULK_RESONANT_ETHEREAL_AMETHYST_SHARD = new TooltipItem(settings(), false, "item.affinity.sculk_resonant_ethereal_amethyst_shard.tooltip.desc", "item.affinity.sculk_resonant_ethereal_amethyst_shard.tooltip.use");
+    public static final Item VOID_RESONANT_ETHEREAL_AMETHYST_SHARD = new TooltipItem(settings().rarity(Rarity.EPIC), false, "item.affinity.void_resonant_ethereal_amethyst_shard.tooltip.desc");
 
     public static final Item EMERALD_WAND_OF_IRIDESCENCE = new IridescenceWandItem();
     public static final Item SAPPHIRE_WAND_OF_IRIDESCENCE = new IridescenceWandItem();
@@ -93,7 +95,7 @@ public class AffinityItems implements ItemRegistryContainer {
     public static final Item DRAGON_DROP = new GlintItem(settings().rarity(Rarity.UNCOMMON));
     public static final Item RESONANCE_CRYSTAL = new GlintItem(settings().rarity(Rarity.UNCOMMON));
     public static final Item SYNTHETIC_DRAGON_HEART = new GlintItem(settings().rarity(Rarity.RARE));
-    public static final Item AETHUM_OVERCHARGER = new GlintItem(settings().rarity(Rarity.RARE).maxCount(1));
+    public static final Item AETHUM_OVERCHARGER = new TooltipItem(settings().rarity(Rarity.RARE).maxCount(1), true, "item.affinity.aethum_overcharger.tooltip.desc");
     public static final Item ARCHETYPAL_IRON_RING = new Item(settings());
     public static final Item FEATHERWEIGHT_RING = new FeatherweightRingItem();
     public static final Item EVADE_RING = new EvadeRingItem();
@@ -151,6 +153,30 @@ public class AffinityItems implements ItemRegistryContainer {
         @Override
         public boolean hasGlint(ItemStack stack) {
             return true;
+        }
+    }
+
+    private static class TooltipItem extends Item {
+
+        private final boolean glint;
+        private final String[] tooltipKeys;
+
+        public TooltipItem(Settings settings, boolean glint, String... tooltipKeys) {
+            super(settings);
+            this.glint = glint;
+            this.tooltipKeys = tooltipKeys;
+        }
+
+        @Override
+        public boolean hasGlint(ItemStack stack) {
+            return this.glint;
+        }
+
+        @Override
+        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+            for (var key : this.tooltipKeys) {
+                tooltip.add(Text.translatable(key));
+            }
         }
     }
 }

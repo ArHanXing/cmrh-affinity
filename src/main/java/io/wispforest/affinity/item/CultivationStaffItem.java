@@ -21,6 +21,7 @@ import net.minecraft.block.Fertilizable;
 import net.minecraft.component.ComponentType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -28,6 +29,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.Unit;
@@ -175,5 +177,14 @@ public class CultivationStaffItem extends StaffItem {
     @Override
     protected float getAethumConsumption(ItemStack stack) {
         return 1f;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        super.appendTooltip(stack, context, tooltip, type);
+        tooltip.add(Text.translatable("item.affinity.cultivation_staff.tooltip.desc"));
+        tooltip.add(Text.translatable("item.affinity.cultivation_staff.tooltip.pedestal",
+                Text.literal("4").formatted(Formatting.YELLOW),
+                Text.literal("50").formatted(Formatting.YELLOW)));
     }
 }

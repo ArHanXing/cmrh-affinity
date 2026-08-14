@@ -51,7 +51,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.mutable.MutableObject;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -406,7 +405,7 @@ public class ItemTransferNodeBlockEntity extends SyncedBlockEntity implements Ti
 
     @Override
     public void appendTooltipEntries(List<Entry> entries) {
-        entries.add(Entry.text(Text.empty(), Text.literal(StringUtils.capitalize(this.mode.id))));
+        entries.add(Entry.text(Text.empty(), Text.translatable("block.affinity.item_transfer_node.mode." + this.mode.id)));
         entries.add(Entry.icon(Text.literal(String.valueOf(this.stackSize)), 8, 0));
     }
 

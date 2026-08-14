@@ -21,6 +21,8 @@ public class AzaleaBowItem extends BowItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.azalea_bow.tooltip.desc"));
+        tooltip.add(Text.translatable("item.affinity.azalea_bow.tooltip.infinite"));
         tooltip.add(Text.translatable("item.affinity.azalea_bow.tooltip.consumption_per_shot", MathUtil.rounded(AETHUM_COST_PER_SHOT, 2)));
     }
 }

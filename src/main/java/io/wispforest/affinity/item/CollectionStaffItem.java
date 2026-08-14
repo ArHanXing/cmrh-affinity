@@ -18,10 +18,13 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -46,6 +49,14 @@ public class CollectionStaffItem extends StaffItem {
     @Override
     protected float getAethumConsumption(ItemStack stack) {
         return 1;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        super.appendTooltip(stack, context, tooltip, type);
+        tooltip.add(Text.translatable("item.affinity.collection_staff.tooltip.desc",
+                Text.literal("9").formatted(Formatting.YELLOW)));
+        tooltip.add(Text.translatable("item.affinity.collection_staff.tooltip.pedestal"));
     }
 
     @Override

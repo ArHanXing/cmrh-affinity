@@ -15,13 +15,17 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -35,6 +39,7 @@ import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Map;
 
 public class ItemTransferNodeBlock extends BlockWithEntity implements ScrollInteractionReceiver, Waterloggable {
@@ -135,5 +140,12 @@ public class ItemTransferNodeBlock extends BlockWithEntity implements ScrollInte
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {
         return null;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+        tooltip.add(Text.translatable("block.affinity.item_transfer_node.tooltip.desc",
+                Text.literal("15").formatted(Formatting.YELLOW)));
+        tooltip.add(Text.translatable("block.affinity.item_transfer_node.tooltip.config"));
     }
 }

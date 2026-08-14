@@ -254,6 +254,8 @@
   "block.affinity.arcane_fade": "Arcane Fade",
   "block.affinity.inversion_stone": "Inversion Stone",
   "block.affinity.item_transfer_node": "Item Transfer Node",
+  "block.affinity.item_transfer_node.mode.sending": "Sending",
+  "block.affinity.item_transfer_node.mode.idle": "Idle",
   "block.affinity.item_transfer_node.clear_filter_hint": "Click to clear filter",
   "block.affinity.aethum_probe": "Aethum Probe",
   "block.affinity.void_beacon": "Void Beacon",
@@ -803,6 +805,7 @@
   "message.affinity.linking.no_target": "Invalid link target",
   "message.affinity.linking.out_of_range": "%s is out of range",
   "message.affinity.linking.too_many_links": "This node cannot carry any more links",
+  "message.affinity.linking.cannot_be_linked": "This machine cannot be linked",
   "message.affinity.linking.failed": "Could not link to %s",
 
   "attribute.name.player.affinity.max_aethum": "Maximum Aethum",
@@ -1274,5 +1277,114 @@
 
   "item.affinity.wand_of_inquiry.tooltip.desc": {"text": "Use on a flux member to open its network visualizer", "color": "gray"},
   "item.affinity.wand_of_inquiry.tooltip.ritual": {"text": "Use on a ritual core to inspect its stability and socles", "color": "light_purple"},
-  "item.affinity.wand_of_inquiry.tooltip.outline": {"text": "Attack a machine to toggle its working area outline", "color": "aqua"}
+  "item.affinity.wand_of_inquiry.tooltip.outline": {"text": "Attack a machine to toggle its working area outline", "color": "aqua"},
+
+  "block.affinity.matter_harvesting_hearth.tooltip.desc": {"text": "Burns wisp matter into aethum flux", "color": "gray"},
+  "block.affinity.matter_harvesting_hearth.tooltip.yield": [
+    {"text": "Inert / Wise / Vicious matter yields ", "color": "gray"},
+    {"index": 0, "color": "yellow"},
+    {"text": " flux per second", "color": "gray"}
+  ],
+
+  "block.affinity.brewing_cauldron.tooltip.desc": {"text": "Potion mixing: pour a potion into the cauldron, then add ingredients", "color": "gray"},
+  "block.affinity.brewing_cauldron.tooltip.candles": [
+    {"text": "Each burning affine candle nearby extends brewing time by ", "color": "gray"},
+    {"index": 0, "color": "yellow"},
+    {"text": " (up to ", "color": "gray"},
+    {"index": 1, "color": "yellow"},
+    {"text": ")", "color": "gray"}
+  ],
+  "block.affinity.brewing_cauldron.tooltip.extract": {"text": "Extract the finished potion with a glass bottle", "color": "gray"},
+
+  "block.affinity.sunshine_monolith.tooltip.desc": {"text": "Keeps the weather clear in its vicinity", "color": "gray"},
+  "block.affinity.sunshine_monolith.tooltip.redstone": {"text": "Consumes no flux while disabled via redstone", "color": "gray"},
+
+  "block.affinity.ouija_board.tooltip.desc": {"text": "Summons cursed spirits to apply a curse of your choice to items", "color": "gray"},
+  "block.affinity.ouija_board.tooltip.side_effect": {"text": "Each curse slightly drains the ambient aethum", "color": "red"},
+
+  "block.affinity.item_transfer_node.tooltip.desc": [
+    {"text": "Sends and receives items between containers within ", "color": "gray"},
+    {"index": 0, "color": "yellow"},
+    {"text": " blocks", "color": "gray"}
+  ],
+  "block.affinity.item_transfer_node.tooltip.config": {"text": "Sneak-interact to configure; scroll to change the transfer amount", "color": "gray"},
+
+  "block.affinity.world_pin.tooltip.desc": [
+    {"text": "Keeps the surrounding ", "color": "gray"},
+    {"index": 0, "color": "yellow"},
+    {"text": " chunks force-loaded in every direction", "color": "gray"}
+  ],
+  "block.affinity.world_pin.tooltip.random_tick": {"text": "Loaded chunks receive random ticks, allowing plants to grow", "color": "green"},
+
+  "block.affinity.void_beacon.tooltip.desc": {"text": "Pulls players back out of the void before they are lost", "color": "gray"},
+  "block.affinity.void_beacon.tooltip.range": [
+    {"text": "Protects an area of ", "color": "gray"},
+    {"index": 0, "color": "yellow"},
+    {"text": " chunks in every direction", "color": "gray"}
+  ],
+  "block.affinity.void_beacon.tooltip.cost": {"text": "Each activation drains half of the flux storage", "color": "red"},
+  "block.affinity.void_beacon.tooltip.structure": {"text": "Requires an amethyst block pyramid and an unobstructed shaft", "color": "gray"},
+
+  "block.affinity.affine_candle.tooltip.desc": {"text": "Slowly releases flux into the environment, replenishing the ambient aethum", "color": "gray"},
+
+  "item.affinity.affinitea.tooltip.desc": {"text": "Drinking grants 5 minutes of the Affine effect", "color": "gray"},
+  "item.affinity.affinitea.tooltip.effect": {"text": "Restores the drinker's aethum while within an active Affine Infuser's range", "color": "green"},
+
+  "item.affinity.aethum_overcharger.tooltip.desc": [
+    {"text": "Triggers when you would die: grants ", "color": "gray"},
+    {"index": 0, "color": "green"},
+    {"text": " seconds of invulnerability and ", "color": "gray"},
+    {"index": 1, "color": "green"},
+    {"text": " aethum capacity - after which death is inevitable", "color": "red"}
+  ],
+
+  "item.affinity.bare_resplendent_gem.tooltip.desc": {"text": "Core material for the Spirit Assimilation ritual", "color": "gray"},
+  "item.affinity.resplendent_gem.tooltip.desc": {"text": "Forged in the Spirit Assimilation ritual, infused with an absolute enchantment", "color": "light_purple"},
+  "item.affinity.resplendent_gem.tooltip.use": [
+    {"text": "Apply it like an enchanted book in an anvil, for ", "color": "gray"},
+    {"index": 0, "color": "yellow"},
+    {"text": " levels", "color": "gray"}
+  ],
+
+  "item.affinity.sculk_resonant_ethereal_amethyst_shard.tooltip.desc": {"text": "Transmits and receives information and energy through the aethum structure", "color": "gray"},
+  "item.affinity.sculk_resonant_ethereal_amethyst_shard.tooltip.use": {"text": "Key component of long-range and cross-dimensional transport devices", "color": "light_purple"},
+  "item.affinity.void_resonant_ethereal_amethyst_shard.tooltip.desc": {"text": "Forms a near-unlimited concentration channel within the aethum structure", "color": "light_purple"},
+
+  "item.affinity.collection_staff.tooltip.desc": [
+    {"text": "Teleports all items within ", "color": "gray"},
+    {"index": 0, "color": "yellow"},
+    {"text": " blocks to you", "color": "gray"}
+  ],
+  "item.affinity.collection_staff.tooltip.pedestal": {"text": "On a staff pedestal: collects items within 5 blocks into the container below", "color": "gray"},
+
+  "item.affinity.nimble_staff.tooltip.desc": {"text": "Blasts you toward walls and other anchor points", "color": "gray"},
+  "item.affinity.nimble_staff.tooltip.pedestal": {"text": "On a staff pedestal: blows entities in range in the selected direction", "color": "gray"},
+
+  "item.affinity.time_staff.tooltip.desc": [
+    {"text": "Accelerates the flow of time within a ", "color": "gray"},
+    {"index": 0, "color": "yellow"},
+    {"text": "-block radius", "color": "gray"}
+  ],
+
+  "item.affinity.astrokinesis_staff.tooltip.desc": {"text": "Drags asteroids from the sky and hurls them at your foes", "color": "gray"},
+
+  "item.affinity.cultivation_staff.tooltip.desc": {"text": "Stimulates nearby plants to grow", "color": "gray"},
+  "item.affinity.cultivation_staff.tooltip.pedestal": [
+    {"text": "On a staff pedestal: harvests and replants crops within ", "color": "gray"},
+    {"index": 0, "color": "yellow"},
+    {"text": " blocks, costing ", "color": "gray"},
+    {"index": 1, "color": "yellow"},
+    {"text": " flux per harvest", "color": "gray"}
+  ],
+
+  "item.affinity.salvo_staff.tooltip.desc": {"text": "Fires a rapid volley of aethum missiles, bypassing armor and invulnerability frames", "color": "gray"},
+
+  "item.affinity.swivel_staff.tooltip.desc": {"text": "Rotates swivelable blocks and cycles other block properties", "color": "gray"},
+  "item.affinity.swivel_staff.tooltip.hint": {"text": "Sneak-interact to select the property to adjust", "color": "gray"},
+
+  "item.affinity.evade_ring.tooltip.desc": {"text": "Press the evade key to dash in your movement direction", "color": "gray"},
+  "item.affinity.evade_ring.tooltip.fall": {"text": "Completely negates vertical velocity - useful against fall damage", "color": "green"},
+
+  "item.affinity.azalea_bow.tooltip.desc": {"text": "Draws and fires faster than a regular bow", "color": "gray"},
+  "item.affinity.azalea_bow.tooltip.infinite": {"text": "Requires no arrows while enchanted with Infinity", "color": "green"}
 }

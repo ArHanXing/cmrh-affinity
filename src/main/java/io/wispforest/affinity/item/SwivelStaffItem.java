@@ -136,7 +136,9 @@ public class SwivelStaffItem extends StaffItem implements DirectInteractionHandl
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         super.appendTooltip(stack, context, tooltip, type);
+        tooltip.add(Text.translatable("item.affinity.swivel_staff.tooltip.desc"));
         tooltip.add(Text.translatable(this.getTranslationKey() + ".tooltip.consumption_per_spin", AETHUM_PER_ENTITY_SPIN));
+        tooltip.add(Text.translatable("item.affinity.swivel_staff.tooltip.hint"));
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})

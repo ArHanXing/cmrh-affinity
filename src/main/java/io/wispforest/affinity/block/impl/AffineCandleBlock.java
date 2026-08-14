@@ -115,5 +115,6 @@ public class AffineCandleBlock extends CandleBlock implements BlockEntityProvide
     @Override
     public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         tooltip.add(AethumNetworkMemberBlock.CONSUMER_TOOLTIP);
+        tooltip.add(Text.translatable("block.affinity.affine_candle.tooltip.desc"));
     }
 }

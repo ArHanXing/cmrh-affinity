@@ -111,6 +111,7 @@ public class AstrokinesisStaffItem extends KinesisStaffItem {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         super.appendTooltip(stack, context, tooltip, type);
+        tooltip.add(Text.translatable("item.affinity.astrokinesis_staff.tooltip.desc"));
         tooltip.add(Text.translatable(
                 AffinityItems.ASTROKINESIS_STAFF.getTranslationKey() + ".tooltip.consumption_per_throw",
                 ASTEROID_THROW_COST

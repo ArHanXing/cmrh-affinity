@@ -69,6 +69,7 @@ public class SalvoStaffItem extends StaffItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.salvo_staff.tooltip.desc"));
         tooltip.add(Text.translatable(
                 this.getTranslationKey() + ".tooltip.consumption_per_missile",
                 MISSILE_COST

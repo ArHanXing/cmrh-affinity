@@ -6,10 +6,14 @@ import net.minecraft.component.type.ItemEnchantmentsComponent;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.text.Text;
 import net.minecraft.util.Rarity;
+
+import java.util.List;
 
 public class ResplendentGemItem extends EnchantedBookItem {
 
@@ -26,5 +30,11 @@ public class ResplendentGemItem extends EnchantedBookItem {
         itemStack.set(DataComponentTypes.STORED_ENCHANTMENTS, mutable.build());
 
         return itemStack;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.resplendent_gem.tooltip.desc"));
+        tooltip.add(Text.translatable("item.affinity.resplendent_gem.tooltip.use"));
     }
 }
