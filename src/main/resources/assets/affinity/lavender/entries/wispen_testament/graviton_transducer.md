@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Graviton Transducer",
+  "title": "重力子转换器",
   "icon": "affinity:graviton_transducer",
   "category": "affinity:aethum_flux_networks",
   "required_advancements": [
@@ -12,12 +12,10 @@
 }
 ```
 
-The {concept}Graviton{}, an as-yet merely partially-understood fundamental particle, plays an important role in the
-{item}Shulker's{} levitation abilities.
+{concept}重力子{}是一种尚未被完全理解的基本粒子，在{item}潜影贝{}的飘浮能力中发挥着重要作用。
 
 
-Of particular interest are its bullets, which carry a large capacity of these particles and are intrinsically coupled
-to the {item}Shulker's{} life - making them a perfect candidate for [Aethum Flux](^affinity:aethum_flux) extraction.
+尤其令人感兴趣的是它的子弹，这些子弹携带着大量的这种粒子，并且与{item}潜影贝{}的生命有着内在的联系--使它们成为[生灵通量](^affinity:aethum_flux)提取的完美候选者。
 
 ;;;;;
 
@@ -25,20 +23,18 @@ to the {item}Shulker's{} life - making them a perfect candidate for [Aethum Flux
 
 @next-page
 
-Through a range of reactions, some physical and some magical in nature, the {item}Graviton Transducer{} is able to
-{concept}obtain a superb quantity of Aethum Flux{} from a single {item}Shulker Bullet{} - once its gets in range.
-The bullet, naturally, {concept}is destroyed{} as a result.
 
 
-Required for this technique to work is a catalyst, for which the {item}Graviton Transducer{} employs
-[Attuned Amethyst Shards](^affinity:shard_attunement). Since the molecular structure of the
+通过一系列反应，其中有物理反应，也有魔法反应，{item}重力转换器{}能够从一颗{item}潜影弹{}中{concept}获得大量的生灵通量{}——一旦进入它的射程。子弹自然也因此{concept}会被摧毁{}。
+
+
+这项技术需要催化剂，{item}重力子转换器{}使用了[改良紫水晶碎片](^affinity:shard_attunement)。
+由于转换器中碎片的分子结构会随着处理子弹数的累计而退化，因此{concept}必须不时地更换{}。
 
 ;;;;;
 
-shard in the transducer deteriorates with each bullet processed, it {concept}must be replaced from time to time{}.
 
 
-Further, the amount of {concept}Aethum Flux{} obtained from each processed {item}Shulker Bullet{} depends on the quality
-of the shard's attunement - {concept}the higher, the better{}.
+此外，从每个处理过的{item}潜影弹{}中获得的{concept}生灵通量{}取决于碎片的改良质量--{concept}越高越好{}。
 
 @entry-end

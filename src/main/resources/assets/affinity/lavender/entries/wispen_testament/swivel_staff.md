@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Swivel Staff",
+  "title": "旋转权杖",
   "icon": "affinity:swivel_staff",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,26 +12,18 @@
 }
 ```
 
-Eagle-eyed observers might, after careful examination, realize the {i}Swivel Staff{}'s suspicious optical similarity to
-a primitive wrench. For this there is, naturally, a good reason - it performs mostly the same duties.
+细心的人可能会在仔细观察后发现，{i}旋转权杖{}在外观上与扳手有几分相似。这自然是有原因的——它俩的功能基本相同。
 
 
-As implied by its name, {c}when used on a rotatable block{}, the {i}Swivel Staff{} will rotate it to its next
-orientation for a small [Aethum](^affinity:aethum) cost. Further,
+正如它的名字所暗示的，{c}当被用于一个可旋转的方块上时{}，{i}旋转权杖{}会消耗少量[生灵](^affinity:aethum)将其旋转到下一个方向。此外，由于{i}旋转权杖{}是一种比扳手更复杂的工具，它也可以用来{c}切换大多数其他的方块属性{}。
 
 ;;;;;
 
 <recipe;affinity:assembly/swivel_staff>
 
-seeing as the {i}Swivel Staff{} is a more complex implement than a simple wrench, it can be used to {c}cycle most other block
-properties{}. As a rule of thumb - if it can be changed by placing... 
+根据经验，如果一个方块可以通过重新放置来改变属性，旋转权杖就可以对其进行调整。
 
 
-@next-page
-
-...the block again, the swivel staff can adjust it.
-
-
-Which property is to be adjusted may be changed by {c}sneak-using{} the staff on the block.
+可以通过对着想要调整的方块{c}潜行右键{}来更改要调整的属性。
 
 @entry-end

@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Astrokinesis Staff",
+  "title": "星能权杖",
   "icon": "affinity:astrokinesis_staff",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,13 +12,10 @@
 }
 ```
 
-Obtained by further enhancement of the [Kinesis Staff](^affinity:kinesis_staff), the {item}Astrokinesis Staff{} presents
-itself a formidable weapon.
+通过进一步强化[能量权杖](^affinity:kinesis_staff)，便合成了{item}星能权杖{}这一件强大的武器。
 
 
-The intensity of its gravity waves strengthened by the use of a {item}Warden{}'s
-[Resonance Crystal](^affinity:resonance_crystal), it is capable of {concept}yanking asteroids from the heavens{} and
-hurling them towards foes. To do this, wield the staff while...
+通过使用{item}监守者{}的[共鸣水晶](^affinity:resonance_crystal)，它的重力波强度得到了加强，能够{concept}将小行星从天上{}牵引下来并投向敌人。要做到这一点，需要在星空可见时挥动权杖，仰望天空，（通过{concept}使用权杖{}）拖拽一些星星到附近，集中它们的天体能量。
 
 ;;;;;
 
@@ -26,17 +23,11 @@ hurling them towards foes. To do this, wield the staff while...
 
 @next-page
 
-...the stars are visible, look up at the sky and drag a number of stars (by {concept}using the staff{}) into proximity
-to concentrate their celestial energies. Once sufficient stars have been collected, a brightly shining light will
-appear - indicating that an asteroid can now be summoned. To do this, while keeping the staff steady, look at the target
-and {concept}attack with the staff{}.
+一旦收集到足够多的星星，就会出现一道耀眼的光芒——这表明现在可以召唤一颗小行星了。要做到这一点，在保持权杖稳定的同时，注视目标并用权杖{concept}攻击{}。
 
 ;;;;;
 
 @staff-pedestal
-Anchoring the {item}Astrokinesis Staff{} to a [Staff Pedestal](^affinity:staff_pedestal) makes fully automated asteroid
-strikes possible. For this, a {item}bound Echo Shard{} (obtained as explained [here](^affinity:nimble_staff#3)) shall
-be deposited into a container at the base of the pedestal and the pedestal's flux buffer {concept}completely filled{}.
-The {item}Astrokinesis Staff{} will then do the rest.
+将{item}星能权杖{}锚定在[权杖基座](^affinity:staff_pedestal)上，可以实现全自动的小行星撞击。为此，应绑定一个{item}回响碎片{}（获取方法详见[此处](^affinity:nimble_staff#3)）放入基座底部的容器中，并将基座的通量缓冲器{concept}完全填满{}。
 
 @entry-end

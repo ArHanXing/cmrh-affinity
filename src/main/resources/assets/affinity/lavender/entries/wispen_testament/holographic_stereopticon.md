@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Holographic Stereopticon",
+  "title": "全息立体投影仪",
   "icon": "affinity:holographic_stereopticon",
   "category": "affinity:magical_artifacts",
   "required_advancements": [
@@ -12,46 +12,33 @@
 }
 ```
 
-Among other things, you take note of {item}Amethyst{}'s innate ability to retain frequencies and get fascinated with the
-concept - specifically, trying to extend it to the imprint of a living being. Along the way, as you tinker with 
-many different substances, you discover that {item}Glowstone{} makes it possible to project a faint image
-of the retained imprint above the vessel
+其中，你注意到了{item}紫水晶{}与生俱来的保留频率的能力，并对这一概念着了迷——尤其是你试图将其扩展到生物印记上时。
+一路上，当你摆弄了许多不同的东西后，发现{item}荧石{}可以在你建造的容器上投射出被保留的印记的模糊图像。
+
+
+这让你想起了某个日常的装置，于是把你的发明命名为{item}全息立体投影仪{}。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/holographic_stereopticon>
 
-you construct to contain this mechanism. Feeling reminded of a certain everyday 
-device, you dub your invention the {item}Holographic Stereopticon{}.
-
-
 @next-page
 
-At last, you figure out how to make it support {concept}4 different kinds of imprint:{}
 
- - Items
- - Blocks
- - Entities
- - World Sections
 
-To configure the Stereopticon for a desired kind, {concept}right-click it in your inventory{} and observe the
-instructions in the resulting tooltip. It should further be noted that any imprint
+最后，你想出了如何让它支持{concept}4种不同的印记：{}。 
+
+ - 物品
+ - 方块
+ - 实体
+ - 地块
+
+要为所需种类配置立体投影仪，{concept}右键点击背包中的立体投影仪{}，然后查看提示框中的说明。还需要注意的是，任何印记{concept}都会保持与创建时一样的效果{}，即使被标记印记的物体改变了外观它也不会改变。
 
 ;;;;;
 
-{concept}stays precisely like it was created{}, even once and if the imprinted object alters appearance.
 
 
-Merely {concept}section imprints{} form an exception to this rule, as they constantly evolve to match
-the changes in the world around them.
-
-
-Finally, a placed Stereopticon {c}may be configured{} to alter the
-
-
-@next-page
-
-display of its imprint. The constant rotation of said imprint may be disabled by {c}sneak-interacting{} with the
-Stereopticon, and its size altered by {c}scrolling while sneaking{} and looking at the Stereopticon.
+只有{concept}地块印记{}例外，因为它们会随着地块的变化而变化。
 
 @entry-end

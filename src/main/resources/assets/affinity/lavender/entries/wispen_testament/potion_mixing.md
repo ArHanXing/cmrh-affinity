@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Potion Mixing",
+  "title": "药水混合",
   "icon": "affinity:brewing_cauldron",
   "category": "affinity:advanced_machinery",
   "required_advancements": [
@@ -12,52 +12,39 @@
 }
 ```
 
-Without doubt a remarkable piece of equipment in its own right, the {i}Brewing Stand{} nonetheless suffers from a major
-limitation which leaves it incapable of producing some of the more advanced magical brews - it cannot incorporate more
-than one potion at a time.
+毫无疑问，{i}酿造台{}本身就是一件非凡的装置，但它也有一个很大的缺陷，那就是它无法酿造一些更高级的魔法药水——它无法同时装入一种以上的药水。
 
 
-To overcome this problem and engender the practice of {c}Potion Mixing{}, the {i}Brewing{} 
+为了克服这一问题，并进行{c}药水混合{}，{i}酿造{}{item}炼药锅{}配备了一个更兼容的容器，供液体和固体成分混合使用。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/brewing_cauldron>
 
-{item}Cauldron{} features a more spacious reservoir for liquid and solid ingredients to intermingle.
-
-
 @next-page
 
-Once set up underneath a {i}Spore Blossom{} to aid in the brewing process and {c}supplied with
-[Aethum Flux](^affinity:aethum_flux){}, potions can be emptied into the cauldron by {c}interacting{}. Here, it
-should be noted that it is important the {c}match the *effects* demanded by the recipe exactly{}, irrespective of
-strength or duration.
 
 
-After the required effects are present in the mixture, the item ingredients can be {c}dropped into the cauldron{}, after
-which the brewing
+一旦在{i}孢子花{}下放置辅助酿造的装置，并{c}提供[生灵通量](^affinity:aethum_flux){}，就可以通过{c}交互{}将药剂倒入锅中。这里需要注意的是，无论强度或持续时间如何均可，但{c}必须与配方所要求的*效果*完全吻合{}。
+
+
+在混合物中出现所需的药水效果后，就可以将物品原料{c}投入锅中{}，然后酿造过程就会开始。
 
 ;;;;;
 
 ![](affinity:textures/gui/wispen_testament/brewing_cauldron_setup.png,fit)
 
-process will begin.
-
-
-@next-page
-
-When the potion is done, it may be extracted from the {i}Brewing Cauldron{} by {c}interacting with Glass Bottles{}.
+药水完成后，可以通过{c}与玻璃瓶交互{}，从{i}酿造炼药锅{}中提取出来。
 
 ---
 
-One final thing of interest shall be that the mystical aerosols given off by burning
-[Affine Candles](^affinity:affine_candle) appear to aid in creating longer potions.
+@next-page
 
 
-Thus, each {i}Affine Candle{} in close range of the {i}Brewing Cauldron{} which is {c}burning{}
 
-;;;;;
+最后一件值得关注的事情是，点燃[灵犀蜡烛](^affinity:affine_candle)产生的神秘气体似乎有助于制作时间更长的药水。
 
-{c}during brewing{} extends the resulting potion's length by {c}5%{} ({c}up to 50%{}).
+
+因此，{c}在酿造过程中{}，{i}酿造炼药锅{}附近的每个{c}燃烧的{}{i}灵犀蜡烛{}都会使酿造出的药水时间延长{c}5%{}（{c}最高可达45%{}）。
 
 @entry-end

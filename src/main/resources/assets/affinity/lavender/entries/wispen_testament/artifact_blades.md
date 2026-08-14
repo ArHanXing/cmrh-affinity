@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Artifact Blades",
+  "title": "神灵之锋",
   "icon": "affinity:stabilized_artifact_blade",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,48 +12,34 @@
 }
 ```
 
-One particularly useful application of [ritualistic infusion](^affinity:conducting_rituals) is reviving the ancient,
-long-forgotten art of {c}magical sword-making{}. More than a mere stabbing device, the thus-manufactured {i}Forgotten
-Artifact Blade{} possesses remarkable strength and accuracy alongside grand potential for future upgrades. Still, even
-this most basic blade has an {c}active ability{} activated by
+[仪式灌注](^affinity:conducting_rituals)的一个特别有用的应用就是恢复古老的、被遗忘已久的{c}魔剑制作技艺{}。这样制造出的{i}被遗忘的神之锋刃{}不仅仅是一个刺杀装置，它还拥有非凡的力量和精确度，以及之后续升级的巨大潜力。不过，即使是这把最基本的剑，也有一个{c}主动技能{}，只要在{c}按住使用键{}的同时{c}按住攻击键{}，就能激活该技能。激活时，会在{c}蓝条{}中显示，同时该剑会获得{c}额外的2点伤害{}。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/forgotten_artifact_blade>
 
-{c}using the item{} while {c}holding the attack key{}. While active, as indicated by the {c}blue item bar{}, the blade
-gains {c}2 additional points of damage{}.
-
-
 @next-page
 
-<|page-title@lavender:book_components|title=Stabilized|>
+<|page-title@lavender:book_components|title=稳定|>
 
-A Warden's [Resonance Crystal](^affinity:resonance_crystal), obtained using the blade, allows further refining and
-stabilizing its magical properties. An infusion process alongside a sturdy {i}Diamond{} base ultimately results in the
-{i}Stabilized Artifact Blade{}.
+使用神灵之锋获得监守者的[共鸣水晶](^affinity:resonance_crystal)后，便可进一步提炼和稳定其魔法属性。在坚固的{i}钻石{}的基础上进行灌注，最终可形成{i}稳定神灵之锋{}。
 
 
-Besides increased base damage, this brings with it two major enhancements. For
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/stabilized_artifact_blade>
 
-one, the damage dealt {c}while the ability is active{} is now {c}armor-piercing{}. Further, while the blade is held,
-{c}[Aethum](^affinity:aethum) regenerates 15% quicker{}.
-
+除了基础伤害的提升，该技能还提升了另外两方面。首先，{c}技能激活时{}造成的伤害现在是{c}穿甲伤害{}。此外，当手持剑时，{c}[生灵](^affinity:aethum)的恢复速度会加快15%{}。
 
 @next-page
 
-<|page-title@lavender:book_components|title=Strengthened|>
+<|page-title@lavender:book_components|title=强化|>
 
-By employing [Spirit Assimilation](^affinity:spirit_assimilation), the blade can be further strengthened using materials
-from {c}the Nether{} - including the soul of a {i}Blaze{}.
+通过使用[精神融合](^affinity:spirit_assimilation)，这把剑便可使用来自{c}下界{}的材料进一步强化——包括{i}烈焰人{}的灵魂。
 
 
-This, besides further improving all existing aspect of the weapon, adds a new facet to the active ability. That is, when
-performing an attack after {c}falling more{}...
+这不仅进一步优化了武器的所有现有方面，还为主动技能增添了一个新的方面。也就是说，当{c}下落超过两个方块{}后进行攻击时，攻击伤害{c}会随着下落距离的增加而增加{}
 
 ;;;;;
 
@@ -61,20 +47,18 @@ performing an attack after {c}falling more{}...
 
 @next-page
 
-...{c}than two blocks{}, attack damage {c}increases with fall distance{} and {c}splashes outward{} to damage foes (and
-friends, if care is not applied) in a large area.
 
 
-Additionally, the larger yet strangely lighter blade swings far more easily - thus enabling an {c}increase in overall
-attack speed{}.
+，并且会{c}向外扩散{}，对大面积的敌人（如果不小心，也会对朋友）造成伤害。
+
+
+此外，剑身更大却奇异地更轻，挥动起来也更轻松，从而使整体攻击速度{c}提高{}。
 
 ;;;;;
 
-<|page-title@lavender:book_components|title=Superior|>
+<|page-title@lavender:book_components|title=卓越|>
 
-The final tier of {c}Artifact Blade{} obtainable through normal means is the {i}Superior Artifact Blade{}. Combining
-artifacts obtained from a beast in each major dimension, it improves significantly upon all aspects of its predecessor
-to make a well-rounded final blade.
+通过正常途径获得的最后一级{c}神灵之锋{}是{i}卓越神灵之锋{}。它结合了从每一个主要维度最强大的怪兽身上获得的神器，在其前身的基础上进行了大幅改进，从而打造出一把全面的最终之刃。
 
 
 @next-page

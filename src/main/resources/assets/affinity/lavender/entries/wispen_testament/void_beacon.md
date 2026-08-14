@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Void Beacon",
+  "title": "虚空信标",
   "icon": "affinity:void_beacon",
   "category": "affinity:advanced_machinery",
   "required_advancements": [
@@ -12,32 +12,27 @@
 }
 ```
 
-After once again dying and losing all your belongings to the void, you decide to devise a countermeasure.
+在又一次死亡并将所有物品遗失在虚空中之后，你决定想出一个对策。
 
 
-Driven by the immense power of the {item}Dragon Drop{} operating in harmony with the far-reaching effects of a 
-{item}Beacon{}, the {item}Void Beacon{} {concept}returns players from the void{} while operating. 
+在{item}龙之凝物{}的巨大力量与{item}信标{}的深远影响二者和谐共存的驱动下，使得{item}虚空信标{}在运行过程中能{concept}将玩家从虚空中拉回来{}。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/void_beacon>
 
-After some more investigation, it appears that an area {concept}reaching 24 chunks into every cardinal direction{} is
-covered by the beacon's protective influence.
+经过进一步调查，其保护的范围{concept}似乎覆盖了每个方位{}的24个区块。
 
 ;;;;;
 
-As expected from such a mighty device, {concept}half of its charge is depleted{} every time it activates. 
+不出所料，这样一个强大的装置，{概念}每次启动都会耗尽一半的灵储量{}。
 
 
-Furthermore, a trait inherited from its beacon ancestor, a supporting platform of {item}Amethyst Blocks{} 
-used for storing and conducting aethum flux *and* direct view of the void is required.
+此外，它还继承了信标的特性，需要一个由{item}紫水晶块{}组成的支撑平台。它的这个辅助平台，用于储存和传输生灵通量**和**直接洞察虚空。
 
 
-When configured correctly, the beacon establishes
+一旦配置正确，信标就会建立一个光束，将其直接锚定在虚空中，随时准备投入使用。
 
 ;;;;;
 
 <structure;-35;affinity:void_beacon>
-
-a beam anchoring it straight into the void - ready to operate.

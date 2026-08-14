@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Staff Prototyping",
+  "title": "权杖原型",
   "icon": "affinity:staff_prototype",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,17 +12,14 @@
 }
 ```
 
-A kind of tool as versatile as it is iconic, being able to construct {concept}Staffs{} is surely a rather critical
-skill. To this end, the {item}Staff Prototype{} forms the fundamental step.
+作为一种用途广泛的标志性工具，能够合成{concept}权杖{}无疑是一项相当关键的技能。为此，{item}权杖原型{}完成了基本步骤。
 
 
-Constructed from the [Aethum](^affinity:aethum)-affine {item}Azalea Wood{} and an {item}Amethyst Shard{} at its core,
-it provides an intricate yet sturdy basis upon which a proper staff can be realized.
+它以亲[生灵](^affinity:aethum)的{item}杜鹃木{}和{item}紫水晶碎片{}为核心构建而成，提供了一个复杂而坚固的基础，在此基础上可以合成一根合适的法杖。
 
 ;;;;;
 
 <recipe;affinity:assembly/staff_prototype>
 
-This process, known as {concept}specialization{}, can take many forms - from elementary
-[Assembly](^affinity:assembly_augment) to elaborate [ritualistic infusion](^affinity:conducting_rituals). In all cases,
-a {item}Staff Prototype{} is refined and adjusted to carry out a particular, specific function.
+
+这个过程被称为{concept}定向化{}，可以有多种形式——从初级的[组装](^affinity:assembly_augment)到精细的[仪式灌注](^affinity:conducting_rituals)。无论如何，{item}权杖原型{}都会经过精炼和调整，以执行特定的特殊功能。

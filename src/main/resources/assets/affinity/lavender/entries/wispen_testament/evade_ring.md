@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Evade Ring",
+  "title": "侧闪戒指",
   "icon": "affinity:evade_ring",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,37 +12,29 @@
 }
 ```
 
-Having repeatedly failed to dodge the alarmingly accurate archery of a skeleton, you feel the need to take matters
-into your own hands - to {#690926}Take Control{}.
+由于屡次未能躲过骷髅令人震惊的精准箭矢，你觉得有必要——{#690926}化被动为主动{}。
 
 
-After studying the paranormal properties exhibited by {item}Blackstone{} when cut most carefully to form the
-{item}Blackstone Prism{}, you devise the {item}Evade Ring{}.
+在研究了{item}黑石{}认真切割后形成的{item}黑石棱镜{}时所表现出的超自然属性后，你设计出了{item}侧闪戒指{}。
 
 ;;;;;
 
 <recipe;affinity:blackstone_prism_from_blackstone_stonecutting>
 
-Empowered with great agility by virtue of the feline sacrifice required for its construction, it {concept}enables the
-wearer to perform a dash{}.
+由于在制作过程中需要猫科动物的牺牲，它具有极高的敏捷性，佩戴者可以{concept}进行冲刺{}。
 
 
-For this, {concept}hold a directional key{} to indicate which direction to dash and press
-<keybind;key.affinity.activate_evade_ring>.
+为了进行，{concept}按住一个方向键{}来指示冲向哪个方向，然后按下<keybind;key.affinity.activate_evade_ring>。
 
 
 @next-page
 
 <recipe;affinity:spirit_assimilation/evade_ring>
 
-It is self-evident that imparting and eliminating a
-
 ;;;;;
 
-significant amount of velocity on the wearer in this fashion {concept}comes at a moderate Aethum cost{}.
 
 
-Further it might be of interest that, since evading {concept}completely eliminates vertical velocity{}, the {item}Evade
-Ring{} could also prove a useful instrument for fall damage avoidance.
+不言而喻，以这种方式可以给予和消除佩戴者的大量速度，需要{concept}消耗适量的生灵作为代价{}。此外，由于侧闪{concept}完全消除了垂直速度{}，{item}侧闪戒指{}也可能被证明是避免坠落伤害的有用工具，这一点或许值得关注。
 
 @entry-end

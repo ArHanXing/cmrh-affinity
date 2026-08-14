@@ -1,14 +1,12 @@
 ```json
 {
-  "title": "Conducting Rituals",
+  "title": "进行仪式",
   "icon": "affinity:refined_ritual_socle",
   "ordinal": 2
 }
 ```
 
-Like any self-respecting practitioner of magic, you consider your ability to carry out elaborate 
-rituals an essential skill.
+和所有自尊心强的魔法师一样，你认为能够完成复杂的仪式是自己的基本技能。
 
 
-These notes elaborate on the rules, uses and tricks for the [Aspen Infusion](^affinity:aspen_infusion) and 
-[Spirit Assimilation](^affinity:spirit_assimilation).
+这些笔记详细阐述了[杜鹃灌注](^affinity:aspen_infusion)和[灵魂融合](^affinity:spirit_assimilation)的规则、用法和技巧。

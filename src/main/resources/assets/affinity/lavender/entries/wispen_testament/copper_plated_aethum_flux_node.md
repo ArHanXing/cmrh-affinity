@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Copper Plated Aethum Flux Node",
+  "title": "铜制生灵通量节点",
   "icon": "affinity:copper_plated_aethum_flux_node",
   "category": "affinity:aethum_flux_networks",
   "required_advancements": [
@@ -12,17 +12,13 @@
 }
 ```
 
-Peeved by the limits of the [Stone Banded Aethum Flux Node](^affinity:aethum_flux#2) (low conduction rates and a measly
-5 links at most), you develop a much-improved derivative.
+你对[石制生灵通量节点](^affinity:aethum_flux#2)的局限性（传输速率低，最多只有5个连接）感到恼火，于是开发了一种改进型衍生工具。
 
 
-The first of the problems is solved easily enough through the use of [Attuned Amethyst Shards](^affinity:shard_attunement).
-Indeed, using a more refined shard also {concept}boosts the maximum conduction range{}.
+使用[改良紫水晶碎片](^affinity:shard_attunement)可以轻松解决第一个问题。事实上，使用更精致的碎片还能{concept}提升最大传导范围{}。
 
 ;;;;;
 
 <recipe;affinity:assembly/copper_plated_aethum_flux_node>
 
-The latter, it turns out, is mended using a more... crude approach. Simply through {concept}inserting an array of
-auxiliary{} {item}unattuned Amethyst Shards{}, suspended around the center conductor, {concept}5 extra devices per
-shard{} can be joined.
+事实证明，第二个局限性可以用一种更...粗糙的方法来解决。只需在中心导体周围{concept}插入一圈{item}未改良紫水晶碎片{}{}作为辅助即可，每个碎片就能{concept}额外连接5个装置{}。

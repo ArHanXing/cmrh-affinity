@@ -1,17 +1,1144 @@
 {
+  "itemGroup.affinity.affinity": "灵犀",
+  "itemGroup.affinity.affinity.button.github": "GitHub",
+  "itemGroup.affinity.affinity.button.modrinth": "Modrinth",
+  "itemGroup.affinity.affinity.button.curseforge": "CurseForge",
+  "itemGroup.affinity.affinity.tab.main": "灵犀",
+  "itemGroup.affinity.affinity.tab.machinery": "机械",
+  "itemGroup.affinity.affinity.tab.nature": "自然",
+  "itemGroup.affinity.affinity.tab.equipment": "装备",
+
+  "biome.affinity.wisp_forest": "生魂森林",
+
+  "swivel_property.affinity.facing": "朝向",
+  "swivel_property.affinity.feed_direction": "运输方向",
+  "swivel_property.affinity.block_half": "上/下半方块",
+  "swivel_property.affinity.door_hinge": "门轴方向",
+  "swivel_property.affinity.rotation": "旋转",
+  "swivel_property.affinity.axis": "垂直/水平朝向",
+
+  "text.affinity.unfinished_item_tooltip": ["", {"text": "⚠", "color": "yellow"}, {"text": " 未完成", "color": "gray"}],
+
+  "item.affinity.wispen_testament": "生魂之约",
+  "text.affinity.wispen_testament.next_page": "紧接着下一页...",
+  "text.affinity.wispen_testament.staff_pedestal_function": {
+    "text": "固定在权杖基座", 
+    "color": "dark_gray"
+  },
+  "structure.affinity.augmented_crafting_table": "强化工作台",
+  "structure.affinity.void_beacon": "虚空信标",
+  "structure.affinity.rudimentary_aspen_infusion": "简易的杜鹃灌注",
+
+  "key.affinity.activate_evade_ring": [
+    {
+      "translate": "text.affinity.prefix"
+    },
+    " 启用侧闪戒指"
+  ],
+  "key.affinity.select_staff_from_bundle": [
+    {
+      "translate": "text.affinity.prefix"
+    },
+    " 从权杖束中选择中央法杖"
+  ],
+
+  "text.affinity.ethereal_aethum_flux_injector.node_location_tooltip": [
+    {
+      "index": 0
+    },
+    {
+      "text": " 在 ", 
+      "color": "gray"
+    },
+    {
+      "index": 1, 
+      "color": "#4D4C7D"
+    }
+  ],
+  "text.affinity.ethereal_aethum_flux_injector.linked_node_tooltip": [
+    "", 
+    {
+      "text": "[", 
+      "color": "dark_gray"
+      }, 
+      {
+        "text": "⌘",
+        "color": "#6A67CE"
+        },
+         {
+          "text": "]",
+          "color": "dark_gray"
+        },
+    {
+      "text": "已连接", 
+      "color": "gray"
+    }
+  ],
+  "text.affinity.ethereal_aethum_flux_injector.unlinked_node_tooltip": [
+    "", 
+    {
+      "text": "[", 
+      "color": "dark_gray"
+      }, 
+      {
+        "text": "+", 
+        "color": "green"
+        }, 
+        {
+          "text": "]", 
+          "color": "dark_gray"
+        },
+    {
+      "text": "点击建立连接", 
+      "color": "gray"
+    }
+  ],
+  "text.affinity.ethereal_aethum_flux_injector.global_nodes": [
+    "", 
+    {
+      "text": "u ", 
+      "font": "affinity:symbols"
+    },
+    "所有公开节点"
+  ],
+  "text.affinity.ethereal_aethum_flux_injector.private_nodes": [
+    "", 
+    {
+      "text": "l ", 
+      "font": "affinity:symbols"
+    },
+    "仅我的节点"
+  ],
+
+  "text.affinity.aethum_flux_consumer": {
+    "translate": "text.affinity.aethum_flux_member_template", 
+  "with":   [
+    "消耗器"
+  ]
+},
+  "text.affinity.aethum_flux_generator": {
+    "translate": "text.affinity.aethum_flux_member_template", 
+  "with":   [
+    "生成器"
+  ]
+},
+  "text.affinity.aethum_flux_node": {
+    "translate": "text.affinity.aethum_flux_member_template", 
+  "with":   [
+    "节点"
+  ]
+},
+  "text.affinity.aethum_flux_storage": {
+    "translate": "text.affinity.aethum_flux_member_template", 
+  "with":   [
+    "存储器"
+  ]
+},
+  "text.affinity.aethum_flux_member_template": [
+    "",
+    {
+      "text": "a", 
+      "font": "affinity:symbols"
+    },
+    {
+      "text": " 通量", 
+      "color": "gray"
+    },
+    {
+    "index": 0, 
+    "color": "gray"
+  }
+  ],
+
+  "entity.affinity.wisp": "生魂",
+  "entity.affinity.asteroid": "小行星",
+  "entity.affinity.aethum_missile": "生灵飞弹",
+  "death.attack.aethum_missile": "%s被集中的生灵飞弹清算了",
+  "death.attack.aethum_missile.player": "%s被%s集中的生灵飞弹清算了",
+  "entity.affinity.emancipated_block": "被分解的方块",
+  "entity.affinity.emancipated_block_state": "被分解的%s",
+  "item.affinity.wisp_matter": "生魂物质",
+  "item.affinity.wisp_mist": "生魂迷雾",
+  "item.affinity.wisp_spawn_egg": "生魂刷怪蛋",
+  "wispType.affinity.inert": "惰性",
+  "wispType.affinity.wise": "博识",
+  "wispType.affinity.vicious": "凶恶",
+
+  "category.affinity.assembly": "装配强化",
+  "category.affinity.aspen_infusion": "杜鹃灌注",
+  "category.affinity.spirit_assimilation": "灵魂融合",
+  "category.affinity.potion_mixing": "药水混合",
+  "category.affinity.containing_potions": "包含的药水",
+  "category.affinity.arcane_fading": "奥术褪色",
+  "category.affinity.ornament_carving": "饰品切割",
+  "category.affinity.socle_composing": "基座构建",
+
+  "informationProvider.affinity.block_aethum_flux_storage": "生灵通量存储",
+  "informationProvider.affinity.item_transfer_node_queue": "物品运输节点列表",
+  "informationProvider.affinity.brewing_cauldron_mixture": "酿造炼药锅混合物",
+
+  "stat.affinity.interact_with_field_coherence_modulator": "与区域调制器交互",
+
+  "block.affinity.brewing_cauldron": "酿造炼药锅",
+  "block.affinity.sundial": "日晷",
+  "block.affinity.copper_plated_aethum_flux_node": "铜制生灵通量节点",
+  "block.affinity.aethum_flux_cache": "生灵通量缓存站",
+  "block.affinity.creative_aethum_flux_cache": "创造模式生灵通量缓存站",
+  "block.affinity.stone_banded_aethum_flux_node": "石制生灵通量节点",
+  "block.affinity.arboreal_annihilation_apparatus": "树木湮灭装置",
+  "block.affinity.peculiar_clump": "奇特碎块堆",
+  "block.affinity.blank_ritual_socle": "空白仪式基座",
+  "block.affinity.rudimentary_ritual_socle": "初级仪式基座",
+  "item.affinity.stone_socle_ornament": "石头基座饰品",
+  "block.affinity.sophisticated_ritual_socle": "精妙仪式基座",
+  "item.affinity.prismarine_socle_ornament": "海晶石基座饰品",
+  "block.affinity.refined_ritual_socle": "精致仪式基座",
+  "item.affinity.purpur_socle_ornament": "紫珀基座饰品",
+  "block.affinity.asp_rite_core": "杜鹃仪式核心",
+  "block.affinity.ritual_socle_composer": "仪式基座切割机",
+  "block.affinity.affine_infuser": "灵犀注入器",
+  "block.affinity.ranthracite_wire": "无烟煤粉",
+  "item.affinity.ranthracite_dust": {
+    "translate": "block.affinity.ranthracite_wire"
+},
+  "block.affinity.crop_reaper": "作物收割器",
+  "block.affinity.affine_candle": "灵犀蜡烛",
+  "block.affinity.world_pin": "世界针",
+  "block.affinity.sunshine_monolith": "晴天石柱",
+  "block.affinity.arcane_treetap": "奥术提取器",
+  "block.affinity.assembly_augment": "强化组件",
+  "block.affinity.mangrove_basket": "红树木篮",
+  "block.affinity.staff_pedestal": "权杖基座",
+  "block.affinity.ouija_board": "灵应盘",
+  "block.affinity.the_sky": "天空方块",
+  "block.affinity.emerald_block": "绿宝石块",
+  "block.affinity.arcane_fade": "奥术脱色剂",
+  "block.affinity.inversion_stone": "反转之石",
+  "block.affinity.item_transfer_node": "物品运输节点",
+  "block.affinity.item_transfer_node.clear_filter_hint": "点击清空过滤器",
+  "block.affinity.aethum_probe": "生灵检测器",
+  "block.affinity.void_beacon": "虚空信标",
+  "block.affinity.field_coherence_modulator": "区域凝聚调制器",
+  "block.affinity.infused_stone": "灌注石",
+  "block.affinity.matter_harvesting_hearth": "物质收获炉",
+  "block.affinity.graviton_transducer": "重力子转换器",
+  "block.affinity.ethereal_aethum_flux_node": "以太生灵通量节点",
+  "block.affinity.ethereal_aethum_flux_node.tooltip.visibility_public": "所有人都可以访问",
+  "block.affinity.ethereal_aethum_flux_node.tooltip.visibility_private": "只有你可以访问",
+  "block.affinity.ethereal_aethum_flux_node.tooltip.owned_by_you": "由你所有",
+  "block.affinity.ethereal_aethum_flux_node.tooltip.owned_by_someone_else": "由其他人所有",
+  "block.affinity.ethereal_aethum_flux_injector": "以太生灵通量注入器",
+  "block.affinity.local_displacement_gateway": "局部位移折跃门",
+
+  "block.affinity.villager_armature": "村民驱动",
+  "block.affinity.villager_armature.option.action": "行为",
+  "block.affinity.villager_armature.action.use": "☞ 使用",
+  "block.affinity.villager_armature.action.break": "⛏ 破坏",
+  "block.affinity.villager_armature.action.attack": "\uD83D\uDDE1 攻击",
+  "block.affinity.villager_armature.option.redstone-mode": "红石模式",
+  "block.affinity.villager_armature.redstone-mode.always_active": "保持开启",
+  "block.affinity.villager_armature.redstone-mode.repeat": "循环",
+  "block.affinity.villager_armature.redstone-mode.impulse": "脉冲",
+  "block.affinity.villager_armature.option.sneak": "潜行",
+  "block.affinity.villager_armature.sneak.yes": "是",
+  "block.affinity.villager_armature.sneak.no": "否",
+
+  "block.affinity.spirit_integration_apparatus": "灵魂融合器",
+  "block.affinity.spirit_integration_apparatus.tooltip.complete": "完成",
+  "block.affinity.spirit_integration_apparatus.tooltip.incomplete.singular": [
+    "缺少",
+    {
+    "index": 0, 
+    "color": "blue"
+  },
+    "个核心"
+  ],
+  "block.affinity.spirit_integration_apparatus.tooltip.incomplete.plural": [
+    "缺少",
+    {
+    "index": 0, 
+    "color": "blue"
+  },
+    "个核心"
+  ],
+  "death.attack.ritual_sacrifice": "%s已步山羊的后尘",
+
+  "block.affinity.holographic_stereopticon": "全息立体投影仪",
+  "block.affinity.holographic_stereopticon.tooltip_spin": "旋转",
+  "block.affinity.holographic_stereopticon.tooltip_dont_spin": "不旋转",
+  "block.affinity.holographic_stereopticon.tooltip.assembling": "装配...",
+  "block.affinity.holographic_stereopticon.imprint_block_hint": [
+    {
+      "text": "潜行右键", 
+      "color": "gray"
+    },
+    {
+      "text": "方块", 
+      "color": "blue"
+    },
+    "上进行压印"
+  ],
+  "block.affinity.holographic_stereopticon.imprint_item_hint": [
+    {
+      "text": "右键于", 
+      "color": "gray"
+    },
+    {
+      "text": "物品", 
+      "color": "blue"
+    },
+    "上进行压印"
+  ],
+  "block.affinity.holographic_stereopticon.imprint_entity_hint": [
+    {
+      "text": "潜行右键", 
+      "color": "gray"
+    },
+    {
+      "text": "实体", 
+      "color": "blue"
+    },
+    "上进行压印"
+  ],
+  "block.affinity.holographic_stereopticon.imprint_section_hint": [
+    {
+      "text": "潜行右键以选择压印的", 
+      "color": "gray"
+    },
+    {
+      "text": "地块", 
+      "color": "blue"
+    }
+  ],
+  "block.affinity.holographic_stereopticon.cycle_imprint_kind_hint": 
+  {
+
+    "text": "右键点击可切换压印类型", 
+    "color": "gray"
+  },
+  "block.affinity.holographic_stereopticon.imprinted.section_at": ["截面起始于", {
+  "index": 0
+  }
+],
+  "block.affinity.holographic_stereopticon.imprinted": [
+    {
+      "text": "压印：", 
+      "color": "gray"
+    },
+    {
+    "index": 0, 
+    "color": "dark_gray"
+  }
+  ],
+
+  "block.affinity.azalea_planks": "杜鹃木板",
+  "block.affinity.azalea_log": "杜鹃原木",
+  "block.affinity.stripped_azalea_log": "去皮杜鹃原木",
+  "block.affinity.azalea_wood": "杜鹃木",
+  "block.affinity.stripped_azalea_wood": "去皮杜鹃木",
+  "block.affinity.azalea_slab": "杜鹃木台阶",
+  "block.affinity.azalea_fence": "杜鹃木栅栏",
+  "block.affinity.azalea_stairs": "杜鹃木楼梯",
+  "block.affinity.azalea_button": "杜鹃木按钮",
+  "block.affinity.azalea_pressure_plate": "杜鹃木压力板",
+  "block.affinity.azalea_door": "杜鹃木门",
+  "block.affinity.azalea_trapdoor": "杜鹃木活板门",
+  "block.affinity.azalea_fence_gate": "杜鹃木栅栏门",
+  "block.affinity.azalea_sign": "杜鹃木告示牌",
+  "block.affinity.azalea_hanging_sign": "悬挂式杜鹃木告示牌",
+  "block.affinity.azalea_chest": "杜鹃木箱",
+  "container.affinity.azalea_chest": "杜鹃木箱",
+  "container.affinity.azalea_chest_double": "大型杜鹃木箱",
+  "item.affinity.azalea_boat": "杜鹃木船",
+  "item.affinity.azalea_chest_boat": "杜鹃木运输船",
+
+  "block.affinity.unflowering_azalea_leaves": "未开花的杜鹃树叶",
+  "block.affinity.budding_azalea_leaves": "吐芽的杜鹃树叶",
+  "item.affinity.azalea_flowers": "杜鹃花",
+  "item.affinity.soup_of_bee": "蜜蜂汤",
+
+  "text.affinity.infinite_attack_damage": "无限",
+  "item.affinity.forgotten_artifact_blade": "被遗忘的神灵之锋",
+  "item.affinity.stabilized_artifact_blade": "稳定神灵之锋",
+  "item.affinity.strengthened_artifact_blade": "强化神灵之锋",
+  "item.affinity.superior_artifact_blade": "卓越神灵之锋",
+  "item.affinity.astral_artifact_blade": "星界神灵之锋",
+
+  "item.affinity.emerald_helmet": "绿宝石头盔",
+  "item.affinity.emerald_chestplate": "绿宝石胸甲",
+  "item.affinity.emerald_leggings": "绿宝石护腿",
+  "item.affinity.emerald_boots": "绿宝石靴子",
+  "item.affinity.emerald_ingot": "绿宝石锭",
+  "item.affinity.emerald_nugget": "绿宝石粒",
+  "attribute.name.generic.affinity.damage_taken": "承受伤害",
+  "attribute.name.generic.affinity.knockback_susceptibility": "击退敏感",
+  "attribute.name.generic.affinity.fall_resistance": "摔落抗性",
+  "attribute.name.generic.affinity.extra_arrow_damage": "箭矢伤害",
+
+  "item.affinity.emerald_wand_of_iridescence": "绿宝石彩虹法杖",
+  "item.affinity.sapphire_wand_of_iridescence": "蓝宝石彩虹法杖",
+  "item.affinity.wand_of_iridescence.mode_suffix": [
+    {
+      "text": " [", 
+      "color": "dark_gray"
+    },
+    {
+    "index": 0
+  },
+    "]"
+  ],
+  "item.affinity.wand_of_iridescence.help": {
+    "text": "潜行右键以切换模式",
+    "color": "gray"
+  },
+  "item.affinity.wand_of_iridescence.help.template": "⇄ %s",
+  "item.affinity.wand_of_iridescence.retain_mode.disabled": [
+    {
+      "text": "不保留：",
+      "color": "dark_gray"
+    },
+    {
+      "text": "右键点击切换",
+      "color": "gray"
+    }
+  ],
+  "item.affinity.wand_of_iridescence.retain_mode.enabled": [
+    {
+      "text": "保留："
+    },
+    {
+      "text": "潜行右键清空",
+      "color": "gray"
+    }
+  ],
+  "item.affinity.wand_of_iridescence.mode.bind": "绑定",
+  "item.affinity.wand_of_iridescence.mode.bind.description": {
+    "text": "将装置链接在一起",
+    "color": "gray"
+  },
+  "item.affinity.wand_of_iridescence.mode.release": "释放",
+  "item.affinity.wand_of_iridescence.mode.release.description": {
+    "text": "移除装置之间的链接",
+    "color": "gray"
+  },
+
+  "item.affinity.time_staff": "时间权杖",
+
+  "item.affinity.time_staff.mode.normal": "普通（x%s）",
+  "item.affinity.time_staff.mode.fast": "快速（x%s）",
+  "item.affinity.time_staff.mode.ludicrous": "荒谬（x%s）",
+  "item.affinity.time_staff.tooltip": [
+    {
+      "text": "☄ ", 
+      "color": "#c624ed"
+    },
+    {
+    "index": 0, 
+    "color": "gray"
+  }
+  ],
+
+  "item.affinity.wand_of_inquiry": "查询法杖",
+  "item.affinity.geological_resonator": "地质谐振仪",
+  "item.affinity.collection_staff": "收集权杖",
+  "item.affinity.kinesis_staff": "能量权杖",
+  "item.affinity.astrokinesis_staff": "星能权杖",
+  "item.affinity.cultivation_staff": "农务权杖",
+  "item.affinity.cultivation_staff.super_foraging_mode": " 超级采集模式™",
+  "item.affinity.salvo_staff": "齐射权杖",
+  "item.affinity.swivel_staff": "旋转权杖",
+  "item.affinity.swivel_staff.tooltip.consumption_per_spin": [{
+    "text": "每次旋转实体消耗", 
+    "color": "gray"
+    }, {
+    "index": 0, 
+    "color": "#4D4C7D"
+    }, {
+    "text": "点生灵", 
+    "color": "gray"}
+  ],
+  "item.affinity.nimble_staff": "灵活权杖",
+  "item.affinity.nimble_staff.direction.north": "北",
+  "item.affinity.nimble_staff.direction.south": "南",
+  "item.affinity.nimble_staff.direction.east": "东",
+  "item.affinity.nimble_staff.direction.west": "西",
+  "item.affinity.aethum_flux_bottle": "瓶装生灵通量",
+  "item.affinity.bare_resplendent_gem": "空璀璨宝石",
+  "item.affinity.resplendent_gem": "璀璨宝石",
+  "item.affinity.resonance_crystal": "共鸣水晶",
+  "item.affinity.unfired_clay_cup": "黏土杯坯",
+  "item.affinity.clay_cup": "黏土杯",
+  "item.affinity.affinitea": "灵犀茶",
+  "item.affinity.milk_cup": "牛奶杯",
+  "item.affinity.satiating_potion": "饱和药水",
+  "item.affinity.dragon_drop": "龙之凝物",
+  "item.affinity.blackstone_prism": "黑石棱镜",
+  "item.affinity.synthetic_dragon_heart": "人造龙心",
+  "item.affinity.arcane_fade_bucket": "奥术脱色剂桶",
+  "item.affinity.aethum_overcharger": "生灵图腾",
+  "item.affinity.archetypal_iron_ring": "铁戒指原型",
+  "item.affinity.featherweight_ring": "轻盈戒指",
+  "item.affinity.evade_ring": "侧闪戒指",
+  "item.affinity.evade_ring.tooltip.consumption_per_use": [{
+    "text": "每次使用消耗", 
+    "color": "gray"
+    }, {
+    "index": 0, 
+    "color": "#4D4C7D"
+    }, {
+    "text": "点生灵", 
+    "color": "gray"
+    }],
+  "item.affinity.evade_ring.tooltip.take_control": [
+    {
+    "text": "▼ ", 
+    "color": "#690926"
+    }, 
+    {
+    "text": "控制", 
+    "color": "gray"
+    }
+  ],
+  "item.affinity.lavaliere_of_safe_keeping": "保管项链",
+  "item.affinity.assassins_quiver": "刺客箭袋",
+  "item.affinity.aethum_fire_extinguisher": "生灵灭火器",
+  "item.affinity.budding_experience_crystal": "经验水晶芽",
+  "item.affinity.crystallized_experience": "经验结晶",
+  "item.affinity.uncanny_rod": "不可思议的木棒",
+  "item.affinity.staff_prototype": "权杖原型",
+  "item.affinity.misty_potion": {
+    "text": "迷雾药水", 
+    "italic": false
+  },
+  "item.affinity.potion_of_infinite_prowess": {
+    "text": "无限能力药水",
+    "italic": false,
+    "color": "dark_red"
+  },
+
+  "item.affinity.resounding_chime": "响亮的手摇铃",
+  "item.affinity.azalea_bow": "杜鹃木弓",
+  "item.affinity.azalea_bow.tooltip.consumption_per_shot": [{
+    "text": "每次射击消耗", 
+    "color": "gray"
+    }, {
+    "index": 0, 
+    "color": "#4D4C7D"
+    }, {
+    "text": "点生灵", 
+    "color": "gray"
+    }],
+  "death.attack.resonating": "%s上课迟到了",
+  "death.attack.resonating.player": "%s因和%s聊天上课迟到了",
+
+  "item.affinity.staff.mode_template": [
+    {
+      "text": " [", 
+      "color": "dark_gray"
+    },
+    {
+    "index": 0, 
+    "color": "gray"
+  },
+    "]"
+  ],
+  "item.affinity.staff.tooltip.consumption_per_use": [{
+    "text": "每次使用消耗", 
+    "color": "gray"
+    }, {
+    "index": 0, 
+    "color": "#4D4C7D"
+    }, {
+    "text": "点生灵", 
+    "color": "gray"
+    }],
+  "item.affinity.staff.tooltip.consumption_per_second": [{
+    "text": "每秒消耗", 
+    "color": "gray"
+    }, {
+    "index": 0, 
+    "color": "#4D4C7D"
+    }, {
+    "text": "点生灵", 
+    "color": "gray"
+    }],
+  "item.affinity.staff.tooltip.cycle_mode_hint": [
+    {
+    "text": "⇄", 
+    "color": "#4D4C7D"
+    }, 
+    {
+    "text": "潜行右键以切换模式", 
+    "color": "gray"
+    }
+  ],
+
+  "item.affinity.kinesis_staff.tooltip.consumption_per_throw": [{
+    "text": "每次扔出消耗", 
+    "color": "gray"
+    }, {
+    "index": 0, 
+    "color": "#4D4C7D"
+    }, {
+    "text": "点生灵", 
+    "color": "gray"
+    }],
+  "item.affinity.astrokinesis_staff.tooltip.consumption_per_throw": [{
+      "text": "每次掷出小行星消耗", 
+      "color": "gray"
+    }, {
+    "index": 0, 
+    "color": "#4D4C7D"
+    }, {
+      "text": "点生灵", 
+      "color": "gray"
+      }],
+  "item.affinity.salvo_staff.tooltip.consumption_per_missile": [{
+    "text": "每次掷出飞弹消耗", 
+    "color": "gray"
+    }, {
+    "index": 0, 
+    "color": "#4D4C7D"
+    }, {
+    "text": "点生灵", 
+    "color": "gray"
+    }],
+
+  "text.affinity.attuned_shard_range": [
+    {
+      "text": "范围：", 
+      "color": "gray"
+    },
+    {
+    "index": 0, 
+    "color": "#4D4C7D"
+    },
+    {
+      "text": "格", 
+      "color": "#4D4C7D"
+    }
+  ],
+  "text.affinity.attuned_shard_max_transfer": [
+    {
+      "text": "速率：", 
+      "color": "gray"
+    },
+    {
+    "index": 0, 
+    "color": "#4D4C7D"
+  },
+    {
+      "text": "af/s", 
+      "color": "#4D4C7D"
+    }
+  ],
+  "text.affinity.echo_shard_location": "绑定于%s在%s",
+  "item.affinity.mildly_attuned_amethyst_shard": "轻度改良的紫水晶碎片",
+  "item.affinity.fairly_attuned_amethyst_shard": "中度改良的紫水晶碎片",
+  "item.affinity.greatly_attuned_amethyst_shard": "高度改良的紫水晶碎片",
+  "item.affinity.sculk_resonant_ethereal_amethyst_shard": "幽匿共鸣以太紫水晶碎片",
+  "item.affinity.void_resonant_ethereal_amethyst_shard": "虚空共鸣以太紫水晶碎片",
+  "item.affinity.phantom_bundle": "幻翼滤袋",
+
+  "item.affinity.villager_arms": "村民手臂",
+  "item.affinity.villager_arms.with_profession": "%s手臂",
+  "item.affinity.villager_arms.with_profession.with_level": "%2$s %1$s手臂",
+
+  "item.affinity.anthracite_powder": "含杂无烟煤粉末",
+  "item.affinity.carbon_copy.empty": "碳拷贝：啥都没有...？",
+  "item.affinity.carbon_copy": [
+    "碳拷贝：",
+    {
+    "index": 0, 
+    "color": "gray"
+    },
+    {
+      "text": "x ", 
+      "color": "dark_gray"
+    },
+    {
+    "index": 1, 
+    "color": "gray"
+  }
+  ],
+  "item.affinity.scintillant_anthracite_blend": "闪烁的无烟煤混合物",
+  "item.affinity.crystalline_wisp_matter_composite": "生魂物质晶体复合材料",
+  "item.affinity.aethum_map_prototype": "生灵地图原型",
+  "item.affinity.realized_aethum_map": "已探测的生灵地图",
+  "item.affinity.realized_aethum_map.tooltip.locked": {
+    "text": "已锁定", 
+    "color": "gray"
+  },
+  "item.affinity.realized_aethum_map.tooltip.unlocked": {
+    "text": "未锁定", 
+    "color": "gray"
+  },
+
+  "enchantment.affinity.curse_of_illiteracy": "文盲诅咒",
+  "enchantment.affinity.curse_of_illiteracy.desc": [
+    {
+      "text": "老实说挺奇怪的，现在反而能看懂了", 
+      "obfuscated": true
+    }
+  ],
+  "enchantment.affinity.curse_of_health": "生命诅咒",
+  "enchantment.affinity.curse_of_health.desc": "穿上后能提高生命值上限，不建议脱下",
+  "enchantment.affinity.affine": "灵犀",
+  "enchantment.affinity.affine.desc": "当在灵犀注入器的作用范围之内时，会修复地上、你手中和物品展示框中的物品。",
+  "enchantment.affinity.ender_scourge": "末地祸害",
+  "enchantment.affinity.ender_scourge.desc": "增加对末地生物的伤害",
+  "text.affinity.absolute_enchantment_prefix": [
+    {
+      "text": "绝对", 
+      "color": "#541690"
+    },
+    {
+      "text": " | ", 
+      "color": "gray"
+    }
+  ],
+  "enchantment.affinity.berserker": "狂战士",
+  "enchantment.affinity.berserker.desc": [
+    {
+      "translate": "text.affinity.absolute_enchantment_prefix"
+    },
+    {
+      "text": "增加最大生命值，生命值越低攻击伤害越高"
+    }
+  ],
+  "enchantment.affinity.gravecaller": "唤墓者",
+  "enchantment.affinity.gravecaller.desc": [
+    {
+      "translate": "text.affinity.absolute_enchantment_prefix"
+    },
+    {
+      "text": "你的盔甲会召唤亡灵小兵，并制服范围内的其他亡灵生物"
+    }
+  ],
+  "enchantment.affinity.bastion": "堡垒",
+  "enchantment.affinity.bastion.desc": [
+    {
+      "translate": "text.affinity.absolute_enchantment_prefix"
+    },
+    {
+      "text": "以减半攻击伤害为代价，获得基于血量的生命恢复"
+    }
+  ],
+  "enchantment.affinity.wounding": "创伤",
+  "enchantment.affinity.wounding.desc": "提高暴击伤害",
+  "enchantment.affinity.critical_gamble": "关键赌注",
+  "enchantment.affinity.critical_gamble.desc": "暴击时有几率瞬间击杀敌人，否则伤害不会增加",
+  "enchantment.affinity.execute": "处决",
+  "enchantment.affinity.execute.desc": "处决那些不这样做就会苟延残喘的目标",
+  "enchantment.affinity.prosecute": "控告",
+  "enchantment.affinity.prosecute.desc": "提高对满血敌人的伤害",
+  "enchantment.affinity.updog": "打个招呼",
+  "enchantment.affinity.updog.desc": "提高对生命值远高于自己的敌人的伤害",
+
+  "message.affinity.linking.already_linked": "%s已经连接过了",
+  "message.affinity.linking.not_linked": "%s还没有连接",
+  "message.affinity.linking.no_target": "连接目标无效",
+  "message.affinity.linking.out_of_range": "%s超出范围了",
+  "message.affinity.linking.too_many_links": "该节点无法再进行任何连接",
+  "message.affinity.linking.failed": "无法连接到%s",
+
+  "attribute.name.player.affinity.max_aethum": "最大生灵",
+  "attribute.name.player.affinity.natural_aethum_regen_speed": "生灵恢复速率",
+  "death.attack.aethum_drain": [
+    {
+      "index": 0,
+      "hoverEvent": {
+        "action": "show_text",
+        "contents": "非常粗心"
+      }
+    },
+    "生灵尽失，从而一蹶不振"
+  ],
+
+  "text.affinity.tooltip.aethum_storage": "通量： %d/%d",
+  "text.affinity.tooltip.creative_flux_cache_flux_level": "全部都在这了，真的",
+
+  "death.attack.asteroid": "%s被一颗小行星抹杀",
+  "death.attack.asteroid.player": "%s被%s的小行星抹杀",
+  "death.attack.artifact_blade.player": "%s被%s的神灵之锋刺穿了胸膛",
+  "death.attack.artifact_blade.item": "%s被%s的%s刺穿",
+  "death.attack.sawblade": "%s被切成薄片",
+  "death.attack.sawblade.player": "%s在逃离%s时被切成薄片",
+
+  "gui.affinity.augmented_crafting_table.title": "强化工作台",
+
+  "gui.affinity.flux_network_visualizer.network_statistics": "网络统计",
+  "gui.affinity.flux_network_visualizer.member_count": [
+  "装置数量：",
+  {
+  "index": 0, 
+  "color": "blue"
+  }
+],
+  "gui.affinity.flux_network_visualizer.node_count": [
+    "节点数量：",
+    {
+  "index": 0, 
+  "color": "blue"
+  }
+],
+  "gui.affinity.flux_network_visualizer.flux_capacity": [
+    "通量可缓存量：",
+    {
+  "index": 0, 
+  "color": "blue"
+  }
+],
+  "gui.affinity.flux_network_visualizer.total_flux": [
+  "通量总量：",
+  {
+  "index": 0, 
+  "color": "blue"
+  }
+],
+  "gui.affinity.flux_network_visualizer.rotate_hint": [
+    "左键以",
+    {
+    "text": "旋转", 
+    "color": "yellow"
+    }
+  ],
+  "gui.affinity.flux_network_visualizer.move_hint": [
+    "右键以",
+    {
+    "text": "移动", 
+    "color": "yellow"
+    }
+  ],
+  "gui.affinity.flux_network_visualizer.reset_hint": [
+    "双击左键以",
+    {
+    "text": "重置", 
+    "color": "yellow"
+    }
+  ],
+  "gui.affinity.flux_network_visualizer.hover_hint": [
+    "悬停以",
+    {
+    "text": "查看信息", 
+    "color": "yellow"
+    }
+  ],
+
+  "gui.affinity.villager_armature.rotate_hint": [
+    "左键以",
+    {
+      "text": "旋转",
+      "color": "yellow"
+    }
+  ],
+  "gui.affinity.villager_armature.click_hint": [
+    "右键以",
+    {
+      "text": "设置目标",
+      "color": "yellow"
+    }
+  ],
+  "gui.affinity.villager_armature.reset_hint": [
+    "双击左键以",
+    {
+      "text": "重置",
+      "color": "yellow"
+    }
+  ],
+
+  "advancement.affinity.root.title": "灵犀",
+  "advancement.affinity.root.description": "当心，别被捉弄了",
+  "advancement.affinity.so_tell_me_whats_your_intention.title": "告诉我，你是怎么想的？",
+  "advancement.affinity.so_tell_me_whats_your_intention.description": "装备有文盲诅咒附魔的物品",
+  "advancement.affinity.drag_and_drop.title": "靠拢之凝物",
+  "advancement.affinity.drag_and_drop.description": "获得龙之凝物",
+  "advancement.affinity.some_assembly_required.title": "一些组装需要",
+  "advancement.affinity.some_assembly_required.description": "强化一个工作台",
+  "advancement.affinity.this_resource_matters.title": "质关重要",
+  "advancement.affinity.this_resource_matters.description": "获得你的第一个生魂物质",
+  "advancement.affinity.a_resounding_success.title": "响当当的成功",
+  "advancement.affinity.a_resounding_success.description": "合成响亮的手摇铃",
+  "advancement.affinity.resistance_is_futile.title": "抵抗是毫无意义的",
+  "advancement.affinity.resistance_is_futile.description": "准备好灵魂融合仪式",
+  "advancement.affinity.rock_and_stone.title": "流石人生",
+  "advancement.affinity.rock_and_stone.description": "你成功开采了你第一块奇特碎块堆，好的开始是成功的一半。",
+  "advancement.affinity.i_still_use_paint.title": "我还在用Paint",
+  "advancement.affinity.i_still_use_paint.description": "合成一个杜鹃仪式核心",
+  "advancement.affinity.isnt_it_iron_sword.title": "这不是铁剑...吗？",
+  "advancement.affinity.isnt_it_iron_sword.description": "合成你的神灵之锋",
+  "advancement.affinity.unbreakable.title": "无法破坏",
+  "advancement.affinity.unbreakable.description": "使你的神灵之锋稳定下来",
+  "advancement.affinity.slayer_of_titans.title": "泰坦杀手",
+  "advancement.affinity.slayer_of_titans.description": "利用下界能量强化你的神灵之锋",
+  "advancement.affinity.everything_is_yours.title": "万物于你",
+  "advancement.affinity.everything_is_yours.description": "将你的神灵之锋与龙心融为一体。阿耳忒弥斯会喜欢这个的。",
+  "advancement.affinity.sup_b.title": "sup(B)",
+  "advancement.affinity.sup_b.description": "偏序集合P的子集S的上确界（supremum，suprema是supremum的复数形式；缩写为sup，如sup(B)）是P中大于等于S中每个元素的最小元素，如果存在这样的元素的话。这里的B集合的上确界，也就是sup(B)，读音为sup of B，与soup of bee（蜜蜂汤）同音",
+  "advancement.affinity.big_girl_decisions.title": "成熟的选择",
+  "advancement.affinity.big_girl_decisions.description": "定向化你的第一个权杖原型",
+  "advancement.affinity.intermix_chamber.title": "大杂烩",
+  "advancement.affinity.intermix_chamber.description": "合成一个酿造炼药锅",
+  "advancement.affinity.you_cheated.title": "你作弊",
+  "advancement.affinity.you_cheated.description": "获得一个创造模式物品",
+  "advancement.affinity.its_a_fidget_cube.title": "这是一个解压魔方",
+  "advancement.affinity.its_a_fidget_cube.description": "我相信这不会导致RSI（重复性劳损）",
+  "advancement.affinity.a_severe_and_continuous_lapse_in_your_judgement.title": "严重且持续的判断失误",
+  "advancement.affinity.a_severe_and_continuous_lapse_in_your_judgement.description": "戴上同时附有文盲诅咒和绑定诅咒附魔的头盔",
+  "advancement.affinity.living_is_wise_if_you_never_ever_think_twice.title": "生命是一种智慧，如果你从不两思而后行",
+  "advancement.affinity.living_is_wise_if_you_never_ever_think_twice.description": "找到附有生命诅咒附魔的物品",
+  "advancement.affinity.how_many_hours_do_we_fly.title": "我们飞了几个小时？",
+  "advancement.affinity.how_many_hours_do_we_fly.description": "酿造扩展的反重力药水",
+  "advancement.affinity.nice_try.title": "不错的尝试",
+  "advancement.affinity.nice_try.description": "掉落超过100格后使用神灵之锋进行粉碎",
+  "advancement.affinity.return_to_sender_2.title": "无人查收 Ⅱ",
+  "advancement.affinity.return_to_sender_2.description": "用潜影弹击中潜影贝",
+  "advancement.affinity.cache_invalidation.title": "缓存失效",
+  "advancement.affinity.cache_invalidation.description": "破坏一个至少填充50%的生灵通量缓存站",
+  "advancement.affinity.when_pigs_fly.title": "轻功猪上飘",
+  "advancement.affinity.when_pigs_fly.description": "在骑猪的时候飞",
+  "advancement.affinity.you_re_doomed.title": "你完蛋了",
+  "advancement.affinity.you_re_doomed.description": "使用生灵图腾骗过死亡，并变得所向无敌——暂时地",
+  "advancement.affinity.when_the_world_is_calling_you.title": "这世界需要你",
+  "advancement.affinity.when_the_world_is_calling_you.description": "为仪式献身",
+  "advancement.affinity.gamedesign.title": "游戏设计！",
+  "advancement.affinity.gamedesign.description": "一个方块中有64个粒",
+  "advancement.affinity.pure_shot_of_poison_to_my_heart.title": "纯粹蛊毒直击我心",
+  "advancement.affinity.pure_shot_of_poison_to_my_heart.description": "牺牲驯服的动物",
+  "advancement.affinity.verfluxt_und_zugenaeht.title": "淦！",
+  "advancement.affinity.verfluxt_und_zugenaeht.description": "见证仪式失败",
+  "advancement.affinity.from_two_hundred_cycles_to_one.title": "从两百个到一个",
+  "advancement.affinity.from_two_hundred_cycles_to_one.description": "为你的生灵通量网络添加缓存站",
+  "advancement.affinity.opening_the_fluxgates.title": "打开通量之门",
+  "advancement.affinity.opening_the_fluxgates.description": "放置第一个生灵通量生成器",
+  "advancement.affinity.the_sky_suit.title": "天为我衣！",
+
+  "text.affinity.prefix": [
+    "",
+    {
+      "text": "[", 
+      "color": "gray"
+    },
+    {
+      "text":"灵","color":"#0096ff"
+    },
+    {
+      "text":"犀","color":"#009fff"
+    },
+    {
+      "text": "]", 
+      "color": "gray"
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+  ],
+  "text.config.affinity.title": [
+    {
+      "translate": "text.affinity.prefix"
+  },
+    " 配置"
+  ],
+  "text.config.affinity.option.renderEntitiesInStereopticonSectionImprints": "显示实体",
+  "text.config.affinity.option.renderBlockEntitiesInStereopticonSectionImprints": "显示方块实体",
+  "text.config.affinity.option.affineInfuserCostPerDurabilityPoint": "修复每个耐久度点的通量消耗",
+  "text.config.affinity.option.maxFluxNodeShards": "每个通量节点的最大外围碎片数",
+  "text.config.affinity.section.experimental": {
+    "text": "实验性", 
+    "color": "red"
+  },
+  "text.config.affinity.option.stereopticonSectionImprintRecursionLimit": "递归限制",
+  "text.config.affinity.option.stereopticonSectionImprintRecursionLimit.tooltip": "当一个立体图形的部分嵌套在另一个立体图形的部分中时，可以渲染多少次",
+  "text.config.affinity.option.theSkyIrisIntegration": "将天空与Iris着色器相结合",
+  "text.config.affinity.option.unfinishedFeatures": "未完成的功能",
+
+  "effect.affinity.dripping": "滴淌",
+  "effect.affinity.dripping.desc": "紧随而上",
+  "effect.affinity.bastion_regeneration": "堡垒",
+  "effect.affinity.bastion_regeneration.desc": "生命值越低，再生速度越快",
+  "effect.affinity.affine": "灵犀",
+  "effect.affinity.affine.desc": "当处于激活的灵犀注入器的作用范围内时，治疗拥有者",
+  "effect.affinity.resonant": "共鸣",
+  "effect.affinity.resonant.desc": "叮~~~~~~~~~~",
+
+  "effect.affinity.life_leech": "生命汲取",
+  "effect.affinity.life_leech.desc": "攻击时治疗拥有者",
+  "item.minecraft.potion.effect.life_leech": "生命汲取药水",
+  "item.minecraft.splash_potion.effect.life_leech": "喷溅型生命汲取药水",
+  "item.minecraft.lingering_potion.effect.life_leech": "滞留型生命汲取药水",
+  "item.minecraft.tipped_arrow.effect.life_leech": "生命汲取之箭",
+
+  "effect.affinity.cat_anxiety": "猫咪焦虑症",
+  "effect.affinity.cat_anxiety.desc": "Aw man",
+  "item.minecraft.potion.effect.cat_anxiety": "猫咪焦虑症药水",
+  "item.minecraft.splash_potion.effect.cat_anxiety": "喷溅型猫咪焦虑症药水",
+  "item.minecraft.lingering_potion.effect.cat_anxiety": "滞留型猫咪焦虑症药水",
+  "item.minecraft.tipped_arrow.effect.cat_anxiety": "猫咪焦虑症之箭",
+
+  "effect.affinity.steadfast": "坚定",
+  "effect.affinity.steadfast.desc": "临时击退抗性",
+  "item.minecraft.potion.effect.steadfast": "击退抗性药水",
+  "item.minecraft.splash_potion.effect.steadfast": "喷溅型击退抗性药水",
+  "item.minecraft.lingering_potion.effect.steadfast": "滞留型击退抗性药水",
+  "item.minecraft.tipped_arrow.effect.steadfast": "击退抗性之箭",
+
+  "effect.affinity.flight": "飞行",
+  "effect.affinity.flight.desc": "像创造模式一样脆弱地飞行",
+  "effect.affinity.gravity_modifier": "-9.81 重力",
+  "item.minecraft.potion.effect.flight": "反重力药水",
+  "item.minecraft.splash_potion.effect.flight": "喷溅型反重力药水",
+  "item.minecraft.lingering_potion.effect.flight": "滞留型反重力药水",
+  "item.minecraft.tipped_arrow.effect.flight": "反重力之箭",
+
+  "effect.affinity.freezing": "冻结",
+  "effect.affinity.freezing.desc": "凛冬已至",
+  "item.minecraft.potion.effect.freezing": "凛冬药水",
+  "item.minecraft.splash_potion.effect.freezing": "喷溅型凛冬药水",
+  "item.minecraft.lingering_potion.effect.freezing": "滞留型凛冬药水",
+  "item.minecraft.tipped_arrow.effect.freezing": "凛冬之箭",
+
+  "effect.affinity.impending_doom": "毁灭当头",
+  "effect.affinity.impending_doom.desc": "他们知道他会来，一如既往，也将一如既往，享用恶人的鲜血",
+  "item.minecraft.potion.effect.impending_doom": "毁灭药水",
+  "item.minecraft.splash_potion.effect.impending_doom": "喷溅型毁灭药水",
+  "item.minecraft.lingering_potion.effect.impending_doom": "滞留型毁灭药水",
+  "item.minecraft.tipped_arrow.effect.impending_doom": "毁灭之箭",
+  "death.attack.doom_potion": "%1$s被开膛破肚",
+  "death.attack.threw_doom_potion": "%1$s发现了一个非常强大的机械装置，但遗憾的是，它不得不被禁用",
+
+  "effect.affinity.banished": "放逐",
+  "effect.affinity.banished.desc": "临时传送，效果结束时传送结束",
+  "item.minecraft.potion.effect.banished": "放逐药水",
+  "item.minecraft.splash_potion.effect.banished": "喷溅型放逐药水",
+  "item.minecraft.lingering_potion.effect.banished": "滞留型放逐药水",
+  "item.minecraft.tipped_arrow.effect.banished": "放逐之箭",
+
+  "effect.affinity.unholy": "邪恶",
+  "effect.affinity.unholy.desc": "拥有者变得易受亡灵杀手附魔伤害",
+  "item.minecraft.potion.effect.unholy": "邪恶之水",
+  "item.minecraft.splash_potion.effect.unholy": "喷溅型邪恶之水",
+  "item.minecraft.lingering_potion.effect.unholy": "滞留型邪恶之水",
+  "item.minecraft.tipped_arrow.effect.unholy": "邪恶之箭",
+
+  "item.minecraft.potion.effect.dubious": "可疑药水",
+  "item.minecraft.splash_potion.effect.dubious": "喷溅型可疑药水",
+  "item.minecraft.lingering_potion.effect.dubious": "撒得到处都是型-可疑药水",
+  "item.minecraft.tipped_arrow.effect.dubious": "可疑之箭",
+
+  "item.minecraft.potion.effect.resistance": "复原药水",
+  "item.minecraft.splash_potion.effect.resistance": "喷溅型复原药水",
+  "item.minecraft.lingering_potion.effect.resistance": "滞留型复原药水",
+  "item.minecraft.tipped_arrow.effect.resistance": "复原之箭",
+
+  "item.minecraft.potion.effect.glowing": "炽热药水",
+  "item.minecraft.splash_potion.effect.glowing": "喷溅型炽热药水",
+  "item.minecraft.lingering_potion.effect.glowing": "滞留型炽热药水",
+  "item.minecraft.tipped_arrow.effect.glowing": "炽热之箭",
+
+  "item.minecraft.potion.effect.blindness": "失明药水",
+  "item.minecraft.splash_potion.effect.blindness": "喷溅型失明药水",
+  "item.minecraft.lingering_potion.effect.blindness": "滞留型失明药水",
+  "item.minecraft.tipped_arrow.effect.blindness": "失明之箭",
+
+  "item.minecraft.potion.effect.wither": "腐烂药水",
+  "item.minecraft.splash_potion.effect.wither": "喷溅型腐烂药水",
+  "item.minecraft.lingering_potion.effect.wither": "滞留型腐烂药水",
+  "item.minecraft.tipped_arrow.effect.wither": "腐烂之箭",
+
+  "item.minecraft.potion.effect.hunger": "衰弱药水",
+  "item.minecraft.splash_potion.effect.hunger": "喷溅型衰弱药水",
+  "item.minecraft.lingering_potion.effect.hunger": "滞留型衰弱药水",
+  "item.minecraft.tipped_arrow.effect.hunger": "衰弱之箭",
+
+  "dimension.minecraft.overworld": "主世界",
+  "dimension.minecraft.the_nether": "下界",
+  "dimension.minecraft.the_end": "末地",
+
+  "villagerType.minecraft.desert": "沙漠",
+  "villagerType.minecraft.jungle": "丛林",
+  "villagerType.minecraft.plains": "平原",
+  "villagerType.minecraft.savanna": "热带草原",
+  "villagerType.minecraft.snow": "雪原",
+  "villagerType.minecraft.swamp": "沼泽",
+  "villagerType.minecraft.taiga": "针叶林",
+
+  "block.affinity.sonic_syphon": "声波虹吸器",
+  "item.affinity.pitcher_elixir_bottle": "瓶装投手药剂",
+  "subtitles.item.artifact_blade.smash": "神灵之锋猛击实体",
+  "subtitles.item.iridescence_wand.bind": "彩虹法杖咔嗒作响",
+  "subtitles.item.nimble_staff.fling": "灵活权杖投掷",
+  "subtitles.item.evade_ring.evade": "侧闪戒指呼啸",
+  "subtitles.item.satiating_potion.start_drinking": "饱和药水瓶破碎",
+  "subtitles.item.aethum_fire_extinguisher.spray": "生灵灭火器喷射",
+  "subtitles.item.salvo_staff.hit": "生灵飞弹击穿目标",
+  "subtitles.block.spirit_integration_apparatus.ritual_start": "灵魂融合仪式开始",
+  "subtitles.block.asp_rite_core.craft": "杜鹃灌注仪式成功完成",
+  "subtitles.block.asp_rite_core.active": "杜鹃灌注仪式嗡嗡作响",
+  "subtitles.block.graviton_transducer.transduce": "重力子转换器消耗潜影弹",
+  "subtitles.item.satiating_potion.drink": {"text": "饱和药水做出难以言说之事", "obfuscated": true},
+  "subtitles.effect.flight.duration_warning": "飞行效果即将耗尽",
+  "subtitles.effect.flight.interrupted": "飞行效果被打断",
+  "subtitles.block.brewing_cauldron.brew": "酿造炼药锅酿造完成",
+  "subtitles.entity.villager.strip_arms": "发生严重侵犯人权行为",
+  "subtitles.item.swivel_staff.select_property": "旋转权杖切换选定属性",
+  "subtitles.item.swivel_staff.swivel": "旋转权杖旋转",
+  "subtitles.block.brewing_cauldron.pick_up_item": "物品放入酿造炼药锅",
+  "subtitles.item.aethum_overcharger.activate": "生灵图腾激活",
+  "subtitles.block.void_beacon.activate": "虚空信标触发",
+  "subtitles.item.geological_resonator.resonate": "地质谐振仪在碎块上共鸣",
+  "subtitles.item.geological_resonator.plonk": "地质谐振仪在石头上发出砰声",
+  "subtitles.block.graviton_transducer.shard_breaks": "改良紫水晶碎片在重力子转换器中碎裂",
+  "subtitles.item.collection_staff.mark_items": "收集权杖标记物品",
+  "subtitles.item.collection_staff.teleport_items": "收集权杖传送物品",
+  "subtitles.item.cultivation_staff.cultivate": "农务权杖……耕作？",
+  "subtitles.block.spirit_integration_apparatus.drop_item": "灵魂融合仪式掉落物品",
+  "subtitles.block.spirit_integration_apparatus.ritual_fail": "灵魂融合仪式失败",
+  "subtitles.block.asp_rite_core.ritual_fail": "杜鹃灌注仪式失败",
+  "subtitles.block.sonic_syphon.shriek": "声波虹吸器尖啸",
+  "subtitles.item.echo_shard.bind": "回响碎片绑定至位置",
+  "subtitles.item.resounding_chime.ding": "响亮的手摇铃叮当响",
+  "subtitles.item.emerald_armor.equip": "绿宝石盔甲装备",
+  "subtitles.item.salvo_staff.fire_missile": "齐射权杖发射生灵飞弹",
+  "subtitles.item.staff.select": "从权杖束中选择权杖",
+  "subtitles.fluid.arcane_fade.bleach": "绵羊被漂白",
+  "subtitles.fluid.arcane_fade.craft": "通过奥术褪色合成物品",
+
   "ritual.affinity.feedback.prefix": "[仪式]",
   "ritual.affinity.feedback.ritual_in_progress": "仪式正在进行中",
   "ritual.affinity.feedback.no_item": "请先在仪式核心中放入物品",
   "ritual.affinity.feedback.no_socle": "8 格内未找到仪式基座 - 请至少放置一个带有物品的基座",
   "ritual.affinity.feedback.no_socle_items": "附近的仪式基座都是空的 - 请先在基座上放置物品",
   "ritual.affinity.feedback.ritual_started": "仪式已开始！成功率：%s - 持续时间：%s 秒",
-  "ritual.affinity.feedback.core_destroyed": "仪式已中断 - 核心方块被破坏",
-  "ritual.affinity.feedback.socle_destroyed": "仪式已中断 - 仪式基座被破坏",
+  "ritual.affinity.feedback.core_destroyed": "仪式已中断：核心方块被破坏",
+  "ritual.affinity.feedback.socle_destroyed": "仪式已中断：仪式基座被破坏",
   "ritual.affinity.feedback.stability_failure": "仪式因稳定性不足而失败（成功率为 %s）",
-  "ritual.affinity.feedback.out_of_flux": "仪式已中断 - 以太通量不足",
+  "ritual.affinity.feedback.out_of_flux": "仪式已中断：以太通量不足",
   "ritual.affinity.feedback.locked": "该装置已被其他仪式占用",
-  "ritual.affinity.feedback.apparatus_incomplete": "装置不完整 - 还需要 %s 个生魂融合装置方块",
-  "ritual.affinity.feedback.no_sacrifice": "没有可献祭的生物 - 请在装置中心放置一个生物",
+  "ritual.affinity.feedback.apparatus_incomplete": "装置不完整！还需要 %s 个生魂融合装置方块",
+  "ritual.affinity.feedback.no_sacrifice": "没有可献祭的生物！请在装置中心放置一个生物",
   "ritual.affinity.feedback.aspen.summary": "当前状态：\n  核心物品：%s\n  基座物品（%s）：%s\n  以太通量：%s/%s",
   "ritual.affinity.feedback.spirit.summary": "当前状态：\n  核心物品（%s）：%s\n  基座物品（%s）：%s\n  献祭生物：%s 位于 %s\n  各装置通量：%s",
   "ritual.affinity.feedback.closest_recipe": "最接近的配方：%s - 缺少：%s",

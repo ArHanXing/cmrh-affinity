@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Item Transfer Node",
+  "title": "物品运输节点",
   "icon": "affinity:item_transfer_node",
   "category": "affinity:magical_artifacts",
   "required_advancements": [
@@ -12,47 +12,23 @@
 }
 ```
 
-Suspending a number of items in midair using the [Wise Wisps'](^affinity:wisps) matter works out to be an excellent
-methodology of {c}item transport{}. The {i}Item Transfer Nodes{} implement it, capable of sending and receiving items
-up to 15 blocks away (this range may be visualized using the [Staff of Inquiry](^affinity:inquiry)).
+使用[博识生魂](^affinity:wisps)的物质将一些物品悬浮在半空中，是{c}物品运输{}的绝佳方法。{i}物品运输节点{}实现了这一功能，能够发送和接收15个方块以外的物品（可使用[查询法杖](^affinity:inquiry)将这一范围可视化）。
 
 
-To set up simple transport between containers, {c}place{}
+要在容器之间建立简单的传输，{c}在每个容器上放置一个节点{}（观察容器各面的传输特性），{c}使用[彩虹法杖](^affinity:wand_of_iridescence)将它们连接起来{}。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/item_transfer_node>
-
-{c}one node on each container{} (observing the container's respective sided transfer characteristics) and {c}link them{}
-using...
-
+现在，每个节点都可以通过{c}潜行交互{}配置为{c}传输物品的状态{}。这里必须注意的是，{c}传输中{}的节点只能向{c}闲置{}的节点传输，而不能向其他{c}传输中{}的节点传输。
 
 @next-page
 
-...a [Wand of Iridescence](^affinity:wand_of_iridescence).
 
 
-Now, each node can be configured to {c}send items{} by {c}sneak-interacting{}. Here, it must be noted that {c}sending{}
-nodes only send to {c}idle{} nodes, but not other {c}sending{} ones. 
+每次传输的{c}物品数量{}可以通过{c}在潜行时瞄准节点滚动滚轮{}来改变。
 
 
-The {c}amount of items{} to send at a time may be changed by {c}scrolling while sneaking and targeting the node{}.
+此外，每个节点都可以配置为只接受（或拒绝）一种物品。为此，{c}与节点交互{}以打开其界面，在界面中，可通过{c}点击节点预览{}，使用所需过滤的物品来设置过滤器。
 
-
-Further, each node may be configured to only accept (or
-
-;;;;;
-
-refuse) one kind of item. To do this, {c}interact{} with the node to open its interface, inside which the filter can be
-set by {c}clicking on the node preview{} using the desired filter item.
-
-
-For when more general filtering is required, a node may also be configured to accept {c}all items in an item tag{}. To
-specify a tag for filtering, {c}rename the filter{}
-
-
-@next-page
-
-{c}item{} in an anvil to state the tag ID with a {c}#{} prepended - like so:
-
-<|item-spotlight@lavender:book_components|item=minecraft:oak_planks[minecraft:custom_name='"#minecraft:planks"']|>
+@entry-end

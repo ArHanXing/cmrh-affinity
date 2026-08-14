@@ -1,15 +1,15 @@
 ```json
 {
-  "title": "Basics",
+  "title": "基础",
   "icon": "affinity:azalea_log",
   "ordinal": 1
 }
 ```
 
-The most essential concepts, the first tools and the basic practices - that is what you will find in these pages.
+最基础的概念、初级的工具和基本的实践——这就是你将在这些页面中找到的内容。
 
 
-Of critical importance are:
-- [Assembly Augment](^affinity:assembly_augment)
-- [Anthracite Extraction](^affinity:anthracite_extraction)
-- [Aethum](^affinity:aethum)
+至关重要的有：
+- [强化组件](^affinity:assembly_augment)
+- [无烟煤提取](^affinity:anthracite_extraction)
+- [生灵](^affinity:aethum)

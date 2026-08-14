@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Ranthracite",
+  "title": "无烟煤粉",
   "icon": "affinity:ranthracite_dust",
   "category": "affinity:magical_artifacts",
   "required_advancements": [
@@ -12,18 +12,14 @@
 }
 ```
 
-{i}Ranthracite Wire{}, created by placing {i}Ranthracite Dust{}, is shown to be an excellent conductor of {c}Redstone
-signals{}. Yet, being an infusion of [Anthracite Powder](^affinity:anthracite_extraction) and {i}Redstone Dust{}, it
-shows two most strange properties:
+通过放置{i}无烟煤粉{}而形成的{i}无烟煤线{}，被证明是{c}红石信号{}的极佳导体。然而，作为[无烟煤粉末](^affinity:anthracite_extraction)和{i}红石粉{}的结合体，其表现出两种最为奇怪的属性：
 
-- Unlike the {i}Redstone Wire{} in its ancestry, {i}Ranthracite Wire{} {c}runs along the bottom of blocks{} instead of
-  the top
+- 与{i}红石线{}不同的是，{i}无烟煤线{}{c}沿着方块的底部{}而不是顶部。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/ranthracite_dust>
 
-- Presumably a side effect of {i}Anthracite's{} excellent [Aethum](^affinity:aethum)-conductivity, {i}Ranthracite Wire{}
-  perfectly preserves signal strength over indefinite distances
+- 可能是由于{i}无烟煤{}出色的亲[生灵](^affinity:aethum)性带来的影响，{i}无烟煤线{}在无限远的距离上都能完美地保持信号强度。
 
 

@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Affine Candle",
+  "title": "灵犀蜡烛",
   "icon": "affinity:affine_candle",
   "category": "affinity:advanced_machinery",
   "required_advancements": [
@@ -12,19 +12,14 @@
 }
 ```
 
-Either in the aftermath of a terrible accident, or simply on a quest to improve on the existing, you look for a way
-to {concept}increase the Aethum present in a certain place{}.
+无论是在一场可怕的事故之后，还是仅仅为了在现有的基础上进行改进，你都在寻找一种方法来{concept}增加某个地方存在的生灵{}。
 
 
-You find the answer to this in the {item}Affine Candle{}. Remarkably simple in construction, it disperses any 
-[Aethum Flux](^affinity:aethum_flux) in its buffer into its surroundings. This way, it slowly but surely 
+你可以在{item}灵犀蜡烛{}中找到答案。它的构造非常简单，能将缓冲器中的[生灵通量](^affinity:aethum_flux)分散到周围的环境中去。
+这样，它就能缓慢而稳定地{concept}补充其区域内的生灵{}。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/affine_candle>
 
-{concept}replenishes the Aethum in its area{}.
-
-
-To maintain a constant level of Aethum in a region, the [Aethum Probe](^affinity:aethum_probe) should prove a useful
-governing device
+要在一个区域内维持恒定的生灵水平，[生灵检测器](^affinity:aethum_probe)被证明是一个有用的调节装置。

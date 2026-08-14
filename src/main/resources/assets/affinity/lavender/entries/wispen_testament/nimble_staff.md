@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Nimble Staff",
+  "title": "灵活权杖",
   "icon": "affinity:nimble_staff",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,34 +12,24 @@
 }
 ```
 
-True to its name, the {item}Nimble Staff{} considerably enhances its user's agility.
+正如它的名字一样，{item}灵活权杖{}大大增强了使用者的灵活性。
 
 
-When sufficiently close to a wall or other suitable anchor point (as indicated by the {concept}arrows pointing towards
-your crosshair{}), using the staff will impart a sudden burst of momentum - sending you hurtling towards the targeted
-location.
+当足够接近墙壁或其他合适的固定点时（{concept}会有箭头指向你的准星{}），届时使用权杖会突然产生一股爆发力，将你送到目标地点。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/nimble_staff>
 
 @staff-pedestal
-When powered through a [Staff Pedestal](^affinity:staff_pedestal) though, ...
-
+当绑定到[权杖基座](^affinity:staff_pedestal)上时，{item}灵活权杖{}的作用更类似于风扇。
 
 @next-page
 
-...the {item}Nimble Staff{} acts much more akin to a fan. All entities in its area-of-effect will be propelled, with
-considerable force, into one of the four cardinal directions - selected by {concept}sneak-scrolling{} while looking
-at the {item}Staff Pedestal{} in use.
 
 
-To tune this direction with more fidelity (and unlock the vertical axis), deposit a {item}bound Echo Shard{} into a
-container at the pedestal's base. To bind an {item}Echo Shard{}, simply sneak-use it on a
+在其作用范围内的所有实体都会被相当大的力推向四个主要方向之一——在对准{item}权杖基座{}时，可以通过{concept}潜行并滚动滚轮{}来选择方向。
 
-;;;;;
-
-block to remember its location. Thus configured, the {item}Nimble Staff{} will instead direct entities towards the
-{item}Echo Shard{}'s bound location.
+要更精准地调整这个方向（并解锁垂直方向），请将{item}绑定过的回响碎片{}放入基座底部的容器中。要绑定{item}回响碎片{}，只需将其作用于方块上，即可记住其位置。这样，{item}灵活权杖{}就会引导实体前往{item}回响碎片{}的绑定位置。
 
 @entry-end

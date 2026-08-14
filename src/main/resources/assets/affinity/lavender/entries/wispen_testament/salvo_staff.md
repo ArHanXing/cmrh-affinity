@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Salvo Staff",
+  "title": "齐射权杖",
   "icon": "affinity:salvo_staff",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,26 +12,22 @@
 }
 ```
 
-As is to be expected given that [Aethum](^affinity:aethum) is, at its core, no more than yet another expression of
-energy, it can be concentrated to form the rather lethal {concept}Aethum Missiles{}. These homing projectiles, when colliding
-with their target, directly attack its {concept}Aethum{} and deal damage which {concept}bypasses armor, enchantments{}
-and the {concept}short-term invulnerability{} awarded after a hit.
+由于[生灵](^affinity:aethum)的核心不过是能量的另一种表现形式，因此可以通过浓缩以形成相当致命的{concept}生灵飞弹{}。这些飞弹在与目标碰撞时，会直接攻击目标的{concept}生灵{}，并造成{concept}绕过护甲、魔法{}和{concept}命中后获得的短期无敌{}的伤害。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/salvo_staff>
 
-Unsurprisingly, the {item}Salvo Staff{} is used to conjure them in quick salvos of 3, using its innate
-{item}Quick Charge III{} enchantment.
+不出所料，{item}齐射权杖{}会利用自带{item}快速装填III{}附魔，以3连发的方式快速装填。
 
 
 @next-page
 
-To attack with it, aim at the desired target, {concept}begin using the staff{} to lock in the target and keep holding
-the use key for as long as you want it to keep firing.
 
 
-Note that the delay between salvos {concept}cannot be skipped{} by stopping and restarting the use cycle - in fact, this
-incurs a longer delay.
+使用它进行攻击时，瞄准目标，{concept}使用权杖{}锁定目标，并一直按住使用键，直到你想让它停止发射为止。
+
+
+请注意，不能通过停止并重新使用的循环来跳过{concept}飞弹之间的冷却{}——事实上，这会导致更长的冷却。
 
 @entry-end

@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Scintillant Anthracite Blend",
+  "title": "闪烁的无烟煤混合物",
   "icon": "affinity:scintillant_anthracite_blend",
   "category": "affinity:magical_artifacts",
   "required_advancements": [
@@ -12,17 +12,15 @@
 }
 ```
 
-As it happens, the innate [Aethum](^affinity:aethum)-conduction properties of
-[Anthracite Powder](^affinity:anthracite_extraction) can be further improved upon by [infusing](^affinity:aspen_infusion)
-it with some {item}Glowstone Dust{}.
+
+碰巧的是，[无烟煤粉](^affinity:anthracite_extraction)自带的亲[生灵](^affinity:aethum)性可以通过[灌注](^affinity:aspen_infusion)到一些{item}荧石粉{}中进一步改善。
 
 
-The thus-formed {item}Scintillant Anthracite Blend{} combines the most desirable qualities of both its constituent
-materials and serves as an important ingredient in a significant
+这样形成的{item}闪烁的无烟煤混合物{}结合了两种组成材料最理想的品质，可作为绝大多数配方的重要原料。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/scintillant_anthracite_blend>
 
-majority of other recipes. For instances where an even more refined composite material is needed, it may be further
-developed into [Crystalline Wisp Matter Composite](^affinity:crystalline_wisp_matter_composite).
+如果需要更精细的复合材料，可以将其进一步合成[生魂物质晶体复合材料](^affinity:crystalline_wisp_matter_composite)
+

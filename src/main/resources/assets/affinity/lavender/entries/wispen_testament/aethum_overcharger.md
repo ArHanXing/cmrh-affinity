@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Aethum Overcharger",
+  "title": "生灵图腾",
   "icon": "affinity:aethum_overcharger",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,12 +12,10 @@
 }
 ```
 
-It appears a rather logical idea to try infusing the {item}Totem of Undying{} with some [Aethum Flux](^affinity:aethum_flux), seeing
-how they both deal with the very essence of life and death.
+往{item}不死图腾{}中灌注一些[生灵通量](^affinity:aethum_flux)似乎是一个相当合理的想法，因为它们都涉及生与死的精髓。
 
 
-Indeed, combined with some other common (and less common) items of magical merit and a human sacrifice, the 
-{item}Aethum Overcharger{} provides an interesting effect.
+事实上，{item}生灵图腾{}与其他一些常见（或不太常见）的魔法物品和人类献祭者相结合，会产生有趣的效果。
 
 ;;;;;
 
@@ -25,11 +23,11 @@ Indeed, combined with some other common (and less common) items of magical merit
 
 @next-page
 
-When equipped during an otherwise fatal event, it will activate and {concept}temporarily bring the user back from the
-brink of death{} in a somewhat incorporeal manner.
 
 
-To be precise, the user will be {concept}completely invulnerable for 15 seconds{} and have their {c}Aethum capacity{}
-raised to {c}300%{}. After this time passes, however, death will catch up and the user's timely demise is inevitable.
+在致命事件中装备它，将激活并{concept}暂时把使用者从死亡边缘{}拉回来，以一种无形的方式。
+
+
+准确来说，使用者将在15秒内{concept}完全无敌{}，{c}生灵容量{}将提升至{c}300%{}。然而，这段15秒过后，死亡就会袭来，使用者的死亡将不可避免。
 
 @entry-end

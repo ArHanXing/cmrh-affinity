@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Aethum",
+  "title": "生灵",
   "icon_sprite": "affinity:aethum_flux_icon",
   "category": "affinity:basics",
   "required_advancements": [
@@ -13,60 +13,46 @@
 }
 ```
 
-The study of {concept}Aethum{}, the energy emanating from and necessary for all manifestations of life, began many
-lifetimes ago and continues to this day.
 
 
-Initially thought to be a mere, inert byproduct of existence, it was soon discovered that by twisting and bending these
-very fundamental forces, greatness (along with great evil) could
+对{concept}生灵{}这种从生命体的所有表现形式中散发出来，并为其提供所必须养料的能量的研究，开始于许多代以前，并一直持续到今天。
+生灵最初被认为是生命体为了生存而造就的的纯粹而又惰性的副产品，但是人们很快就发现，通过打磨和扭曲这些非常基本的力量，可以成就伟业（亦可造孽作恶）。
 
 ;;;;;
 
-be accomplished. 
-
----
-
-Naturally, you (the reader) do indeed also posses an amount of {concept}Aethum{} - tightly coupled to your life. Like
-with any other being, if it goes {concept}too low{}, you will {concept}swiftly wither{}. 
 
 
-This balance (indicated to the right of your crosshair while not at full strength), is {concept}key to the 
-functionality...{}
-
+当然，你（读者）确实也拥有大量的{concept}生灵{}——与你的生命紧密相连。就像其他生物一样，如果你的生灵{concept}过于匮乏{}，面临你的将是{concept}迅速凋零{}。 
+这种平衡（在未达到最大值时将显示在准星的右侧），是{concept}大多数魔法装备的关键{}。
 
 @next-page
 
-{concept}...of most magical equipment{}. In fact, using such a tool will impact your balance - after which {concept}it 
-needs some time to recover{}, to prevent a painful death as outlined previously.
 
 
-All such items (like the numerous [Staffs](^affinity:staffs)), have their usage costs {concept}outlined in their tooltip{}.
+事实上，使用这样的工具会影响你的平衡——之后{concept}它需要一些时间来恢复{}，以防止你如前文所述的那样痛苦地死去。
+所有这些物品（如众多的[权杖](^affinity:staffs)），会将它们的耗灵值{concept}在其提示框中标记出来{}。
 
 ---
 
-Now, since the world itself is of course filled with thriving wildlife, there is a
+现在，由于这个世界拥有繁荣的野生动植物，因此{concept}环境中的生灵{}不容小觑，其因区域而定。
 
 ;;;;;
 
-non-negligible amount of {concept}Environmental Aethum{} which varies from area to area. This level is of vital
-importance for [rituals](^affinity:conducting_rituals) and a range of other processes.
 
-To study the strength of {concept}Environmental Aethum{} at a given place, the {item}Aethum Map{} (enveloped with 
-[Anthracite](^affinity:anthracite_extraction), a material strongly receptive to changes in {concept}Aethum{} density)
-should be used.
+
+它的强度对于[仪式](^affinity:conducting_rituals)和其他一系列的加工至关重要。
+为了研究{concept}环境中的生灵{}在给定位置的强度，应使用{item}生灵地图{}（包裹有[无烟煤](^affinity:anthracite_extraction)，一种对于{concept}生灵{}密度变化有强烈反应的材料）。
 
 
 @next-page
 
 <recipe;affinity:assembly/aethum_map_prototype>
 
-The prototype thus constructed can be turned into a fully-fledged map at any time.
-
-
-On said map, bright areas indicate a {concept}strong presence of Environmental Aethum{} and vice-versa for darker ones.
+这样构建的原型可以随时变成一张完整的地图。
+在上述地图上，明亮的区域表示{concept}环境中的生灵存在强烈的地方{}，反之亦然。
 
 ;;;;;
 
 ![](affinity:textures/gui/wispen_testament/aethum_map.png,fit)
 
-On the above map, both the strongest and weakest naturally occurring levels can be seen.
+在上面的地图中，可以在表现的强度中看出最强和最弱的。

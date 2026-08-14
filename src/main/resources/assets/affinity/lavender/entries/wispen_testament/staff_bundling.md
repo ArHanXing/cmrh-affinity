@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Staff Bundling",
+  "title": "权杖捆绑",
   "icon": "affinity:nimble_staff{bundled_staffs:[{id:\"affinity:kinesis_staff\", Count: 1b}, {id:\"affinity:cultivation_staff\", Count: 1b}, {id:\"affinity:collection_staff\", Count: 1b}]}",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -9,15 +9,13 @@
 }
 ```
 
-After constructing a number of {concept}Staffs{}, incurring a light headache due to inventory management issues is not an
-uncommon occurrence.
+在合成了许多{concept}权杖{}之后，因背包管理问题而头疼的情况并不少见。
 
 
-Most conveniently, however, {concept}all Staffs can be trivially bundled{} together (taking up only a single inventory
-slot) by simply {concept}right-clicking{} them onto each other.
+不过，很方便的是，只需在{concept}背包中拿着权杖右键点击另一个权杖{}，就能将它们捆绑在一起（只占用一个背包槽）。
 
 
-The resulting {item}Staff Bundle{}
+由此便可合成{item}权杖束{}。
 
 ;;;;;
 
@@ -49,16 +47,12 @@ The resulting {item}Staff Bundle{}
 </stack-layout>
 ```
 
-functions exactly as its central staff does for all intents and purposes. This central staff {concept}can be exchanged
-at any time{}...
-
+其功能与中央权杖的功能完全相同。{concept}可以在任何时候{}通过手持权杖束的同时按下<keybind;key.affinity.select_staff_from_bundle>键来{concept}交换中央权杖{}。
 
 @next-page
 
-...by pressing <keybind;key.affinity.select_staff_from_bundle> while holding the bundle.
 
 
-Further, all contained staffs {concept}can be separated from the bundle{} one at a time by simply
-{concept}right-clicking{} it in the inventory.
+此外，所有权杖都可以通过在背包中{concept}右键点击{}权杖束{concept}逐个从捆绑中分离出来{}。
 
 @entry-end

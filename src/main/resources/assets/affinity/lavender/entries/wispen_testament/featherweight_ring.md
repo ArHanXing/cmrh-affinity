@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Featherweight Ring",
+  "title": "轻盈戒指",
   "icon": "affinity:featherweight_ring",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,17 +12,13 @@
 }
 ```
 
-Combining the effects of a {item}Potion of Slow Falling{} and the spirit of a chicken as provided by the {item}Feathers{},
-the {item}Featherweight Ring{} effectively reduces the effects of gravity on the wearer, {concept}granting 3 extra blocks
-of fall resistance{}.
+结合了{item}缓降药水{}效果和鸡提供的{item}羽毛{}的灵魂，{item}轻盈戒指{}有效地减少了重力对佩戴者的影响，并{concept}给予额外3个方块的抗摔落能力{}。
 
 
-This means that, unlike the average being, the wearer will start to [{concept}get hurt{}](https://en.wikipedia.org/wiki/Get_Hurt)
-{concept} after 6 blocks over the usual 3{}.
+这意味着，与普通人不同，佩戴者在{concept}摔落6个方块以上{}才会[{concept}受到伤害{}](https://en.wikipedia.org/wiki/Get_Hurt)，而不是{concept}通常情况下的3个方块{}。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/featherweight_ring>
 
-Do note, however, that the same airy properties which increase fall resistance also {concept}increase knockback
-susceptibility{}, having the wearer get flung noticeably farther than usual.
+但请注意，增加摔落抗性属性的同时也会{concept}减弱击退抗性{}，佩戴者会被击退得明显比平时更远。

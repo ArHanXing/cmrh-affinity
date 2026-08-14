@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Azalea Bow",
+  "title": "杜鹃木弓",
   "icon": "affinity:azalea_bow",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,16 +12,12 @@
 }
 ```
 
-The high stiffness of {i}Azalea Wood{} combined with its outstanding flexural strength make it seem the perfect material
-for fashioning into a bow. Indeed, the {i}Azalea Bow{} proves a worthy weapon.
+{i}杜鹃木{}的高硬度和出色的抗弯压强度使其成为制作弓的完美材料。的确，{i}杜鹃木弓{}被证明是一件值得拥有的武器。
 
 
-Drawn much {c}more quickly{} and releasing its projectiles with {c}higher velocity{}, it provides a significant step-up
-from a regular bow. Further, by means of the {i}Infinity{}
+它的拉弓速度{c}更快{}，释放箭矢的速度{c}更快{}，与普通弓相比，其性能大大提升。此外，由于{i}无限{}附魔的作用，{c}使用{i}杜鹃木弓{}{}无需任何箭矢。当然，这也会带来[生灵](^affinity:aethum)消耗，由使用者提供。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/azalea_bow>
 
-enchantment involved in its construction, {c}no arrows are required{} to use the {i}Azalea Bow{}. Naturally, this brings
-with it an [Aethum](^affinity:aethum) cost for every short fired, to be provided by the archer.

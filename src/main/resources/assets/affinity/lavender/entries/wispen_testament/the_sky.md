@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "The Sky",
+  "title": "天空方块",
   "icon": "affinity:the_sky",
   "category": "affinity:magical_artifacts",
   "required_advancements": [
@@ -12,8 +12,7 @@
 }
 ```
 
-Peculiar as though this may be, embellishing some mundane {item}Glass{} with a small quantity of 
-[Inert Wisp Matter](^affinity:wisps) allows {concept}seeing through to the sky behind it{} - no matter where it is placed.
+尽管这可能很奇特，但用少量的[惰性生魂物质](^affinity:wisps)点缀到一些平凡的{item}玻璃{}上，就能让人{concept}透视其背后的天空{}——无论它被放在哪里。
 
 <recipe;affinity:assembly/the_sky>
 
@@ -21,4 +20,4 @@ Peculiar as though this may be, embellishing some mundane {item}Glass{} with a s
 
 ![](affinity:textures/gui/wispen_testament/the_sky.png,fit)
 
-*{gray}Some {item}The Sky{} peering through the ground of a floating island{}*
+*{gray}一些{item}天空方块{}便可将大地变为空岛{}*

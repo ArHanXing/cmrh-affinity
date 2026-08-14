@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Affine Infuser",
+  "title": "灵犀注入器",
   "icon": "affinity:affine_infuser",
   "category": "affinity:advanced_machinery",
   "required_advancements": [
@@ -14,33 +14,27 @@
 }
 ```
 
-While repairing tools and equipment using the {item}Mending{} enchantment is all well-and-good, the
-{item}Affine Infuser{} paired with the complementary {item}Affine{} enchantment offers a formidable alternative.
+使用{item}经验修补{}附魔来修理工具和装备固然不错，但{item}灵犀注入器{}与{item}灵犀{}附魔搭配使用，则提供了另一种强大的选择。
 
 
-Supplied with sufficient [Aethum Flux](^affinity:aethum_flux), the {item}Affine Infuser{} will slowly repair all items
-enchanted with {item}Affine{} which are either equipped or 
+只要注入足够的[生灵通量](^affinity:aethum_flux)，{item}灵犀注入器{}就会缓慢修复玩家装备或持有、显示在物品框中或掉落在地上的所有附有{item}灵犀{}的物品。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/affine_infuser>
 
-held by a player, displayed in an item frame or dropped on the ground. The range in which it can operate...
+使用[探究之杖](^affinity:inquiry)可以很容易地直观了解它的作用范围。
 
 
 @next-page
-
-is readily visualized using the [Wand of Inquiry](^affinity:inquiry).
 
 <recipe;affinity:aspen_infusion/affine_enchantment>
 
 ---
 
-Now, additionally to restoring item durability the {item}Affine Infuser{} is also capable of restoring the Aethum of
+现在，{item}灵犀注入器{}除了能恢复物品的耐久性，还能恢复因饮用一杯{item}灵犀茶{}而获得{concept}灵犀效果{}的实体的生灵。
 
 ;;;;;
-
-entities which have been made {concept}Affine{} by virtue of consuming a cup of {item}Affinitea{}.
 
 <recipe;affinity:aspen_infusion/affinitea>
 

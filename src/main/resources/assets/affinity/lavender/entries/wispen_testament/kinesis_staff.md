@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Kinesis Staff",
+  "title": "能量权杖",
   "icon": "affinity:kinesis_staff",
   "category": "affinity:equipment",
   "required_advancements": [
@@ -12,25 +12,18 @@
 }
 ```
 
-The {item}Kinesis Staff{}, originally conceived as a tool for handling precarious materials, employs counter-resonant
-gravity waves to allow {concept}effortlessly lifting entities of any size{}.
+{item}能量权杖{}最初被设想为处理不稳定材料的工具，它利用反谐振引力波，可以{concept}轻松地提起任何大小的物体{}。
 
 
-Additionally, by exploiting the qualities of its incorporated {item}Punch II{} enchantment, the current entity being
-carried with the {item}Kinesis Staff{} can be thrown
+此外，利用{item}能量权杖{}的{item}冲击II{}的附魔属性，{concept}使用权杖地同时进行攻击{}，可以将当前携带的实体向前抛出相当远的距离。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/kinesis_staff>
 
-forward a considerable distance by {concept}attacking with the staff{}.
-
-
 @next-page
 
 @staff-pedestal
-Mounted on a [Staff Pedestal](^affinity:staff_pedestal), the effects of the {item}Kinesis Staff{} unfold in a somehow
-opposite manner. Instead of accelerating entities as requested by the wielder, they get slowed down significantly - 
-almost to a complete standstill.
+安装在[权杖基座](^affinity:staff_pedestal)上后，{item}能量权杖{}的效果会以某种相反的方式展开。实体不但没有按照施法者的要求加速，反而明显地减速了——几乎完全停滞。
 
 @entry-end

@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "The Spirit Assimilation",
+  "title": "灵魂融合",
   "icon": "affinity:spirit_integration_apparatus",
   "category": "affinity:conducting_rituals",
   "required_advancements": [
@@ -12,58 +12,50 @@
 }
 ```
 
-Reinforced by a {concept}Netherite Ingot{} and empowered with [Vicious Wisp Matter](^affinity:wisps#7), the {item}Spirit
-Integration Apparatus{} (or more accurately, four of them) is the key to performing a {concept}Spirit Assimilation{}
-ritual.
+在{concept}下界合金锭{}的强化和[凶恶的生魂物质](^affinity:wisps#7)的加持下，{item}魂灵融合器{}（或者更准确地说，是其中的四个）是进行{concept}灵魂融合{}仪式的关键。
 
 
-This significantly more sophisticated process fundamentally behaves similarly to the
-[Aspen Infusion](^affinity:aspen_infusion) - it infuses a
+这个复杂得多的过程本质上与[杜鹃灌注](^affinity:aspen_infusion)类似——它通过[仪式基座](^affinity:socle_composition)提供的原料，灌注到精选的主原料。
 
 ;;;;;
 
 <recipe;affinity:aspen_infusion/spirit_integration_apparatus>
 
-selection of prime ingredients with the supplemental inputs
-provided through a number of [Ritual Socles](^affinity:socle_composition).
-
 
 @next-page
 
-In contrast to the [Aspen Infusion](^affinity:aspen_infusion) however (and as hinted by its name and the inclusion of
-[Vicious Wisp Matter](^affinity:wisps#7)), the {concept}Spirit Assimilation{} further incorporates some or all features
-of a {concept}sacrifice's soul{} - enabling the fabrication of far more powerful magical artifacts.
-
-Needless to say, the sacrificial being {concept}does not survive{} this procedure.
 
 
-To prepare a {concept}Spirit Assimilation{} setup, 4 {item}Spirit{}
+与[杜鹃灌注](^affinity:aspen_infusion)不同的是，{concept}灵魂融合{}进一步融入了{concept}献祭者的灵魂{}的部分或全部特征——因此能够制造出更为强大的魔法器物。
+
+
+不必说，献祭者在这一过程中是{concept}无法存活{}的。
 
 ;;;;;
 
-{item}Integration Apparatus{} must be arranged as follows:
+
+
+要准备一个{concept}灵魂融合{}装置，必须按如下方式摆放4个{item}灵魂融合装置{}：
 
 <structure-visualizer;affinity:spirit_integration_apparatus>
 
 @next-page
 
-Then, [Ritual Socles](^affinity:socle_composition) shall be arranged around the now-formed ritual core, closely
-observing the [familiar rules](^affinity:aspen_infusion#3).
+
+
+然后，应围绕已形成的仪式核心放置[仪式基座](^affinity:socle_composition)，并严格遵守[熟悉的规则](^affinity:aspen_infusion#3)。
 
 ---
 
-Now, to perform a ritual, its prime and supplemental ingredients shall be {concept}placed onto the core and socles{}
-according to the recipe in question - just like it is done for the [Aspen Infusion](^affinity:aspen_infusion).
-The sacrificial being, itself outlined in the recipe, must then be {concept}lured into{} the
+现在，要进行这个仪式，其主要材料和辅助材料必须根据相关配方{concept}放置在核心和基座{}上——就像[杜鹃灌注](^affinity:aspen_infusion)的做法一样。 
+
+
+再然后，必须将配方中列出的献祭者{concept}引诱至{item}灵魂融合装置{}{}之间的空隙中（或许还需要[能量法杖](^affinity:kinesis_staff)的一点帮助）。
 
 ;;;;;
 
-vacant space between the {item}Spirit Integration Apparatus{} (with a little help from a
-[Kinesis Staff](^affinity:kinesis_staff), perchance).
 
 
-With these preparations complete (and the necessary [Aethum Flux](^affinity:aethum_flux) available, spread evenly between
-each {item}Spirit Integration Apparatus{}) the procedure is initiated using the same means as the
-[Aspen Infusion](^affinity:aspen_infusion#7).
+这些准备工作（所需的[生灵通量](^affinity:aethum_flux)已准备就绪，献祭者也已处在{item}灵魂融合装置{}之间）完成后，就可以使用与[杜鹃灌注](^affinity:aspen_infusion#7)相同的方法启动仪式了。
 
 @entry-end
