@@ -5,6 +5,7 @@ import io.wispforest.affinity.compat.rei.display.*;
 import io.wispforest.affinity.misc.screenhandler.AssemblyAugmentScreenHandler;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.DisplaySerializerRegistry;
+import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.entry.type.EntryType;
 import me.shedaniel.rei.api.common.entry.type.EntryTypeRegistry;
 import me.shedaniel.rei.api.common.plugins.REIServerPlugin;
@@ -12,8 +13,11 @@ import me.shedaniel.rei.api.common.transfer.info.MenuInfoContext;
 import me.shedaniel.rei.api.common.transfer.info.MenuInfoRegistry;
 import me.shedaniel.rei.api.common.transfer.info.simple.RecipeBookGridMenuInfo;
 import me.shedaniel.rei.api.common.transfer.info.simple.SimpleMenuInfoProvider;
+import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.plugin.common.displays.crafting.DefaultCraftingDisplay;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.recipe.Ingredient;
 
 import java.util.stream.IntStream;
 
@@ -29,6 +33,24 @@ public class AffinityReiCommonPlugin implements REIServerPlugin {
     public static final CategoryIdentifier<SocleComposingDisplay> SOCLE_COMPOSING = CategoryIdentifier.of(Affinity.id("socle_composing"));
 
     public static final EntryType<StatusEffect> EFFECT_ENTRY_TYPE = EntryType.deferred(Affinity.id("status_effect"));
+
+    /**
+     * Converts an ingredient to a REI entry ingredient, pulling a representative
+     * stack from fabric custom ingredients - e.g. a potion with specific contents
+     * would otherwise show as the base item's default ("uncraftable") stack,
+     * hiding the actual required potion
+     */
+    public static EntryIngredient ofIngredient(Ingredient ingredient) {
+        if (ingredient.requiresTesting() && ingredient.getCustomIngredient() != null) {
+            for (var stack : ingredient.getCustomIngredient().getMatchingStacks()) {
+                if (stack.contains(DataComponentTypes.POTION_CONTENTS)) {
+                    return EntryIngredients.of(stack);
+                }
+            }
+        }
+
+        return EntryIngredients.ofIngredient(ingredient);
+    }
 
     @Override
     public void registerMenuInfo(MenuInfoRegistry registry) {

@@ -23,7 +23,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
+import net.minecraft.text.Texts;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -34,7 +36,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -69,7 +70,7 @@ public class SpiritIntegrationApparatusBlockEntity extends RitualCoreBlockEntity
     @Override
     protected boolean onRitualStart(RitualSetup setup, PlayerEntity player) {
         if (this.ritualLock.isHeld()) {
-            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.locked"));
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.locked").formatted(Formatting.AQUA));
             return false;
         }
 
@@ -83,13 +84,13 @@ public class SpiritIntegrationApparatusBlockEntity extends RitualCoreBlockEntity
             }
 
             this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.apparatus_incomplete",
-                    3 - mostCompleteSet.validApparatusCount(this.world)));
+                    3 - mostCompleteSet.validApparatusCount(this.world)).formatted(Formatting.AQUA));
             return false;
         }
 
         final var sacrifices = this.world.getNonSpectatingEntities(LivingEntity.class, new Box(this.ritualCenterPos().up()).expand(1));
         if (sacrifices.isEmpty()) {
-            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_sacrifice"));
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_sacrifice").formatted(Formatting.AQUA));
             return false;
         }
 
@@ -157,40 +158,50 @@ public class SpiritIntegrationApparatusBlockEntity extends RitualCoreBlockEntity
                 .collect(Collectors.joining(", "));
 
         this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.spirit.summary",
-                coreStacks.size(), formatStacks(coreStacks),
-                socleStacks.size(), formatStacks(socleStacks),
-                sacrifice.getType().getName(),
-                sacrifice.getBlockPos().toShortString(),
-                fluxValues));
+                Text.literal(String.valueOf(coreStacks.size())).formatted(Formatting.YELLOW),
+                Text.literal(formatStacks(coreStacks)).formatted(Formatting.YELLOW),
+                Text.literal(String.valueOf(socleStacks.size())).formatted(Formatting.YELLOW),
+                Text.literal(formatStacks(socleStacks)).formatted(Formatting.YELLOW),
+                sacrifice.getType().getName().copy().formatted(Formatting.YELLOW),
+                Text.literal(sacrifice.getBlockPos().toShortString()).formatted(Formatting.YELLOW),
+                Text.literal(fluxValues).formatted(Formatting.YELLOW)).formatted(Formatting.AQUA));
 
-        // find the recipe which is closest to the current setup and
-        // report exactly what it is missing
-        var closest = recipes.stream()
-                .max(Comparator.comparingInt(entry -> {
-                    var recipe = entry.value();
-                    int score = 0;
-                    if (recipe.doShapelessMatch(recipe.coreInputs, Arrays.asList(inventory.coreInputs()))) score++;
-                    if (recipe.doShapelessMatch(recipe.socleInputs, inventory.delegate())) score++;
-                    if (recipe.entityType == sacrifice.getType()) score++;
-                    return score;
-                })).orElse(null);
+        // rank every recipe by how much of its input the current setup already
+        // satisfies - partial matches are counted individually, so a recipe whose
+        // core/socle items are (almost) all present wins over one which merely
+        // has the right sacrifice entity or a single shared ingredient
+        var closest = recipes.get(0);
+        int bestScore = Integer.MIN_VALUE;
+        for (var entry : recipes) {
+            final var recipe = entry.value();
+            final var score = partialMatchScore(recipe.coreInputs, Arrays.asList(inventory.coreInputs())) * 4
+                    + partialMatchScore(recipe.socleInputs, inventory.delegate()) * 4
+                    + (recipe.entityType == sacrifice.getType() ? 1 : 0)
+                    - Math.abs(recipe.coreInputs.size() - coreStacks.size())
+                    - Math.abs(recipe.socleInputs.size() - socleStacks.size());
 
-        if (closest == null) return;
+            if (score > bestScore) {
+                bestScore = score;
+                closest = entry;
+            }
+        }
+
         final var recipe = closest.value();
 
-        final var missing = new ArrayList<String>();
+        final var missing = new ArrayList<Text>();
         if (!recipe.doShapelessMatch(recipe.coreInputs, Arrays.asList(inventory.coreInputs()))) {
-            missing.add(Text.translatable("ritual.affinity.feedback.missing.core_items", formatIngredients(recipe.coreInputs)).getString());
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.core_items", formatIngredients(recipe.coreInputs)).formatted(Formatting.YELLOW));
         }
         if (!recipe.doShapelessMatch(recipe.socleInputs, inventory.delegate())) {
-            missing.add(Text.translatable("ritual.affinity.feedback.missing.socle_items", formatIngredients(recipe.socleInputs)).getString());
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.socle_items", formatIngredients(recipe.socleInputs)).formatted(Formatting.YELLOW));
         }
         if (recipe.entityType != sacrifice.getType()) {
-            missing.add(Text.translatable("ritual.affinity.feedback.missing.entity", recipe.entityType.getName()).getString());
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.entity", recipe.entityType.getName()).formatted(Formatting.YELLOW));
         }
 
         this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.closest_recipe",
-                closest.id().toString(), String.join("; ", missing)));
+                Text.literal(closest.id().toString()).formatted(Formatting.LIGHT_PURPLE),
+                Texts.join(missing, Text.literal("; "))));
     }
 
     @Override

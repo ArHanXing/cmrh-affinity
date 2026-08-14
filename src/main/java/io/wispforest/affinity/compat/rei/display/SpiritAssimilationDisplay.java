@@ -18,8 +18,8 @@ public class SpiritAssimilationDisplay extends BasicDisplay {
 
     public SpiritAssimilationDisplay(RecipeEntry<SpiritAssimilationRecipe> recipeEntry) {
         super(Util.make(() -> {
-            var inputs = new ArrayList<>(recipeEntry.value().coreInputs.stream().map(EntryIngredients::ofIngredient).toList());
-            inputs.addAll(recipeEntry.value().getIngredients().stream().map(EntryIngredients::ofIngredient).toList());
+            var inputs = new ArrayList<>(recipeEntry.value().coreInputs.stream().map(AffinityReiCommonPlugin::ofIngredient).toList());
+            inputs.addAll(recipeEntry.value().getIngredients().stream().map(AffinityReiCommonPlugin::ofIngredient).toList());
             return inputs;
         }), List.of(EntryIngredients.of(recipeEntry.value().getResult(null))), Optional.of(recipeEntry.id()));
 

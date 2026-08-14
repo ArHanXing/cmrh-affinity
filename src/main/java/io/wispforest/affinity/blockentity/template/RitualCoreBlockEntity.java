@@ -120,7 +120,7 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
         var players = world.getNonSpectatingEntities(ServerPlayerEntity.class, new Box(this.pos).expand(7, 3, 7));
         for (var player : players) {
             AffinityCriteria.FAIL_RITUAL.trigger(player);
-            this.sendRitualMessage(player, reason);
+            this.sendRitualMessage(player, reason.copy().formatted(Formatting.RED));
         }
 
         return this.onRitualInterrupted();
@@ -134,7 +134,7 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
         if (this.world == null) return;
 
         final var text = Text.translatable("ritual.affinity.feedback.prefix")
-                .formatted(Formatting.GOLD)
+                .formatted(Formatting.LIGHT_PURPLE)
                 .copy()
                 .append(" ")
                 .append(message);
@@ -189,6 +189,32 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
                 .collect(Collectors.joining(", "));
     }
 
+    /**
+     * Counts how many of the given stacks can be matched against the given
+     * ingredients. Used to rank recipes by how much of their input the current
+     * ritual setup already satisfies - unlike a full shapeless match, partial
+     * matches are counted individually, so a recipe whose items are almost all
+     * present reliably wins over one which merely shares a sacrifice entity or
+     * a single ingredient.
+     */
+    protected static int partialMatchScore(List<Ingredient> expected, Collection<ItemStack> stacks) {
+        final var inputs = stacks.stream().filter(stack -> !stack.isEmpty()).toList();
+        final var matched = new boolean[inputs.size()];
+
+        int count = 0;
+        for (var ingredient : expected) {
+            if (ingredient.isEmpty()) continue;
+            for (int i = 0; i < inputs.size(); i++) {
+                if (!matched[i] && ingredient.test(inputs.get(i))) {
+                    matched[i] = true;
+                    count++;
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+
     @Override
     public ActionResult onUse(PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.isSneaking()) {
@@ -217,21 +243,21 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
         if (this.world.isClient()) return ActionResult.SUCCESS;
 
         if (this.ritualTick >= 0) {
-            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.ritual_in_progress"));
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.ritual_in_progress").formatted(Formatting.AQUA));
             return ActionResult.PASS;
         }
 
         if (this.item.isEmpty()) {
-            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_item"));
+            this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_item").formatted(Formatting.AQUA));
             return ActionResult.PASS;
         }
 
         var setup = examineSetup(this, false);
         if (setup.isEmpty()) {
             if (!examineSetup(this, true).isEmpty()) {
-                this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_socle_items"));
+                this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_socle_items").formatted(Formatting.AQUA));
             } else {
-                this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_socle"));
+                this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.no_socle").formatted(Formatting.AQUA));
             }
             return ActionResult.PASS;
         }
@@ -254,7 +280,8 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
 
         final var successChance = this.cachedSetup.stability / 100d;
         this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.ritual_started",
-                formatPercent(successChance), String.format("%.1f", this.cachedSetup.duration() / 20d)));
+                Text.literal(formatPercent(successChance)).formatted(Formatting.GREEN),
+                Text.literal(String.format("%.1f", this.cachedSetup.duration() / 20d)).formatted(Formatting.YELLOW)));
 
         if (successChance < this.world.random.nextDouble()) {
             this.ritualFailureTick = 20 + this.world.random.nextInt(this.cachedSetup.duration() - 20);
@@ -281,7 +308,8 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
         } else if (this.ritualTick == this.ritualFailureTick) {
             final var successChance = this.cachedSetup.stability / 100d;
             this.endRitual(() -> this.interruptRitual(Text.translatable(
-                    "ritual.affinity.feedback.stability_failure", formatPercent(successChance))), false);
+                    "ritual.affinity.feedback.stability_failure",
+                    Text.literal(formatPercent(successChance)).formatted(Formatting.YELLOW))), false);
         }
     }
 
@@ -420,7 +448,9 @@ public abstract class RitualCoreBlockEntity extends AethumNetworkMemberBlockEnti
                     return modulator.flux() >= 32000 && !modulator.ritualLock.isHeld();
                 }).toList();
 
-        stability = Math.min(100, stability + 5 * modulators.size());
+        // each active modulator adds 20 stability - its effect was quadrupled,
+        // making the Field Coherence Modulator a much more worthwhile investment
+        stability = Math.min(100, stability + 20 * modulators.size());
 
         if (world.getBlockState(pos.down()).isOf(AffinityBlocks.INVERSION_STONE)) {
             stability = 100 - stability;

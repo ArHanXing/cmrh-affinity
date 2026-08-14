@@ -24,6 +24,7 @@ import io.wispforest.affinity.recipe.ShapedAssemblyRecipe;
 import io.wispforest.affinity.recipe.ShapelessAssemblyRecipe;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -163,10 +164,16 @@ public class AffinityEmiPlugin implements EmiPlugin {
     }
 
     public static EmiIngredient veryCoolFeatureYouGotThereEmi(Ingredient ingredient) {
-        // TODO i hate this recipe viewer
-//        if (ingredient.getCustomIngredient() instanceof PotionIngredient) {
-//            return new ListEmiIngredient(ingredient.getCustomIngredient().getMatchingStacks().stream().map(EmiStack::of).toList(), 1);
-//        }
+        // fabric component ingredients (e.g. a potion with specific contents) would
+        // otherwise render as the base item's default stack, losing the actual
+        // requirement - pull a representative stack from the custom ingredient instead
+        if (ingredient.requiresTesting() && ingredient.getCustomIngredient() != null) {
+            for (var stack : ingredient.getCustomIngredient().getMatchingStacks()) {
+                if (stack.contains(DataComponentTypes.POTION_CONTENTS)) {
+                    return EmiStack.of(stack);
+                }
+            }
+        }
 
         return EmiIngredient.of(ingredient);
     }

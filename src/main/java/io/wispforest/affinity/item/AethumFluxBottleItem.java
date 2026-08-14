@@ -7,9 +7,13 @@ import io.wispforest.owo.ops.ItemOps;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 import java.util.Collection;
@@ -21,6 +25,13 @@ public class AethumFluxBottleItem extends Item implements DirectInteractionHandl
 
     public AethumFluxBottleItem() {
         super(AffinityItems.settings().maxCount(7));
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.aethum_flux_bottle.tooltip.desc",
+                Text.literal("1000").formatted(Formatting.YELLOW)));
+        tooltip.add(Text.translatable("item.affinity.aethum_flux_bottle.tooltip.azalea"));
     }
 
     @Override

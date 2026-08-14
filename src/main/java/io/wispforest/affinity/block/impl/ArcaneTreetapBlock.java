@@ -7,7 +7,10 @@ import io.wispforest.owo.particles.ClientParticles;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.DustColorTransitionParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -30,6 +33,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Set;
 
 public class ArcaneTreetapBlock extends HorizontalFacingBlock {
@@ -58,6 +62,14 @@ public class ArcaneTreetapBlock extends HorizontalFacingBlock {
 
     public ArcaneTreetapBlock() {
         super(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).luminance(state -> 5));
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+        tooltip.add(Text.translatable("block.affinity.arcane_treetap.tooltip.desc"));
+        tooltip.add(Text.translatable("block.affinity.arcane_treetap.tooltip.requirements",
+                Text.literal("5").formatted(Formatting.YELLOW),
+                Text.literal("40").formatted(Formatting.YELLOW)));
     }
 
     @Override

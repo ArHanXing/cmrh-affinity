@@ -18,8 +18,8 @@ public class AspenInfusionDisplay extends BasicDisplay {
 
     public AspenInfusionDisplay(RecipeEntry<AspenInfusionRecipe> recipeEntry) {
         super(Util.make(() -> {
-            var inputs = new ArrayList<>(recipeEntry.value().getIngredients().stream().map(EntryIngredients::ofIngredient).toList());
-            inputs.add(0, EntryIngredients.ofIngredient(recipeEntry.value().primaryInput));
+            var inputs = new ArrayList<>(recipeEntry.value().getIngredients().stream().map(AffinityReiCommonPlugin::ofIngredient).toList());
+            inputs.add(0, AffinityReiCommonPlugin.ofIngredient(recipeEntry.value().primaryInput));
             return inputs;
         }), List.of(EntryIngredients.of(recipeEntry.value().getResult(null))), Optional.of(recipeEntry.id()));
 

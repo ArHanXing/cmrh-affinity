@@ -23,6 +23,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -30,6 +31,7 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -66,6 +68,14 @@ public class AssemblyAugmentBlock extends BlockWithEntity implements BlockItemPr
 
     public AssemblyAugmentBlock() {
         super(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).nonOpaque());
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+        tooltip.add(Text.translatable("block.affinity.assembly_augment.tooltip.desc"));
+        tooltip.add(Text.translatable("block.affinity.assembly_augment.tooltip.treetaps",
+                Text.literal("5").formatted(Formatting.YELLOW)));
+        tooltip.add(Text.translatable("block.affinity.assembly_augment.tooltip.carbon_copy"));
     }
 
     @Override

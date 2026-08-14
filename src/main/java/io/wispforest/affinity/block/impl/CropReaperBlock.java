@@ -12,6 +12,11 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
@@ -19,6 +24,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class CropReaperBlock extends AethumNetworkMemberBlock {
@@ -34,6 +40,15 @@ public class CropReaperBlock extends AethumNetworkMemberBlock {
 
     public CropReaperBlock() {
         super(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).nonOpaque(), GENERATOR_TOOLTIP);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+        super.appendTooltip(stack, context, tooltip, options);
+        tooltip.add(Text.translatable("block.affinity.crop_reaper.tooltip.desc",
+                Text.literal("30").formatted(Formatting.AQUA)));
+        tooltip.add(Text.translatable("block.affinity.crop_reaper.tooltip.flux",
+                Text.literal("75").formatted(Formatting.YELLOW)));
     }
 
     @Override

@@ -6,6 +6,10 @@ import io.wispforest.affinity.misc.quack.AffinityEntityAddon;
 import io.wispforest.affinity.object.AffinityItems;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
+
+import java.util.List;
 
 public class LavaliereOfSafeKeepingItem extends TrinketItem {
 
@@ -13,6 +17,12 @@ public class LavaliereOfSafeKeepingItem extends TrinketItem {
 
     public LavaliereOfSafeKeepingItem() {
         super(AffinityItems.settings().maxCount(1));
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.lavaliere_of_safe_keeping.tooltip.desc"));
+        tooltip.add(Text.translatable("item.affinity.lavaliere_of_safe_keeping.tooltip.aethum"));
     }
 
     @Override

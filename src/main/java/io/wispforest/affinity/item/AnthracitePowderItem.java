@@ -6,8 +6,12 @@ import io.wispforest.affinity.object.AffinityItems;
 import io.wispforest.owo.ops.ItemOps;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 import java.util.Collection;
@@ -17,6 +21,12 @@ public class AnthracitePowderItem extends Item implements DirectInteractionHandl
 
     public AnthracitePowderItem() {
         super(AffinityItems.settings());
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.anthracite_powder.tooltip.desc"));
+        tooltip.add(Text.translatable("item.affinity.anthracite_powder.tooltip.carbon_copy"));
     }
 
     @Override

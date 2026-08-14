@@ -6,7 +6,13 @@ import io.wispforest.affinity.Affinity;
 import io.wispforest.affinity.object.AffinityEntityAttributes;
 import io.wispforest.affinity.object.AffinityItems;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
+
+import java.util.List;
 
 public class AssassinsQuiverItem extends TrinketItem {
 
@@ -21,5 +27,11 @@ public class AssassinsQuiverItem extends TrinketItem {
                         )
                         .build()
         ));
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.assassins_quiver.tooltip.desc",
+                Text.literal("3").formatted(Formatting.YELLOW)));
     }
 }

@@ -12,11 +12,18 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ArborealAnnihilationApparatusBlock extends AethumNetworkMemberBlock {
 
@@ -24,6 +31,15 @@ public class ArborealAnnihilationApparatusBlock extends AethumNetworkMemberBlock
 
     public ArborealAnnihilationApparatusBlock() {
         super(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).solid().nonOpaque(), GENERATOR_TOOLTIP);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+        super.appendTooltip(stack, context, tooltip, options);
+        tooltip.add(Text.translatable("block.affinity.arboreal_annihilation_apparatus.tooltip.desc"));
+        tooltip.add(Text.translatable("block.affinity.arboreal_annihilation_apparatus.tooltip.flux",
+                Text.literal("10").formatted(Formatting.YELLOW)));
+        tooltip.add(Text.translatable("block.affinity.arboreal_annihilation_apparatus.tooltip.azalea"));
     }
 
     @Nullable

@@ -1146,5 +1146,133 @@
   "villagerType.minecraft.savanna": "Savanna",
   "villagerType.minecraft.snow": "Snow",
   "villagerType.minecraft.swamp": "Swamp",
-  "villagerType.minecraft.taiga": "Taiga"
+  "villagerType.minecraft.taiga": "Taiga",
+
+  "block.affinity.crop_reaper.tooltip.desc": [
+    {"text": "Harvests all mature crops within its range every ", "color": "gray"},
+    {"index": 0},
+    {"text": " seconds", "color": "gray"}
+  ],
+  "block.affinity.crop_reaper.tooltip.flux": [
+    {"text": "Each crop harvested yields ", "color": "gray"},
+    {"index": 0},
+    {"text": " aethum flux", "color": "gray"}
+  ],
+
+  "block.affinity.arboreal_annihilation_apparatus.tooltip.desc": [
+    {"text": "Annihilates logs and leaves in a ", "color": "gray"},
+    {"text": "7x3x7", "color": "aqua"},
+    {"text": " area, releasing them as emancipated blocks", "color": "gray"}
+  ],
+  "block.affinity.arboreal_annihilation_apparatus.tooltip.flux": [
+    {"text": "Each destroyed block yields ", "color": "gray"},
+    {"index": 0},
+    {"text": " aethum flux", "color": "gray"}
+  ],
+  "block.affinity.arboreal_annihilation_apparatus.tooltip.azalea": {"text": "Unflowers flowering azalea leaves", "color": "green"},
+
+  "block.affinity.affine_infuser.tooltip.desc": [
+    {"text": "Aids enchanted equipment within ", "color": "gray"},
+    {"index": 0},
+    {"text": " blocks", "color": "gray"}
+  ],
+  "block.affinity.affine_infuser.tooltip.repair": {"text": "Repairs equipment enchanted with Infusion Repair using aethum flux", "color": "gray"},
+  "block.affinity.affine_infuser.tooltip.affine": {"text": "Replenishes the aethum of players under the Affine effect", "color": "green"},
+
+  "block.affinity.arcane_treetap.tooltip.desc": {"text": "Taps the arcane sap of trees for the Assembly Augment", "color": "gray"},
+  "block.affinity.arcane_treetap.tooltip.requirements": [
+    {"text": "Properly attached when the tree has more than ", "color": "gray"},
+    {"index": 0},
+    {"text": " logs and ", "color": "gray"},
+    {"index": 1},
+    {"text": " leaves", "color": "gray"}
+  ],
+
+  "block.affinity.assembly_augment.tooltip.desc": {"text": "Place on top of a crafting table to auto-craft 3x3 recipes", "color": "gray"},
+  "block.affinity.assembly_augment.tooltip.treetaps": [
+    {"text": "Connected treetaps speed up crafting, up to ", "color": "gray"},
+    {"index": 0}
+  ],
+  "block.affinity.assembly_augment.tooltip.carbon_copy": {"text": "Use Anthracite Powder to save the current recipe as a Carbon Copy", "color": "aqua"},
+
+  "block.affinity.field_coherence_modulator.tooltip.stability": [
+    {"text": "Increases ritual stability by ", "color": "gray"},
+    {"index": 0},
+    {"text": " each", "color": "gray"}
+  ],
+  "block.affinity.field_coherence_modulator.tooltip.consumption": [
+    {"text": "Consumes ", "color": "gray"},
+    {"index": 0},
+    {"text": " aethum flux per ritual started", "color": "gray"}
+  ],
+
+  "block.affinity.aethum_probe.tooltip.desc": {"text": "Emits redstone while the local aethum concentration is above the threshold", "color": "gray"},
+  "block.affinity.aethum_probe.tooltip.threshold": [
+    {"text": "Insert amethyst crystals to lower the threshold by ", "color": "gray"},
+    {"index": 0},
+    {"text": " each", "color": "gray"}
+  ],
+
+  "block.affinity.graviton_transducer.tooltip.desc": {"text": "Transduces shulker bullets into aethum flux", "color": "gray"},
+  "block.affinity.graviton_transducer.tooltip.shard": {"text": "Requires an attuned amethyst shard, which wears away over time", "color": "red"},
+
+  "block.affinity.ritual_socle_composer.tooltip.desc": {"text": "Composes ritual socles from socle ornaments", "color": "gray"},
+  "block.affinity.ritual_socle_composer.tooltip.stepped_on": {"text": "Stepping on it will hurt", "color": "red"},
+
+  "block.affinity.spirit_integration_apparatus.tooltip.desc": {"text": "Core of the Spirit Assimilation ritual, the art of fusing souls", "color": "gray"},
+  "block.affinity.spirit_integration_apparatus.tooltip.ritual": [
+    {"text": "Needs ", "color": "gray"},
+    {"index": 0},
+    {"text": " apparatuses and up to ", "color": "gray"},
+    {"index": 1},
+    {"text": " ritual socles around it", "color": "gray"}
+  ],
+
+  "block.affinity.asp_rite_core.tooltip.desc": {"text": "Core of the Aspen Infusion ritual, the art of transmuting items", "color": "gray"},
+  "block.affinity.asp_rite_core.tooltip.ritual": {"text": "Place an item inside and surround it with ritual socles", "color": "aqua"},
+
+  "block.affinity.ritual_socle.tooltip.desc": {"text": "Holds ritual ingredients; place it near a ritual core", "color": "gray"},
+
+  "item.affinity.aethum_flux_bottle.tooltip.desc": [
+    {"text": "Right-click a flux member to add ", "color": "gray"},
+    {"index": 0},
+    {"text": " aethum flux", "color": "gray"}
+  ],
+  "item.affinity.aethum_flux_bottle.tooltip.azalea": {"text": "Unflowers flowering azalea leaves", "color": "green"},
+
+  "item.affinity.assassins_quiver.tooltip.desc": [
+    {"text": "Worn on the back; increases arrow damage by ", "color": "gray"},
+    {"index": 0}
+  ],
+
+  "item.affinity.aethum_fire_extinguisher.tooltip.desc": {"text": "Sprays a stream that extinguishes entities and fires", "color": "gray"},
+  "item.affinity.aethum_fire_extinguisher.tooltip.flight": {"text": "Spray while elytra-flying to slow down", "color": "aqua"},
+
+  "item.affinity.featherweight_ring.tooltip.desc": [
+    {"text": "Increases knockback susceptibility by ", "color": "gray"},
+    {"index": 0},
+    {"text": " and safe fall distance by ", "color": "gray"},
+    {"index": 1}
+  ],
+
+  "item.affinity.lavaliere_of_safe_keeping.tooltip.desc": {"text": "Preserves some of your experience when you die", "color": "gray"},
+  "item.affinity.lavaliere_of_safe_keeping.tooltip.aethum": {"text": "The more aethum you hold, the more experience is preserved", "color": "light_purple"},
+
+  "item.affinity.attuned_shard.tooltip.transfer": [
+    {"text": "Transfers up to ", "color": "gray"},
+    {"index": 0},
+    {"text": " flux per connection per tick", "color": "gray"}
+  ],
+  "item.affinity.attuned_shard.tooltip.range": [
+    {"text": "Extends link range to ", "color": "gray"},
+    {"index": 0},
+    {"text": " blocks", "color": "gray"}
+  ],
+
+  "item.affinity.anthracite_powder.tooltip.desc": {"text": "Right-click an Assembly Augment to capture its current recipe", "color": "gray"},
+  "item.affinity.anthracite_powder.tooltip.carbon_copy": {"text": "Creates a Carbon Copy of the recipe", "color": "green"},
+
+  "item.affinity.wand_of_inquiry.tooltip.desc": {"text": "Use on a flux member to open its network visualizer", "color": "gray"},
+  "item.affinity.wand_of_inquiry.tooltip.ritual": {"text": "Use on a ritual core to inspect its stability and socles", "color": "light_purple"},
+  "item.affinity.wand_of_inquiry.tooltip.outline": {"text": "Attack a machine to toggle its working area outline", "color": "aqua"}
 }

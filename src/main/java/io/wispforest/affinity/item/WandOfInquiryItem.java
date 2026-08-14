@@ -30,11 +30,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.network.message.MessageType;
 import net.minecraft.network.message.SentMessage;
 import net.minecraft.network.message.SignedMessage;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -54,6 +56,13 @@ public class WandOfInquiryItem extends Item implements DirectInteractionHandler 
 
     public WandOfInquiryItem() {
         super(AffinityItems.settings().maxCount(1));
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.wand_of_inquiry.tooltip.desc"));
+        tooltip.add(Text.translatable("item.affinity.wand_of_inquiry.tooltip.ritual"));
+        tooltip.add(Text.translatable("item.affinity.wand_of_inquiry.tooltip.outline"));
     }
 
     @Override

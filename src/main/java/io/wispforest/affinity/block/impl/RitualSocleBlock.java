@@ -12,7 +12,10 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
@@ -24,6 +27,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class RitualSocleBlock extends BlockWithEntity {
@@ -41,6 +45,11 @@ public class RitualSocleBlock extends BlockWithEntity {
     public RitualSocleBlock(RitualSocleType type) {
         super(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE).nonOpaque().solid());
         this.type = type;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+        tooltip.add(Text.translatable("block.affinity.ritual_socle.tooltip.desc"));
     }
 
     public int glowColor() {

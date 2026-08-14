@@ -19,5 +19,66 @@
   "ritual.affinity.feedback.missing.socle_count": "需要 %s 个基座物品，当前 %s 个",
   "ritual.affinity.feedback.missing.socle_items": "基座物品需要：%s",
   "ritual.affinity.feedback.missing.core_items": "核心物品需要：%s",
-  "ritual.affinity.feedback.missing.entity": "献祭生物需要 %s"
+  "ritual.affinity.feedback.missing.entity": "献祭生物需要 %s",
+
+  "block.affinity.crop_reaper.tooltip.desc": "每 %s 秒收割范围内所有成熟的作物",
+  "block.affinity.crop_reaper.tooltip.flux": "每株作物提供 %s 以太通量",
+
+  "block.affinity.arboreal_annihilation_apparatus.tooltip.desc": "解放 %s 范围内的原木与树叶，使其以解放方块的形式掉落",
+  "block.affinity.arboreal_annihilation_apparatus.tooltip.flux": "每摧毁一个方块获得 %s 以太通量",
+  "block.affinity.arboreal_annihilation_apparatus.tooltip.azalea": "使开花的杜鹃树叶去花",
+
+  "block.affinity.affine_infuser.tooltip.desc": "在 %s 格范围内辅助带附魔的装备",
+  "block.affinity.affine_infuser.tooltip.repair": "消耗以太通量修复带有『注入修复』附魔的装备",
+  "block.affinity.affine_infuser.tooltip.affine": "为带有『亲和』效果的玩家补充以太",
+
+  "block.affinity.arcane_treetap.tooltip.desc": "汲取树木的奥术树液，供组装增强使用",
+  "block.affinity.arcane_treetap.tooltip.requirements": "当树木包含超过 %s 个原木和 %s 个树叶时正确连接",
+
+  "block.affinity.assembly_augment.tooltip.desc": "放置在工作台顶部，自动合成 3x3 配方",
+  "block.affinity.assembly_augment.tooltip.treetaps": "连接的树液龙头可加速合成，最多 %s 个",
+  "block.affinity.assembly_augment.tooltip.carbon_copy": "使用无烟煤粉将当前配方保存为碳复写模板",
+
+  "block.affinity.field_coherence_modulator.tooltip.stability": "每个将仪式稳定性提升 %s",
+  "block.affinity.field_coherence_modulator.tooltip.consumption": "每次开始仪式消耗 %s 以太通量",
+
+  "block.affinity.aethum_probe.tooltip.desc": "当区域内以太浓度超过阈值时输出红石信号",
+  "block.affinity.aethum_probe.tooltip.threshold": "插入紫水晶碎片可降低阈值，每个 %s",
+
+  "block.affinity.graviton_transducer.tooltip.desc": "将潜影贝导弹转化为以太通量",
+  "block.affinity.graviton_transducer.tooltip.shard": "需要调谐紫水晶碎片，碎片会随时间磨损",
+
+  "block.affinity.ritual_socle_composer.tooltip.desc": "用基座装饰件制作仪式基座",
+  "block.affinity.ritual_socle_composer.tooltip.stepped_on": "踩上去会受到伤害",
+
+  "block.affinity.spirit_integration_apparatus.tooltip.desc": "生魂融合仪式的核心，灵魂融合之术",
+  "block.affinity.spirit_integration_apparatus.tooltip.ritual": "需要 %s 台装置与最多 %s 个仪式基座环绕",
+
+  "block.affinity.asp_rite_core.tooltip.desc": "杜鹃仪式的核心，物品转化之术",
+  "block.affinity.asp_rite_core.tooltip.ritual": "放入物品并用仪式基座环绕",
+
+  "block.affinity.ritual_socle.tooltip.desc": "盛放仪式材料；放置在仪式核心附近",
+
+  "item.affinity.aethum_flux_bottle.tooltip.desc": "右键通量成员以添加 %s 以太通量",
+  "item.affinity.aethum_flux_bottle.tooltip.azalea": "使开花的杜鹃树叶去花",
+
+  "item.affinity.assassins_quiver.tooltip.desc": "背戴饰品；箭矢伤害 +%s",
+
+  "item.affinity.aethum_fire_extinguisher.tooltip.desc": "喷出水流熄灭实体与火焰",
+  "item.affinity.aethum_fire_extinguisher.tooltip.flight": "鞘翅飞行时喷水可减速",
+
+  "item.affinity.featherweight_ring.tooltip.desc": "击退易感性 +%s，安全坠落距离 +%s",
+
+  "item.affinity.lavaliere_of_safe_keeping.tooltip.desc": "死亡时保留部分经验",
+  "item.affinity.lavaliere_of_safe_keeping.tooltip.aethum": "持有的以太越多，保留的经验越多",
+
+  "item.affinity.attuned_shard.tooltip.transfer": "每条连接每 tick 最多传输 %s 通量",
+  "item.affinity.attuned_shard.tooltip.range": "将连接范围延伸至 %s 格",
+
+  "item.affinity.anthracite_powder.tooltip.desc": "右键组装增强以捕获当前配方",
+  "item.affinity.anthracite_powder.tooltip.carbon_copy": "生成配方的碳复写模板",
+
+  "item.affinity.wand_of_inquiry.tooltip.desc": "右键通量成员以打开网络可视化界面",
+  "item.affinity.wand_of_inquiry.tooltip.ritual": "右键仪式核心以查看稳定性与基座",
+  "item.affinity.wand_of_inquiry.tooltip.outline": "攻击机器以切换其工作范围轮廓显示"
 }

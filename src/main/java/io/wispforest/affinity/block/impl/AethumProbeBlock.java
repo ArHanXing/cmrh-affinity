@@ -11,13 +11,17 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
@@ -29,6 +33,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class AethumProbeBlock extends BlockWithEntity {
@@ -42,6 +48,13 @@ public class AethumProbeBlock extends BlockWithEntity {
     public AethumProbeBlock() {
         super(FabricBlockSettings.copyOf(Blocks.REPEATER));
         this.setDefaultState(this.getDefaultState().with(CRYSTALS, 0).with(POWERED, false));
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+        tooltip.add(Text.translatable("block.affinity.aethum_probe.tooltip.desc"));
+        tooltip.add(Text.translatable("block.affinity.aethum_probe.tooltip.threshold",
+                Text.literal("20").formatted(Formatting.AQUA)));
     }
 
     @Override

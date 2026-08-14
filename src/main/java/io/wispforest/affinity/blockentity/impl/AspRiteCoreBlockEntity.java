@@ -12,12 +12,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
+import net.minecraft.text.Texts;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class AspRiteCoreBlockEntity extends RitualCoreBlockEntity {
@@ -56,38 +57,45 @@ public class AspRiteCoreBlockEntity extends RitualCoreBlockEntity {
         // summarize everything the core currently receives, so the player can
         // spot missing or mismatched inputs at a glance
         this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.aspen.summary",
-                inventory.primaryInput().getName(),
-                socleStacks.size(),
-                formatStacks(socleStacks),
-                this.flux(), this.fluxCapacity()));
+                inventory.primaryInput().getName().copy().formatted(Formatting.YELLOW),
+                Text.literal(String.valueOf(socleStacks.size())).formatted(Formatting.YELLOW),
+                Text.literal(formatStacks(socleStacks)).formatted(Formatting.YELLOW),
+                Text.literal(String.valueOf(this.flux())).formatted(Formatting.YELLOW),
+                Text.literal(String.valueOf(this.fluxCapacity())).formatted(Formatting.YELLOW)).formatted(Formatting.AQUA));
 
-        // find the recipe which is closest to the current setup and
-        // report exactly what it is missing
-        var closest = recipes.stream()
-                .max(Comparator.comparingInt(entry -> {
-                    var recipe = entry.value();
-                    int score = 0;
-                    if (recipe.primaryInput.test(inventory.primaryInput())) score++;
-                    if (recipe.socleInputs.size() == socleStacks.size()) score++;
-                    if (recipe.doShapelessMatch(recipe.socleInputs, socleStacks)) score++;
-                    return score;
-                })).orElse(null);
+        // rank every recipe by how much of its input the current setup already
+        // satisfies - the primary input is decisive, but socle matches are
+        // counted individually so a recipe with (almost) all socle items present
+        // reliably wins over one which merely shares the primary input
+        var closest = recipes.get(0);
+        int bestScore = Integer.MIN_VALUE;
+        for (var entry : recipes) {
+            final var recipe = entry.value();
+            final var score = (recipe.primaryInput.test(inventory.primaryInput()) ? 8 : 0)
+                    + partialMatchScore(recipe.socleInputs, socleStacks) * 2
+                    - Math.abs(recipe.socleInputs.size() - socleStacks.size());
 
-        if (closest == null) return;
+            if (score > bestScore) {
+                bestScore = score;
+                closest = entry;
+            }
+        }
+
         final var recipe = closest.value();
 
-        final var missing = new ArrayList<String>();
+        final var missing = new ArrayList<Text>();
         if (!recipe.primaryInput.test(inventory.primaryInput())) {
-            missing.add(Text.translatable("ritual.affinity.feedback.missing.primary", formatIngredient(recipe.primaryInput)).getString());
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.primary", formatIngredient(recipe.primaryInput)).formatted(Formatting.YELLOW));
         }
         if (recipe.socleInputs.size() != socleStacks.size()) {
-            missing.add(Text.translatable("ritual.affinity.feedback.missing.socle_count", recipe.socleInputs.size(), socleStacks.size()).getString());
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.socle_count", recipe.socleInputs.size(), socleStacks.size()).formatted(Formatting.YELLOW));
         } else if (!recipe.doShapelessMatch(recipe.socleInputs, socleStacks)) {
-            missing.add(Text.translatable("ritual.affinity.feedback.missing.socle_items", formatIngredients(recipe.socleInputs)).getString());
+            missing.add(Text.translatable("ritual.affinity.feedback.missing.socle_items", formatIngredients(recipe.socleInputs)).formatted(Formatting.YELLOW));
         }
 
         this.sendRitualMessage(player, Text.translatable("ritual.affinity.feedback.closest_recipe",
-                closest.id().toString(), String.join("; ", missing)));
+                Text.literal(closest.id().toString()).formatted(Formatting.LIGHT_PURPLE),
+                Texts.join(missing, Text.literal("; "))));
     }
 
     @Override

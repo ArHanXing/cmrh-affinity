@@ -7,7 +7,12 @@ import io.wispforest.endec.Endec;
 import net.minecraft.component.ComponentType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
+
+import java.util.List;
 
 public class AttunedShardItem extends Item {
 
@@ -18,6 +23,14 @@ public class AttunedShardItem extends Item {
     public AttunedShardItem(Settings settings, AttunedShardTier tier) {
         super(settings);
         this.tier = tier;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.attuned_shard.tooltip.transfer",
+                Text.literal(String.valueOf(this.tier.maxTransfer())).formatted(Formatting.YELLOW)));
+        tooltip.add(Text.translatable("item.affinity.attuned_shard.tooltip.range",
+                Text.literal(String.valueOf(this.tier.maxDistance())).formatted(Formatting.AQUA)));
     }
 
     public AttunedShardTier tier() {

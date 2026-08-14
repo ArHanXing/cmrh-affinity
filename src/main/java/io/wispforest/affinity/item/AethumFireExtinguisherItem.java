@@ -13,11 +13,13 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -34,6 +36,12 @@ public class AethumFireExtinguisherItem extends StaffItem {
 
     public AethumFireExtinguisherItem() {
         super(AffinityItems.settings().maxCount(1));
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.affinity.aethum_fire_extinguisher.tooltip.desc"));
+        tooltip.add(Text.translatable("item.affinity.aethum_fire_extinguisher.tooltip.flight"));
     }
 
     @Override
