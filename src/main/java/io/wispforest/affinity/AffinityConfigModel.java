@@ -29,4 +29,20 @@ public class AffinityConfigModel {
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
     @RestartRequired
     public boolean unfinishedFeatures = false;
+
+    // ---
+
+    @SectionHeader("botania")
+    public boolean botaniaManaIntegration = true;
+
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    @RangeConstraint(min = 1, max = 64)
+    public int botaniaManaPerFlux = 2;
+
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    @RangeConstraint(min = 0, max = 300)
+    public int botaniaFluxTransferPerTick = 10;
+
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    public boolean botaniaManaExtraction = false;
 }

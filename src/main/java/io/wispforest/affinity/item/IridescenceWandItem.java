@@ -2,12 +2,14 @@ package io.wispforest.affinity.item;
 
 import io.wispforest.affinity.Affinity;
 import io.wispforest.affinity.blockentity.template.LinkableBlockEntity;
+import io.wispforest.affinity.misc.callback.ForeignLinkableProvider;
 import io.wispforest.affinity.object.AffinityItems;
 import io.wispforest.affinity.object.AffinitySoundEvents;
 import io.wispforest.endec.Endec;
 import io.wispforest.endec.impl.KeyedEndec;
 import io.wispforest.owo.ops.TextOps;
 import io.wispforest.owo.serialization.format.nbt.NbtEndec;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockState;
 import net.minecraft.component.ComponentType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -99,6 +101,10 @@ public class IridescenceWandItem extends Item implements DirectInteractionHandle
 
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable(WAND_OF_IRIDESCENCE_PREFIX + ".retain_mode." + (stack.contains(RETAIN_MODE) ? "enabled" : "disabled")).styled(style -> style.withColor(mode.color)));
+
+        if (FabricLoader.getInstance().isModLoaded("botania")) {
+            tooltip.add(Text.translatable(WAND_OF_IRIDESCENCE_PREFIX + ".botania").formatted(Formatting.GRAY));
+        }
     }
 
     @Override
@@ -108,7 +114,13 @@ public class IridescenceWandItem extends Item implements DirectInteractionHandle
         final var pos = context.getBlockPos();
         final var mode = stack.getOrDefault(MODE, Mode.BIND);
 
-        if (!(world.getBlockEntity(pos) instanceof LinkableBlockEntity linkable)) return ActionResult.PASS;
+        final var blockEntity = world.getBlockEntity(pos);
+        final var linkable = blockEntity instanceof LinkableBlockEntity directLinkable
+                ? directLinkable
+                : ForeignLinkableProvider.EVENT.invoker().findLinkable(world, pos, blockEntity);
+
+        if (linkable == null) return ActionResult.PASS;
+
         var blockName = world.getBlockState(pos).getBlock().getName();
 
         var storedPos = this.getStoredPos(stack);

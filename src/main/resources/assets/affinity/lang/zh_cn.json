@@ -1845,5 +1845,39 @@
       "text": "附有无限附魔时无需箭矢",
       "color": "green"
     }
+  ],
+  "block.affinity.aethum_flux_cache.tooltip.botania": [
+    {
+      "text": "可被植物魔法的魔力脉冲充能（",
+      "color": "gray"
+    },
+    {
+      "index": 0,
+      "color": "yellow"
+    },
+    {
+      "text": " 魔力 = 1 生灵通量）",
+      "color": "gray"
+    }
+  ],
+  "text.affinity.aethum_flux_node.botania": [
+    {
+      "text": "可用彩虹法杖连接到植物魔法的魔力方块并为其供能（1 生灵通量 = ",
+      "color": "gray"
+    },
+    {
+      "index": 0,
+      "color": "yellow"
+    },
+    {
+      "text": " 魔力）",
+      "color": "gray"
+    }
+  ],
+  "item.affinity.wand_of_iridescence.botania": [
+    {
+      "text": "也可将植物魔法的魔力方块连接到通量节点",
+      "color": "gray"
+    }
   ]
 }

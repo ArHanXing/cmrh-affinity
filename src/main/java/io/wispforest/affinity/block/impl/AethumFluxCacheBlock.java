@@ -1,5 +1,6 @@
 package io.wispforest.affinity.block.impl;
 
+import io.wispforest.affinity.Affinity;
 import io.wispforest.affinity.block.template.AethumNetworkMemberBlock;
 import io.wispforest.affinity.block.template.BlockItemProvider;
 import io.wispforest.affinity.blockentity.impl.AethumFluxCacheBlockEntity;
@@ -8,6 +9,7 @@ import io.wispforest.affinity.blockentity.template.TickedBlockEntity;
 import io.wispforest.affinity.item.AethumFluxCacheItem;
 import io.wispforest.affinity.object.AffinityBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -16,10 +18,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.StringIdentifiable;
@@ -34,6 +39,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.stream.Stream;
 
@@ -174,6 +180,16 @@ public class AethumFluxCacheBlock extends AethumNetworkMemberBlock implements Bl
     @Override
     public Item createBlockItem(Block block, Item.Settings settings) {
         return new AethumFluxCacheItem(block, settings);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+        super.appendTooltip(stack, context, tooltip, options);
+
+        if (FabricLoader.getInstance().isModLoaded("botania")) {
+            tooltip.add(Text.translatable("block.affinity.aethum_flux_cache.tooltip.botania",
+                    Text.literal(String.valueOf(Affinity.config().botaniaManaPerFlux())).formatted(Formatting.YELLOW)));
+        }
     }
 
     public enum Part implements StringIdentifiable {

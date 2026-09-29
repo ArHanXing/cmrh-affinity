@@ -107,6 +107,11 @@ public class Affinity implements ModInitializer {
 
         AffinityItemGroup.group().initialize();
 
+        // only ever touched when Botania is present, so its api is never loaded otherwise
+        if (FabricLoader.getInstance().isModLoaded("botania")) {
+            io.wispforest.affinity.compat.botania.AffinityBotaniaCompat.initialize();
+        }
+
         LootTableEvents.MODIFY.register((key, builder, source, registries) -> {
             if (!EntityType.WARDEN.getLootTableId().equals(key)) return;
 

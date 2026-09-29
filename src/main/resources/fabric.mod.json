@@ -71,6 +71,9 @@
     "worldmesher": ">=0.4.0",
     "lavender": ">=0.1.2"
   },
+  "suggests": {
+    "botania": ">=457"
+  },
   "breaks": {
     "iris": "<1.8.0",
     "sodium": "<0.6.0"

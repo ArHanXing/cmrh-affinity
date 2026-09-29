@@ -1386,5 +1386,9 @@
   "item.affinity.evade_ring.tooltip.fall": {"text": "Completely negates vertical velocity - useful against fall damage", "color": "green"},
 
   "item.affinity.azalea_bow.tooltip.desc": {"text": "Draws and fires faster than a regular bow", "color": "gray"},
-  "item.affinity.azalea_bow.tooltip.infinite": {"text": "Requires no arrows while enchanted with Infinity", "color": "green"}
+  "item.affinity.azalea_bow.tooltip.infinite": {"text": "Requires no arrows while enchanted with Infinity", "color": "green"},
+
+  "block.affinity.aethum_flux_cache.tooltip.botania": [{"text": "Can be charged by Botania mana bursts (", "color": "gray"}, {"index": 0, "color": "yellow"}, {"text": " mana = 1 flux)", "color": "gray"}],
+  "text.affinity.aethum_flux_node.botania": [{"text": "Can be linked to Botania mana blocks (1 flux = ", "color": "gray"}, {"index": 0, "color": "yellow"}, {"text": " mana)", "color": "gray"}],
+  "item.affinity.wand_of_iridescence.botania": {"text": "Can also link Botania mana blocks to flux nodes", "color": "gray"}
 }
