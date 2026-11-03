@@ -50,6 +50,22 @@ public class RitualSocleBlock extends BlockWithEntity {
     @Override
     public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         tooltip.add(Text.translatable("block.affinity.ritual_socle.tooltip.desc"));
+        tooltip.add(Text.translatable("block.affinity.ritual_socle.tooltip.redstone"));
+    }
+
+    // a comparator reading a socle which holds an ingredient outputs a full-strength signal,
+    // which makes rituals automatable without having to inspect the slot through other means.
+    // the socle deliberately does not emit redstone power itself, so that it never interferes
+    // with redstone-sensitive machines placed next to it
+
+    @Override
+    public boolean hasComparatorOutput(BlockState state) {
+        return true;
+    }
+
+    @Override
+    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        return world.getBlockEntity(pos) instanceof RitualSocleBlockEntity socle && socle.isOccupied() ? 15 : 0;
     }
 
     public int glowColor() {

@@ -1360,6 +1360,12 @@
       "color": "gray"
     }
   ],
+  "block.affinity.ritual_socle.tooltip.redstone": [
+    {
+      "text": "对装有物品的仪式基座使用比较器，会输出 15 级红石信号",
+      "color": "gray"
+    }
+  ],
   "item.affinity.aethum_flux_bottle.tooltip.desc": [
     {
       "text": "右键通量成员以添加 ",

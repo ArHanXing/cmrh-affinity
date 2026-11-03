@@ -1235,6 +1235,7 @@
   "block.affinity.asp_rite_core.tooltip.ritual": {"text": "Place an item inside and surround it with ritual socles", "color": "aqua"},
 
   "block.affinity.ritual_socle.tooltip.desc": {"text": "Holds ritual ingredients; place it near a ritual core", "color": "gray"},
+  "block.affinity.ritual_socle.tooltip.redstone": {"text": "A comparator reading a socle that holds an ingredient outputs a signal of 15", "color": "gray"},
 
   "item.affinity.aethum_flux_bottle.tooltip.desc": [
     {"text": "Right-click a flux member to add ", "color": "gray"},

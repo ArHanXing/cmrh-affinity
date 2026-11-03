@@ -25,9 +25,11 @@ sourceSets {
         }
     }
 
-    // hand written, compile-only mirror of the slice of Botania's api this mod
-    // integrates with -- see src/botaniaApi for why this is not a real dependency
+    // hand written, compile-only mirrors of the slices of other mods' apis this mod
+    // integrates with -- both are optional and neither is a real dependency,
+    // see src/botaniaApi/README.md and src/igiApi/README.md for why
     botaniaApi
+    igiApi
 }
 
 repositories {
@@ -64,6 +66,7 @@ repositories {
 
 dependencies {
     compileOnly sourceSets.botaniaApi.output
+    compileOnly sourceSets.igiApi.output
 
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
@@ -117,9 +120,11 @@ dependencies {
 }
 
 // Loom only creates the minecraft configurations after the project has been evaluated,
-// so the botania api mirror is pointed at the named minecraft jar here
+// so the api mirrors are pointed at the named minecraft libraries here. Neither mirror
+// references any minecraft class, so the libraries alone are enough
 afterEvaluate {
     configurations.botaniaApiCompileOnly.extendsFrom(configurations.minecraftNamedCompile)
+    configurations.igiApiCompileOnly.extendsFrom(configurations.minecraftNamedCompile)
 }
 
 base {

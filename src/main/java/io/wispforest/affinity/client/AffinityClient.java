@@ -43,6 +43,7 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.*;
 import net.fabricmc.fabric.api.event.lifecycle.v1.CommonLifecycleEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.option.KeyBinding;
@@ -223,6 +224,11 @@ public class AffinityClient implements ClientModInitializer {
         SwivelStaffHud.initialize();
         InWorldTooltipRenderer.initialize();
         AffinityLavenderRecipePreviewBuilders.initialize();
+
+        // only ever touched when InGame Info XML is present, so its api is never loaded otherwise
+        if (FabricLoader.getInstance().isModLoaded("ingameinfoxml")) {
+            io.wispforest.affinity.compat.igi.AffinityIgiCompat.initialize();
+        }
 
         AffinityModelPredicateProviders.applyDefaults();
 

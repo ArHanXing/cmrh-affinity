@@ -51,6 +51,10 @@ public class RitualSocleBlockEntity extends SyncedBlockEntity implements Interac
                 () -> this.item, stack -> this.item = stack, this::markDirty);
     }
 
+    public boolean isOccupied() {
+        return !this.item.isEmpty();
+    }
+
     public void beginExtraction(BlockPos corePosition, int duration) {
         final var travelDuration = Math.min(15, duration);
         final var emitDuration = duration - travelDuration;

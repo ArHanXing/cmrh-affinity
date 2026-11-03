@@ -72,7 +72,8 @@
     "lavender": ">=0.1.2"
   },
   "suggests": {
-    "botania": ">=457"
+    "botania": ">=457",
+    "ingameinfoxml": ">=2.9.2"
   },
   "breaks": {
     "iris": "<1.8.0",
