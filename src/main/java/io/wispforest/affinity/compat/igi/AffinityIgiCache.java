@@ -1,5 +1,6 @@
 package io.wispforest.affinity.compat.igi;
 
+import io.wispforest.affinity.Affinity;
 import io.wispforest.affinity.component.AffinityComponents;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -31,6 +32,8 @@ public final class AffinityIgiCache {
     private static double playerDeltaPerSecond = 0;
     private static double chunkAethum = 0;
 
+    private static boolean reportedFailure = false;
+
     private AffinityIgiCache() {}
 
     public static void initialize() {
@@ -38,19 +41,33 @@ public final class AffinityIgiCache {
     }
 
     private static void tick(MinecraftClient client) {
+        try {
+            sample(client);
+        } catch (Exception exception) {
+            // this runs on the client tick, so anything thrown here would take the whole game
+            // down -- report it once and keep serving the last sampled values instead
+            if (!reportedFailure) {
+                reportedFailure = true;
+                Affinity.LOGGER.error("[affinity] failed to sample aethum for the InGame Info XML tags, keeping the last values", exception);
+            }
+        }
+    }
+
+    private static void sample(MinecraftClient client) {
         var player = client.player;
         if (player == null) {
             reset();
             return;
         }
 
-        final var component = player.getComponent(AffinityComponents.PLAYER_AETHUM);
-        playerMaxAethum = component.maxAethum();
+        AffinityComponents.PLAYER_AETHUM.maybeGet(player).ifPresent(component -> {
+            playerMaxAethum = component.maxAethum();
 
-        // the component walks its value up to the maximum in small increments every tick,
-        // so the raw value jitters by fractions of a point -- snap it for display purposes
-        final double current = component.getAethum();
-        playerAethum = playerMaxAethum - current < .05 ? playerMaxAethum : current;
+            // the component walks its value up to the maximum in small increments every tick,
+            // so the raw value jitters by fractions of a point -- snap it for display purposes
+            final double current = component.getAethum();
+            playerAethum = playerMaxAethum - current < .05 ? playerMaxAethum : current;
+        });
 
         samplePlayerAethum(playerAethum);
         playerDeltaPerSecond = averageDeltaPerSecond();
@@ -62,9 +79,12 @@ public final class AffinityIgiCache {
         }
 
         // equivalent to the server-side lookup used by the aethum probe: the chunk component
-        // is synced to every player tracking that chunk, so this reads real data on the client
-        final var chunk = world.getChunk(player.getBlockPos());
-        chunkAethum = chunk.getComponent(AffinityComponents.CHUNK_AETHUM).getAethum();
+        // is synced to every player tracking that chunk, so this reads real data on the client.
+        // the chunk the player stands in is not always loaded yet -- right after joining a world
+        // it is an EmptyChunk, which is not a WorldChunk and therefore carries no components at
+        // all, so the lookup has to be nullable and the previous value kept until it arrives
+        AffinityComponents.CHUNK_AETHUM.maybeGet(world.getChunk(player.getBlockPos()))
+                .ifPresent(component -> chunkAethum = component.getAethum());
     }
 
     private static void samplePlayerAethum(double value) {
